@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/logo.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo.jpg" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <title>Caramel Acadamy</title>
+    <!-- <link rel = "icon" href =  
+    "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8NEg8ODQ8QDw8ODw0RDw4PDw8OEA8QFREWFhYSExcYHSsgGBomGxYYITElJikrLi4uFx8zODMsNygtOisBCgoKDg0OGxAQGysmHyYwLTUuLy0xLS8tLS8tLS0vLzIvLTYtNS0tLy0tLS0tLi0tLS0tLS0tLS0tLS0vLS0tLf/AABEIAKoBKQMBEQACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAAAQIEBgcFA//EADwQAAIBAwEFBQYEBAUFAAAAAAABAgMEERIFBhMhMSJBUWFxBxQjMoGRQlKhsTRiweFygpKy8BUzg8LR/8QAGgEBAAMBAQEAAAAAAAAAAAAAAAIEBQEDBv/EADIRAQACAgAFAQUHAwUAAAAAAAABAgMRBBIhMUFREzJxgbEFFCIzYcHwkaHRIzRCUvH/2gAMAwEAAhEDEQA/AOzoC2AGAJwAwAwAwAwAwAwAwAwAwAwAwAwAwAwAwAwAwAwAwAwAwAwAwAwAwAwAwAwAwAwBGAIwBDQEAWQFkBOAJwBOAGAGAGAGAGAGAGAGAGAGAGAGAGAGAGAGAGAGAGAGAGAGAGAGAGAGAGAGAIwAwBVoCGgKgWQFkBZASAwBIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjAEAQwKsCoEoC6AsgJAASAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAgCGBVgVAIC6AsgJAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAVYFWBUAgLoCyAsgAEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAIAhgUYEAQgLoCyAsAAkAAArOSinKTSSTbb5JLxA5rvR7SXGUqWzksJtO4ms5f8kfDzZGbejm2sR21tStGVZ3ldY+RKbgpPPPCXLBWvxEVvFVfJxNaWis/P8ARmbG9od9bySuJe8089qM0o1F6SXf6nvFljbq2wttUL+kq1vLK6Si+UoS/LJE4nbr0To1Tb+9fCbpW2JSXKVR84p+C8Txvl10hdwcJN45r9mq19rXNR5nXqfSbivsjxm9p8tCuDHXtWF7Tbl1ReY1pv8Alm3NP6MRktHly/DYreP6N03e3jhd/DqJQrY6fhn6FimSLMzPw04usdYe8eis1/ezeqjsyK1LiVpr4dGL5vzl4I9sWGck/o8cuaMcfq55tjb+167k1XjDTzlb21SKqU1/Ml2mXq8Pjr4Z1uLtbzp5myts7U51Kd3VjCL7VSvV+En4PX1fkiU4qT4c+8XrPeW9bu79N1I220VCE5qLpXFNp0qifR+WfH9ipl4bUbqt4OLi/SzfCousXaF9C3jrm/Rd8n4I88uWuOvNZyZ01K92/Xqvsy4ce5Q5P7mNl4/Jefw9Iec2l8507yEVVlxlHrq1PK82s5S9SM/eaxzzza+J1ZWzt46tNpVfiQ8fxL69564ftC1Z1k6x/d2LerbbevGrFTg8xl0ZsVtFo3HZ6PoSAAAAgCAIYFGBAEIC6AsgLAAJAAANB9rG25UaVO0pvErjMqjXXhLlj6v9iNpclym3pa5Rh+ZpP07/ANDyvblrMoZL8lJs2mphQwuSWEl4IyI622w5mZ6y8DatJKSmvxdfVGjw99xr0aXBZOas1nw9XcTbcrG6p8/hVpRp1Y92G8KXqn/UsxK663vZtB29B6XidR6Ivwz1f2O5LctVnhsXtMkRPZz2FKOFOpJpSb0qKTnPHV8+izyz/cqa9WxMzvUJlShJN0nLMVmUJpJ6e9xa647+g16G5ifxKXFLRhp6oSWYSxjK70/Bp8mhLtZ2viVF05qWKnKaS6wXJxbfi+uPDHiO3VydXiYns6Va7UjK2V1LlFUpTn5aU9X7F6n4ta8sHLX2dpifDh9a9rX937w4yqSlVhNxinLTBSWI+SSNilYpXUMLLfm3aWZLY81cVatStClThWlOVRVYqpGMptxeF8rfTmSePPHLERC+1bd3qVSnVoaqWvXSjWXDjByyqibSw3nD8w5WeXpMSwts2VWnTttUHiFFqVSPagnKpKSWpcujX3CdLRMy6l7NdtSvLXTUeattJU5N9ZRxmLf05fQzeIx8t+nlr8Nk5qdfDF2zcO6uOGnyU1Th4LnjP3PmuLyTmzckdt6TtO5WVSFCbpWtN1K6coutOOWpLOeHDu6PmOauK3JijdvWf2g7dnysvfJSdalxZN8pT6qXk88n6EMX3i089NkbfZ0YXLlCVN29ylJtJNU54WXmL+Vk+SuWZrMct/7T8vB3ffdK9cZui32ZrMfKS/sev2dmnc45+TtJ8NtNh6AAABAEAQwKMCAIQF0BZAWAASAAAcd9rer32Genu9PT/qlkhbu5LU9mP4sP837Mr5/y5VuL/Kn+eWwVn2X9P3M2PeZDyNqPsr/F/Rlzh/eXOB9+fg86GcrHXKx655Fxpuy7+Z4dtnxnn10ojn7Q0eA96zW7l0vh6lUfwaWNM4KPTnhOPjk8Z0vV5uutd5RbzpKWYQqt6anJzhjGh6s9npjIjTtotMdZj+fNawcYxzWxocvh6llcVfix+RLGrx5fRX9TJuZ/D3/b/PoxK6kpSVTOvL1Z55b55z3nPinXWunZs7Uv+jXWM54dfHpnn/Uv8J3r8WH9pe9fXp+zm9yqkqFL3bLoKmuMqfXjc9Tqpc8eGeWDZfNxrm693oXenTacfDhGdH31Rzq18NcPieWj+oQjvOvk+17K2deg7ThYUajuXBLhe747WvHLpn9PIORzcs83yYFeN171UdvlLsYkuVHg6Vo155adOOoTjl5erc/Za4cfaPA/7OaWjHy5zLp5dceWCnxnhocDvU7/AEfSy/iKeevHhn/Wj46n58b/AO37rXlnbP8A47/z3H/ue2H/AHfzn90o959KtSHDoRuadZJQbpzoSTUot96fLUStavJWMkT+kx/O58WRCDVehJzlNStp6HOKjUUVCWFPxfmesRPtqzve6z379vJ5eTsDPHo4/N+mGU+C37av88OV7t+PonqAAAEAQBDAowIAhAXQFkBYABIAABoXtX2JKvRhd01mVvlVEurpPv8Ao/3ZG0OS5NCTi1JdU00ecxExqUbVi0alsNKtxacpR/Ck5r8vaS5/VozbY5rbUsW+G1LTWXi3tfW8LpH9WXcNOWOrS4XD7Ou57y9zcHYcr66ptr4NBxqVZd3J5jH1b/qe8QtQ61vXs93NCSiszpvXFeOOq+x3JXmqscNl9nkiZ7OewqxaUKsW9OdMotKUU3lxeeTWefd1ZU+LZmJ3uqeNCKapxl2liU5NatL6qKSws+PP9x8Dlme7516ut5xiKWIxXSMV0X/OrbYnq7WNQvDVW4dJR1VMqMGuri+kX447n4cvDDv0RnVN2ns6ZbbMjG3VrLnF0nCfnqXa/dl6n4daYWW3tJmZ8uG3Wz61hd+7ylKnKNWEVOLcdVNyWJJruaNil4vXcMPLTlmYlmPbFZ3NSlOnGtCdacHR4VNylFTaSTxl468/Ak8OSOXb6bWupWajCjCj8TXqrwoUlCSUsKmlzTaxl57w5WvN3eftm7q1adq5zk9dFuUFyi2qkkpaVy6Jd3cE6RETLq3s32JKytVKosVbh8SafWMcYjF/Tn9TM4jJz36eGvw+Pkp18sTbVvK2uOJFcnNVIeGU84+585xeOcWbnjtPX5vS0al9rS5tnVjcR4kauqT4CjrU5yTXZl3LL7zuPJh9pGSNxPp33M+kkTG9sezV7CTo0uJBrnKL5Rjnvy+SR54vvNZ5K7j6ORt9Kl1Cg5TdR3Ny4yjry+FTyscn+Lr6EpyVxTNt81/XxH+Ten33Ssm5us12YJqPnJ/2Pb7Owzuck/J2kNtNd6AAABAEAQwKMCAIQF0BZAWAASAAARKKaaaymsNPmmgOc70ezbiSlW2fKMHLm7ebxHP8j7vRkZr6Oaava7s7Tt/eIOzrPj0JUsw0Sjl1ISy2n0xFr6keU0zNi+ze8rtO5021Pvy1Oo14JLkvqzsVk06psXY9CxpKjbx0xXNt85Tl+aT72TiHWeBq+391FWbq27UJvnKD5Rk/FeDPK+Lm6wuYOLmkctusNUr7EuqbxKhU9Yxcl90eE47R4aFeJxW/5Ppa7v3dV4VGUV+aa0L9TsY7S5fisVfP9G5bv7uwtO3NqdVr5u6PlE96Y4qzc/E2y9O0PdPRWeDvTuvQ2nBKp2KsE+HWj80fJ+KPXFlnHPR5ZcNckdXPNsbtbYo6oxhGspLEq9tGCqVF/O+Ui9XiMc+dM63B2rPbbztlbvbWWYUrWooTfahWhHhPzany+pKc2OPKP3a9vDet3NxXCpG62jKFWrFR4dGCSo0kuix34+xVy8TzRqq5g4SKdbN4Ki4xr+yhcRcKi9H3xfijzyY65K8tnJjbU77d6vTb0LiR7nHr9UY+X7PyVn8PWP7oTWXxnC9nFUpKs4L8LUsfV95CacVaOSYnTnVmbO3bqTadbsR8Osn/APD3wfZ1pneTpHo7FPVtdCjGnFQgsRiuSNetYrGoej6HQAAAIAgCGBRgQBCAugLICwACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAEAQwKMCAIQF0BZAWAASAAAAMa9v6Fvh16tOkpZUXUnGGprrjPUja0V7yja9ae9On2pVIzjGcJKUZJOMotNST6NPvRKJ27ExMbhjvaluqnAdekq2UuFxIcTLWUtOc5xzI89d631R9rTm5dxv0ZZJMAAYVTa9tFuMrijGUW1KLqQTTXVNZI89fV6RhyTG4rP9FrfaVvVlop16U5POIwqRk3jyTEWie0lsV6xuYllknmAAPPvduWdvJ0691b0qiSbhUrU4SSfR4bJ1x3tG4iULZKVnUzELWO2LW5em3uaFaS6xpVYTf2TOWpaveCt6292YlnEUwAB8a13TptRnUhGUvljKSTfPHLJC2WlZ1aYiXNr1akYJynJRiuspNJL1ZK1orG5no6UasaiUoSUovOJRaafd1Rytq2jdZ3AuSAAAAAQBAEMCjAgCEBdAWQFgAEgAAADRfan8lr/AI63+2JV4rtDP4/tVG6+3vc6F1bXXKpY63CLfOa1adC/ztL0mhiyctZi3gwZ/Z0tW/erXdhqq760q1vmuanGy+9SnOOfvF48sHjj37SJnyq4d+2rNvPX6uumg2gABzapO3jd3Lu4SnS4txhQbT18Tk+TXdkqdOadtqIyThr7Oeuo+jYN2pbPqVW7SlUhUhCUtU5Sa0tqL6yfietOSZ6KfE+3in45jX8/RtJ7KIAA5JvjRo1NswhdOKoSVuqrlN0oqGh9ZZWn7mhhmYw7r3Z+aInNq3Zh75Wmz7Spaz2NVTram2qNeVxpknHQ1LLxJvKxnn4EsNr2iYyR0QzVx1mJxz1+O3ZoZws9cLPqZrTSAA1Pe2DnWoxj1lBRS83NpGP9oxNslYjz/l537i2m6trXoVcqtSilz6yipJc/Nd4jiJvw9qX96DfTT192P4an61P98i5wH5Ffn9ZSr2eqXEgAAAAQBAEMCjAgCEBdAWQFgAEgAAADTfaRYVriFuqFKdVxlV1KnFyxmKxnBW4ms2iNQo8bS14jljZvTufO8uIV6MoQjNRVxqbUuTS1Rwub08u75UMuCbW3BxHCzkvFo+am1dl1FtKxlRoz4FGjQhrjFuEFGVXk33YTX3FqT7WNR0/9cyY5+8VmI6REfu3Usr4AA0NUrm3uritC0nWUqldJOEtLUqmVJPHl+pW1aLTOmrvHfFWs212+j29kbSualWMKljwYSUtVTTJYxFtd3ikelbWmesK2XFjiu4vuWwnqpgADme9G71W72tBzt6s7SaoRqVIxmoaVF57S6F3FliuHpPVSy4ptl6x0fK+3aqbJv7e4srWpc2vZk4KDrypP5Z4b56ukovxyu47XLGTHMWnUuTinHkiaxuHUIvKT8Vnmmn9n0KK8kABr23bWpO4tpQhKUYunqkotpYqZ5v0M3i8d7ZqTEdI19ULR1hG8ux3P49GLc+SqQiucvCS8znHcJNv9SkdfJavl6G71KULenGcXGSdTMZLDXbbLPB1muGItGp6/V2vZ6RaSAAAABAEAQwKMCAIQF0BZAWAASAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAhgQwKMCAIQF0BZAWQACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAEAQwKMCAIQF0BZASBIACQIAkAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAIAqwKsCoBAXQFkBIACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABABgVYFWBUAgLICyAkCcgAAAAAAAAAAAAAAAAAAAAAAAAAAyAAAAGQAACAKsCrAgCEBZMCcgTkCcgMgMgMgMgMgMgMgMgMgMgMgMgMgMgMgMgMgMgMgMgMgMgMgMgMgMgMgMgMgRkCGBVgQBCAsBIEgAAEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAIAqwIA//2Q==" 
+            type = "image/x-icon">  -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/jpg" href="images/cr.jpg" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <link
+      href="http://fonts.googleapis.com/css?family=Montserrat:400,700%CPT+Serif:400,700,400italic"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/ourprogram1.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css" />
+
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script
+      type="text/javascript"
+      src="javascript/owl.carousel.min.js"
+    ></script>
+    <script type="text/javascript" src="javascript/owl.carousel.js"></script>
+    <script>
+     
+</script>
+    <script>
+//        $(document).ready(function () {
+
+// $('#collapse').on('click', function () {
+//   $('#sidebar').toggleClass('left');
+//   $('#sidebar').toggleClass('noleft');
+//   $('#mainbar').toggleClass('right');
+//   $('#mainbar').toggleClass('noright');
+// });
+// });
+
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+
+      function vis() {
+        console.log("vis");
+        document.getElementById("middlebox").style.visibility = "visible";
+      }
+      function dis() {
+        document.getElementById("middlebox").style.visibility = "visible";
+      }
+      $(".sel").each(function () {
+        $(this).children("select").css("display", "none");
+
+        var $current = $(this);
+
+        $(this)
+          .find("option")
+          .each(function (i) {
+            if (i == 0) {
+              $current.prepend(
+                $("<div>", {
+                  class: $current.attr("class").replace(/sel/g, "sel__box"),
+                })
+              );
+
+              var placeholder = $(this).text();
+              $current.prepend(
+                $("<span>", {
+                  class: $current
+                    .attr("class")
+                    .replace(/sel/g, "sel__placeholder"),
+                  text: placeholder,
+                  "data-placeholder": placeholder,
+                })
+              );
+
+              return;
+            }
+
+            $current.children("div").append(
+              $("<span>", {
+                class: $current
+                  .attr("class")
+                  .replace(/sel/g, "sel__box__options"),
+                text: $(this).text(),
+              })
+            );
+          });
+      });
+
+      // Toggling the `.active` state on the `.sel`.
+      $(".sel").click(function () {
+        $(this).toggleClass("active");
+      });
+
+      // Toggling the `.selected` state on the options.
+      $(".sel__box__options").click(function () {
+        var txt = $(this).text();
+        var index = $(this).index();
+
+        $(this).siblings(".sel__box__options").removeClass("selected");
+        $(this).addClass("selected");
+
+        var $currentSel = $(this).closest(".sel");
+        $currentSel.children(".sel__placeholder").text(txt);
+        $currentSel.children("select").prop("selectedIndex", index + 1);
+      });
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script
+      type="text/javascript"
+      src="javascript/owl.carousel.min.js"
+    ></script>
+    <script type="text/javascript" src="javascript/owl.carousel.js"></script>
+
+    <script>
+      var coll = document.getElementsById("collap");
+
+      coll.addEventListener("click", function () {
+        console.log("working");
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        $("#demo").on("hide.bs.collapse", function () {
+          $(".btn").html(
+            '<span class="glyphicon glyphicon-collapse-down"></span> Open'
+          );
+        });
+        $("#demo").on("show.bs.collapse", function () {
+          $(".btn").html(
+            '<span class="glyphicon glyphicon-collapse-up"></span> Close'
+          );
+        });
+      });
+    </script>
+    <!-- <script>
+      $(document).ready(function () {
+        // Add minus icon for collapse element which is open by default
+        $(".collapse.show").each(function () {
+          $(this)
+            .prev(".button-head")
+            .find(".fa")
+            .addClass("fa-minus")
+            .removeClass("fa-plus");
+        });
+
+        // Toggle plus minus icon on show hide of collapse element
+        $(".collapse")
+          .on("show.bs.collapse", function () {
+            $(this)
+              .prev(".button-head")
+              .find(".fa")
+              .removeClass("fa-plus")
+              .addClass("fa-minus");
+          })
+          .on("hide.bs.collapse", function () {
+            $(this)
+              .prev(".button-head")
+              .find(".fa")
+              .removeClass("fa-minus")
+              .addClass("fa-plus");
+          });
+      });
+    </script> -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script>
+      function openPage(pageName, elmnt, color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+      }
+
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script type="text/javascript">
+      function readmore() {
+        var readmore = document.getElementById("readmore");
+        readmore.style.display = "flex";
+        // document.getElementById('more')style.display='none';
+      }
+    </script>
+    <script type="text/javascript">
+      var $myGroup = $("#myGroup");
+      $myGroup.on("show.bs.collapse", ".collapse", function () {
+        $myGroup.find(".collapse.in").collapse("hide");
+      });
+    </script>
+    <script type="text/javascript">
+      $("#slider").owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        autoplay: true,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 3,
+          },
+          1000: {
+            items: 5,
+          },
+        },
+      });
+    </script>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var $btns = $(".btn").click(function () {
+          if (this.id == "all") {
+            $("#parent > div").fadeIn(450);
+          } else {
+            var $el = $("." + this.id).fadeIn(450);
+            $("#parent > div").not($el).hide();
+          }
+          $btns.removeClass("active");
+          $(this).addClass("active");
+        });
+
+        var $search = $("#search").on("input", function () {
+          $btns.removeClass("active");
+          var matcher = new RegExp($(this).val(), "gi");
+          $(".box")
+            .show()
+            .not(function () {
+              return matcher.test($(this).find(".name, .sku").text());
+            })
+            .hide();
+        });
+      });
+    </script>
+
+    <!-- <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script> -->
+  </body>
+</html>

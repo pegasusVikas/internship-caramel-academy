@@ -1,0 +1,150 @@
+/* Test UI */
+.testbody {
+  font-family: "Times New Roman", Times, serif;
+  overflow-x: hidden;
+  text-align: left;
+  /* scroll-behavior: smooth; */
+}
+.navb {
+  background-color: #011e30;
+}
+.alink {
+  color: whitesmoke !important;
+  font-size: 20px;
+}
+
+#test-name {
+  color: white;
+  font-size: 24px;
+}
+.middle {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  border: 1px black solid;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-left: 10%;
+  box-shadow: 5px 5px grey;
+  margin-top: 1%;
+  flex-direction: column;
+  float: left;
+}
+#timer {
+  font-size: 30px;
+}
+.formm {
+  margin-left: 2%;
+}
+.key_legend {
+  position: relative;
+  float: left;
+  margin-left: 8%;
+  width: 10%;
+  margin-top: 1%;
+  border: 1px black solid;
+  box-shadow: 5px 5px grey;
+}
+#leftlegend {
+  margin-left: 2%;
+  display: flex;
+  flex-direction: column;
+  float: left;
+  justify-content: space-between;
+}
+#leftlegend .square {
+  padding: 30px;
+}
+#rightlegend {
+  position: relative;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: column;
+  float: right;
+  justify-content: space-between;
+  font-size: 20px;
+}
+#rightlegend span {
+  padding: 15px 0px;
+}
+.ques_nav {
+  position: relative;
+  float: right;
+  margin-right: 10%;
+  margin-top: 1%;
+  width: 20%;
+  border: 1px black solid;
+  box-shadow: 5px 5px black;
+}
+ul li {
+  list-style: none;
+}
+.square {
+  margin: 2% 2%;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(120, 201, 204);
+  color: white;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#answered {
+  background-color: yellow;
+}
+#marked {
+  background-color: tomato;
+}
+#visited {
+  background-color: rgb(11, 66, 66);
+}
+#mainins {
+  position: relative;
+  margin-top: 6%;
+}
+#instructions {
+  position: relative;
+  color: white;
+  border: 2px solid white;
+  border-radius: 25px;
+  padding: 20px;
+  margin-top: 3%;
+}
+h1 {
+  color: white;
+  position: relative;
+}
+#instructions p {
+  width: 80%;
+}
+#description {
+  position: relative;
+  color: white;
+  border: 2px solid white;
+  border-radius: 25px;
+  padding: 20px;
+  margin-top: 2%;
+}
+hr.new {
+  border: 2px solid white;
+  width: 20%;
+  margin-left: 0;
+}
+#starttest {
+  margin-top: 2%;
+}

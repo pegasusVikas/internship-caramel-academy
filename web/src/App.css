@@ -1,0 +1,196 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.manage {
+  background-color: white;
+  width: 90% !important;
+}
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* login components' CSS */
+.BackGround {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  background: #3e5151;
+  background: -webkit-linear-gradient(to right, #decba4, #3e5151);
+  background: linear-gradient(to right, #decba4, #3e5151);
+  background-attachment: fixed;
+
+  width: 100%;
+}
+.options {
+  padding-top: 5% !important;
+}
+.manger-head {
+  position: absolute !important;
+  top: 2%;
+}
+.manage-container {
+  position: relative;
+  min-height: 60vh;
+}
+#sidebar {
+  background-color: white;
+}
+#sidebar p {
+  font-size: 25px;
+  color: black;
+}
+#sidebar h1 {
+  font-weight: 300;
+}
+#collapse {
+  border: none;
+  background-color: #673ab7 !important;
+}
+.bg-info {
+  background-color: #673ab7 !important;
+  min-height: 7vh;
+}
+#mainbar {
+  background-size: cover !important;
+  background-repeat: no-repeat;
+}
+.thiner {
+  font-weight: 16px !important;
+  font-size: 20px !important;
+}
+.thiner:hover {
+  color: black !important;
+  background-color: rgb(243, 242, 242);
+}
+.expand-btn {
+  border: none !important;
+  box-shadow: none !important;
+  background-color: #673ab7 !important;
+  color: white !important;
+}
+.btn-dark {
+  background-color: transparent !important;
+  color: #673ab7 !important;
+  border: none !important;
+  margin-left: 0.7% !important;
+}
+.btn-dark :hover {
+  background-color: #7e4ed37e !important;
+}
+.switch {
+  margin-left: 10%;
+}
+.switch button {
+  background-color: transparent !important;
+  color: #673ab7 !important;
+  border-radius: 0 !important;
+  border: transparent !important;
+}
+
+.switch .active {
+  border-bottom: 2px solid #673ab7 !important;
+}
+/* .admin-dashboard {
+  height: 100vh !important;
+} */
+.navbar-dark {
+  background-color: #673ab7 !important;
+  min-height: 5%;
+}
+th {
+  width: fit-content !important;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+  text-align: left !important;
+  background-color: #3333ff !important;
+  color: white !important;
+  margin: 0 !important;
+  border: 1px solid white !important;
+}
+.view-table {
+  width: 60vw;
+  margin-left: 13% !important;
+}
+
+
+.subprograms1 {
+  height: auto;
+  max-height: 150px;
+  overflow-x: hidden;
+}

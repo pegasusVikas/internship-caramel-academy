@@ -1,0 +1,48 @@
+/* .card{
+	padding:20px;
+	background-color:#111;
+	color:lavender;	
+	opacity:0.8;
+}
+.row a .card:hover{
+	
+	color:black;
+}
+.row a:hover{
+	text-decoration:none;
+}
+nav ul a{
+	color:lavender;
+}
+nav ul a:hover{
+	color:black;
+}
+
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #17A2B7;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+ */

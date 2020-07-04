@@ -1,0 +1,21 @@
+div.background {
+  background: url("https://images.unsplash.com/photo-1544237526-cae15a57ed1e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=855&q=80")
+    repeat;
+  border: 2px solid black;
+}
+
+div.transbox {
+  /* margin: 10px; */
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+  height: 500px;
+}
+
+div.transbox p {
+  margin-top: 25%;
+  margin-left: 35%;
+  /* margin: 0px; */
+  font-weight: bold;
+  color: #000000;
+}
