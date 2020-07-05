@@ -47,7 +47,7 @@ const upload = multer({
 
 
 
-
+const ctrlUser = require('../controllers/user.controller');
 const ctrlStudent = require('../controllers/student.controller');
 const ctrlCorporate = require('../controllers/corporate.controller');
 const ctrlInstructor = require('../controllers/instructor.controller');
@@ -56,8 +56,10 @@ const ctrlAdmin = require('../controllers/admin.controller');
 const ctrlCategory = require('../controllers/category.controller');
 const ctrlSubCat = require('../controllers/subcategory.controller');
 const ctrlCourse = require('../controllers/course.controller');
+const { route } = require('./module.route');
 
 //Register
+router.post('/user-register', ctrlUser.register);
 router.post('/student-register', ctrlStudent.register);
 router.post('/corporate-register', ctrlCorporate.register);
 router.post('/instructor-register', ctrlInstructor.register);
@@ -65,6 +67,9 @@ router.post('/university-register', ctrlUniversity.register);
 router.post('/admin-register', ctrlAdmin.register);
 
 //Login
+router.post('/user-authenticate', ctrlUser.authenticate);
+router.get('/userProfile', jwtHelper.verifyJwtToken, ctrlUser.userProfile);
+
 router.post('/student-authenticate', ctrlStudent.authenticate);
 router.get('/studentProfile', jwtHelper.verifyJwtToken, ctrlStudent.studentProfile);
 
@@ -82,6 +87,12 @@ router.get('/adminProfile', jwtHelper.verifyJwtToken, ctrlAdmin.adminProfile);
 
 router.post('/admin-authenticate', ctrlAdmin.authenticate);
 router.get('/adminProfile', jwtHelper.verifyJwtToken, ctrlAdmin.adminProfile);
+
+
+//Reset User password
+router.post('/user-req-reset-password', ctrlUser.ResetPassword);
+router.post('/user-new-password', ctrlUser.NewPassword);
+router.post('/user-valid-password-token', ctrlUser.ValidPasswordToken);
 
 //Reset Student password
 router.post('/student-req-reset-password', ctrlStudent.ResetPassword);

@@ -134,7 +134,7 @@ function DashBoardBody() {
         >
           <div className="mat-drawer-inner-container ng-tns-c70-0">
             <div _ngcontent-iuq-c91 id="prodisplay" className="ng-tns-c70-0">
-              <h1 _ngcontent-iuq-c91>Student Name</h1>
+              <h1 _ngcontent-iuq-c91>User Name</h1>
               <div _ngcontent-iuq-c91 className="image-cropper">
                 <img
                   _ngcontent-iuq-c91
@@ -812,7 +812,7 @@ class SideBar extends React.Component {
                   </a>
                 </li>
                 <li>
-                  <a className="mainNavLink" href="/lms/student/login">
+                  <a className="mainNavLink" href="/lms/user/login">
                     LOGOUT
                   </a>
                 </li>

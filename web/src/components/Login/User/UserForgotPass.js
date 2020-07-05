@@ -25,7 +25,7 @@ background: 'linear-gradient(to right, #fffcdc, #d9a7c7)'}}>
         <center>
           <span style={{color: 'red'}} /> <br /><br />
         </center>
-        <Form role="form" action="/lms/student/forgot-password" method="post"><input type="hidden" name="_csrf" defaultValue="2b65fd3b-f00e-487f-9bc7-b0a9a38d71b2" />
+        <Form role="form" action="/lms/user/forgot-password" method="post"><input type="hidden" name="_csrf" defaultValue="2b65fd3b-f00e-487f-9bc7-b0a9a38d71b2" />
           <div className="form-group">
             <label htmlFor="email" style={{fontSize: '22px'}}>Email Id</label>
             <input type="text" name="email" className="form-control" style={{height: '38px'}} id="inputUsernameEmail" defaultValue />
@@ -46,4 +46,4 @@ background: 'linear-gradient(to right, #fffcdc, #d9a7c7)'}}>
   )
 }
 
-export default ForgotPass
+export default ForgotPass;

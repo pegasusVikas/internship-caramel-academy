@@ -27,8 +27,8 @@ class SignIn extends Component {
     e.preventDefault();
 
     axios
-      // .post("http://103.210.75.167:3004/api/student-authenticate", this.state)
-      .post("http://localhost:3004/api/student-authenticate", this.state)
+      // .post("http://103.210.75.167:3004/api/user-authenticate", this.state)
+      .post("http://localhost:3004/api/user-authenticate", this.state)
       .then((res) => {
         if (res.data.logged) {
           console.log("logged in");
@@ -71,7 +71,7 @@ class SignIn extends Component {
                 <div className="card card-signin my-5">
                   <div className="card-body">
                     <h2 className="card-title text-center">
-                      <b>Sign In As a Student</b>
+                      <b>Sign In As a User</b>
                     </h2>
                     <center>
                       <span style={{ color: "red" }} /> <br />
@@ -121,14 +121,14 @@ class SignIn extends Component {
                       ) : null}
                       <hr className="my-4" />
                       <Link
-                        to="/lms/student/register"
+                        to="/lms/user/register"
                         style={{ fontSize: "20px" }}
                       >
                         Sign Up
                       </Link>
                       <Link
                         className="float-right"
-                        to="/lms/student/forgot-password"
+                        to="/lms/user/forgot-password"
                         style={{ fontSize: "20px" }}
                       >
                         Forgot password?
@@ -142,7 +142,7 @@ class SignIn extends Component {
         </div>
         {this.state.islogged ? (
           <Redirect
-            to={{ pathname: "/lms/student/dashboard", state: this.state.user }}
+            to={{ pathname: "/lms/user/dashboard", state: this.state.user }}
           ></Redirect>
         ) : null}
       </div>

@@ -48,8 +48,13 @@ const Navbar = () => {
                       Resgistration <span className="caret" />
                     </a>
                     <ul className="dropdown-menu">
-                      <li className="nav-item">
+                    <li className="nav-item">
                         <a className="nav-link px-lg-4" href="/lms/user/login">
+                          User
+                        </a>
+                      </li>
+                      <li className="nav-item">
+                        <a className="nav-link px-lg-4" href="/lms/student/login">
                           Student
                         </a>
                       </li>
@@ -109,7 +114,7 @@ const Navbar = () => {
                   <li className="nav-item">
                     <a
                       className="nav-link px-lg-4 alink"
-                      href="nodecontactform/acadamycontact"
+                      href="nodecontactform/acadamycontact.html"
                     >
                       Contact Us
                     </a>

@@ -26,6 +26,10 @@ import SignIn from "../components/Login/Student/SignIn";
 import SignUp from "../components/Login/Student/SignUp";
 import StudentDashboard from "../components/Login/Student/dashboard";
 import ForgotPass from "../components/Login/Student/ForgotPass";
+import UserSignIn from "../components/Login/User/UserSignIn";
+import UserSignUp from "../components/Login/User/UserSignUp";
+import UserDashboard from "../components/Login/User/UserDashboard";
+import UserForgotPass from "../components/Login/User/UserForgotPass";
 import SignIn1 from "../components/Login/College/SignInCollege";
 import SignUp1 from "../components/Login/College/SignUpCollege";
 import CollegeDashboard from "../components/Login/College/dashboard";
@@ -46,7 +50,6 @@ import AddCategory from "../components/Login/Others/addCategory";
 import ViewCategory from "../components/Login/Others/viewCategory";
 
 import MainConsumer from "../components/Industries/Consumer/mainConsumer";
-import MainContact from '../components/contact/ContactPageAcademy/mainContact';
 // import MainAcademy from '../components/acadamy/mainAcademy';
 // import MainConsortium from '../components/consortium/mainConsortium';
 // import MainAutomative from '../components/Industries/Automotive/mainAutomative';
@@ -117,6 +120,7 @@ import MainContact from '../components/contact/ContactPageAcademy/mainContact';
 // import MainDockers from '../components/Courses/DevOps/Dockers/maindockers';
 // import MainKubernets from '../components/Courses/DevOps/Kubernets/mainKub';
 // import MainCHEF from '../components/Courses/DevOps/CHEF/mainChef';
+// import MainContact from '../components/contact/ContactPageAcademy/mainContact';
 // import MainDigitalMar from '../components/Courses/Digital Marketing/DigitalMain/mainDigiMar';
 // import MainFoundationDM from '../components/Courses/Digital Marketing/DMFoundation/mainFounda';
 // import MainExpertMar from '../components/Courses/Digital Marketing/DMExpert/mainExpMark';
@@ -261,12 +265,12 @@ export default class Application extends Component {
 
         <Route
           exact
-          path="/lms/user/login"
+          path="/lms/student/login"
           //  component={SignIn}
           component={() => <SignIn islogged={this.state.user} />}
         />
-        <Route exact path="/lms/user/register" component={SignUp} />
-        <Route exact path="/lms/user/forgot-password" component={ForgotPass} />
+        <Route exact path="/lms/student/register" component={SignUp} />
+        <Route exact path="/lms/student/forgot-password" component={ForgotPass} />
         <Route exact path="/lms/college/college_login" component={SignIn1} />
         <Route
           exact
@@ -290,11 +294,15 @@ export default class Application extends Component {
             </div>
           )}
         />
+        <Route exact path="/lms/user/login" component={UserSignIn} />
+        <Route exact path="/lms/user/register" component={UserSignUp} />
+        <Route exact path="/lms/user/dashboard" component={UserDashboard} />
+        <Route exact path="/lms/user/forgot-password" component={UserForgotPass} />
         <Route exact path="/lms/college/register" component={SignUp1} />
         <Route exact path="/lms/instructor/register" component={SignUp2} />
         <Route exact path="/lms/admin/register" component={AdminSignup} />
         <Route exact path="/lms/organisation/register" component={SignUp3} />
-        <Route exact path="/lms/user/dashboard" component={StudentDashboard} />
+        <Route exact path="/lms/student/dashboard" component={StudentDashboard} />
         <Route
           exact
           path="/lms/admin/dashboard/questionBank"
@@ -334,8 +342,7 @@ export default class Application extends Component {
         <Route exact path="/lms/admin/viewcategory" component={ViewCategory} />
         {/* <Route exact path='/' component={Dashboard} /> */}
         <Route exact path="/lms/admin/addcategory" component={AddCategory} />
-        {/* contact form */}
-        <Route path="/nodecontactform/acadamycontact" component={MainContact} />
+
         {this.state.user === "student" &&
           this.state.courses.map((course, i) => (
             <Route
@@ -456,6 +463,7 @@ export default class Application extends Component {
                 <Route path="/caramelit_new/courses/coursespage//devops" component={MainDevOps} />
                 <Route path="/caramelit_new/courses/coursespage/kubernets" component={MainKubernets} />
                 <Route path="/caramelit_new/courses/coursespage/chef" component={MainCHEF} />
+                <Route path="/nodecontactform/acadamycontact" component={MainContact} />
                 <Route path="/caramelit_new/courses/coursespage//digital" component={MainDigitalMar} />
                 <Route path="/caramelit_new/courses/coursespage/digitalmarketingfoundation" component={MainFoundationDM} />
                 <Route path="/caramelit_new/courses/coursespage/digitalmarketingexpert" component={MainExpertMar} />

@@ -26,7 +26,8 @@ const Home = () => {
         <li className="nav-item dropdown">
           <Link className="nav-link dropbtn" to="#" style={{fontSize: '25px', marginLeft: '40px'}}><b>Login / Sign Up</b></Link>
           <div className="dropdown-content">
-            <Link to="/lms/user/login">Student</Link>
+            <Link to="/lms/user/login">User</Link>
+            <Link to="/lms/student/login">Student</Link>
             <Link to="/lms/instructor/instructor_login">Instructor</Link>
             <Link to="/lms/college/college_login">College / University</Link>
             <Link to="/lms/organisation/organisation_login">Organisation / Corporate</Link>

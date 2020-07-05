@@ -1,17 +1,39 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
 
+const userLocalStrategy = require('passport-local').Strategy;
 const studentLocalStrategy = require('passport-local').Strategy;
 const instructorLocalStrategy = require('passport-local').Strategy;
 const corporateLocalStrategy = require('passport-local').Strategy;
 const universityLocalStrategy = require('passport-local').Strategy;
 const adminLocalStrategy = require('passport-local').Strategy;
 
+var User = mongoose.model('User');
 var Student = mongoose.model('Student');
 var Instructor = mongoose.model('Instructor');
 var Corporate = mongoose.model('Corporate');
 var University = mongoose.model('University');
 var Admin = mongoose.model('Admin');
+
+// User passport
+passport.use('userLocal',
+    new userLocalStrategy({ usernameField: 'emailAddress' },
+    (username, password, done) => {
+        User.findOne({ emailAddress: username },
+            (err, user) => {
+                if (err) return done(err);
+                // unknown user
+                else if (!user) 
+                    return done(null, false, { message: 'Email is not registered' });
+                // wrong password
+                else if(!user.verifyPassword(password))
+                    return done(null, false, { message: 'Wrong password.' });
+                // authentication succeeded
+                else
+                    return done(null, user);
+            });
+    })
+);
 
 //Student passport
 passport.use('studentLocal',

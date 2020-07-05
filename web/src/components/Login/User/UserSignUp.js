@@ -9,6 +9,7 @@ class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      profile: "",
       firstName: "",
       lastName: "",
       emailAddress: "",
@@ -20,7 +21,10 @@ class SignUp extends Component {
       skillset: "",
       password: "",
       createdAt: "",
+      organization: "",
+      experience: 0,
       isRegistered: false,
+
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -41,8 +45,8 @@ class SignUp extends Component {
     // console.log("College :" + this.state.college);
     // console.log("Skill :" + this.state.skill);
     axios
-      //  .post("http://103.210.75.167:3004/api/student-register", this.state)
-      .post("http://localhost:3004/api/student-register", this.state)
+      //  .post("http://103.210.75.167:3004/api/user-register", this.state)
+      .post("http://localhost:3004/api/user-register", this.state)
       .then((res) => {
         if (res.data.registered) {
           // this.setState({logged:true});
@@ -51,7 +55,7 @@ class SignUp extends Component {
           alert("registerd");
           this.setState({ isRegistered: true });
         } else {
-          console.log("not loggedi in");
+          console.log("not logged in");
           alert("Registeration failed, might be email is already taken");
           this.setState({ isRegistered: false });
         }
@@ -83,7 +87,7 @@ class SignUp extends Component {
     return (
       <div className="BackGround">
         {this.state.isRegistered ? (
-          <Redirect to={{ pathname: "/lms/student/login" }}></Redirect>
+          <Redirect to={{ pathname: "/lms/user/login" }}></Redirect>
         ) : null}
         <div className="light-bg">
           {/*  */}
@@ -109,12 +113,12 @@ class SignUp extends Component {
               <div className="col-md-3" />
               <div className="col-md-6">
                 <h2 align="center" style={{ color: "#111" }}>
-                  <b>New Student Registration</b>
+                  <b>New User Registration</b>
                 </h2>
                 <br />
                 <form
                   autoComplete="off"
-                  action="/lms/student/register"
+                  action="/lms/user/register"
                   method="post"
                   className="m-t"
                   role="form"
@@ -126,7 +130,26 @@ class SignUp extends Component {
                     name="_csrf"
                     defaultValue="7bbcad0d-7508-4435-abf8-1f67975b7df9"
                   />
-
+                  <div className="form-group input-group has-feedback">
+                    <span className="input-group-addon">
+                      <span className="glyphicon glyphicon-flag stugl" />
+                    </span>
+                    <select
+                      className="form-control stureg"
+                      required
+                      id="profile"
+                      name="profile"
+                      onChange={this.handleChange}
+                    >
+                      <option value>- - - Select Your Profile - - -</option>
+                      <option value="Student">Student</option>
+                      <option value="IT Professional">IT Professional</option>
+                    </select>
+                    <span
+                      className="glyphicon form-control-feedback"
+                      aria-hidden="true"
+                    />
+                  </div>
                   <div className="row">
                     <div className="col-md-6">
                       <div className="form-group input-group has-feedback ">
@@ -267,6 +290,7 @@ class SignUp extends Component {
                       aria-hidden="true"
                     />
                   </div>
+                  {this.state.profile === "Student" &&  
                   <div className="form-group input-group has-feedback">
                     <span className="input-group-addon">
                       <span className="glyphicon glyphicon-education stugl" />
@@ -286,6 +310,7 @@ class SignUp extends Component {
                       aria-hidden="true"
                     />
                   </div>
+                  }
                   <div className="form-group input-group has-feedback">
                     <span className="input-group-addon">
                       <span className="glyphicon glyphicon-tasks stugl" />
@@ -293,7 +318,7 @@ class SignUp extends Component {
                     <input
                       type="text"
                       className="form-control stureg"
-                      placeholder="Skill Set if you have any... EX: C, C++,java"
+                      placeholder="Enter upto any 6 skills if you have... EX: C, C++,java"
                       data-error="Skill Set is invalid"
                       required
                       id="skillset"
@@ -311,7 +336,7 @@ class SignUp extends Component {
                     </span>
                     <input
                       type="password"
-                      placeholder="New Password"
+                      placeholder="Password"
                       className="form-control stureg"
                       data-error="This email address is invalid"
                       required
@@ -324,6 +349,48 @@ class SignUp extends Component {
                       aria-hidden="true"
                     />
                   </div>
+                  {this.state.profile === "IT Professional" && 
+                  <div className="form-group input-group has-feedback">
+                    <span className="input-group-addon">
+                      <span className="glyphicon glyphicon-home stugl" />
+                    </span>
+                    <input
+                      type="text"
+                      className="form-control stureg"
+                      placeholder="Your organization name..."
+                      data-error="State is invalid"
+                      required
+                      id="organization"
+                      name="organization"
+                      onChange={this.handleChange}
+                    />
+                    <span
+                      className="glyphicon form-control-feedback"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  }
+                  {this.state.profile === "IT Professional" && 
+                  <div className="form-group input-group has-feedback">
+                    <span className="input-group-addon">
+                      <span className="glyphicon glyphicon-home stugl" />
+                    </span>
+                    <input
+                      type="number"
+                      className="form-control stureg"
+                      placeholder="Years of experience"
+                      data-error="State is invalid"
+                      required
+                      id="experience"
+                      name="experience"
+                      onChange={this.handleChange}
+                    />
+                    <span
+                      className="glyphicon form-control-feedback"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  }
                   <br />
                   <button
                     type="submit"
@@ -333,7 +400,7 @@ class SignUp extends Component {
                   </button>
                   <br />
                   <h3>
-                    <a href="/lms/student/login" style={{ color: "#111" }}>
+                    <a href="/lms/user/login" style={{ color: "#111" }}>
                       Already Registered? Please Login
                     </a>
                   </h3>
