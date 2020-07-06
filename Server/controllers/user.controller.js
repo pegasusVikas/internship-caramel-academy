@@ -4,7 +4,7 @@ const passport = require('passport');
 const _ = require('lodash');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
-
+const sgMail = require('@sendgrid/mail');
 const userpasswordResetToken = require('../models/Reset Tokens/user-reset-token.model');
 const User = mongoose.model('User');
 
@@ -27,8 +27,21 @@ module.exports.register = (req, res, next) => {
     user.hasExperience = req.body.experience > 0 ? true : false;
     user.hasSkills = req.body.skillset.split(",").length > 0 ? true : false;
     user.save((err, doc) => {
-        if (!err)
+        if (!err) {
+            try {
+                sgMail.setApiKey('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');
+                const msg = {
+                    to: req.body.emailAddress,
+                    from: 'viswa.es27@gmail.com',
+                    subject: 'Registration',
+                    text: 'You have successfully registered as a user at CaramelIT!',
+                };
+                sgMail.send(msg);
+            } catch (err) {
+                console.log(err.message);
+            }
             res.json({user:doc,registered:true});
+        }
         else {
             console.log(err);
             res.json({registered:false});
@@ -84,26 +97,21 @@ module.exports.ResetPassword = async(req, res) => {
         if (err) { return res.status(500).send({ msg: err.message }); }
         userpasswordResetToken.find({ _userId: user._id, resettoken: { $ne: resettoken.resettoken } }).remove().exec();
         res.status(200).json({ message: 'Reset Password successfully.' });
-        var transporter = nodemailer.createTransport({
-            service: 'Gmail',
-            port: 465,
-            auth: {
-                user: 'user',
-                pass: 'password'
-            }
-        });
-        var mailOptions = {
-            to: user.emailAddress,
-            from: 'shristdas@gmail.com',
-            subject: 'Node.js Password Reset',
-            text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
-            'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-            'http://localhost:4200/response-reset-password/' + resettoken.resettoken + '\n\n' +
-            'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+        try {
+            sgMail.setApiKey('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');
+            const msg = {
+                to: req.body.emailAddress,
+                from: 'viswa.es27@gmail.com',
+                subject: 'Password Reset',
+                text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+                'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+                'http://localhost:4200/response-reset-password/' + resettoken.resettoken + '\n\n' +
+                'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+            };
+            sgMail.send(msg);
+        } catch (err) {
+            console.log(err.message);
         }
-        transporter.sendMail(mailOptions, (err, info) => {
-            console.log("Token "+resettoken.resettoken);
-        });
     });
 };
     

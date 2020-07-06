@@ -35,23 +35,25 @@ class SignUp extends Component {
     // console.log("College :" + this.state.college);
     // console.log("Skill :" + this.state.skill);
     console.log(this.state);
-		axios.post("http://103.210.75.167:3004/api/admin-register",this.state).
-            then(res=>{
-                if(res.data.registered)
-                {
-                    // this.setState({logged:true});
-                    console.log('logged in');
-                    console.log(res.data);
-                    alert('registerd');
-                    this.setState({isRegistered:true});
-                }
-                  else{
-                    console.log('not loggedi in');
-                    alert('Registeration failed, might be email is already taken');
-                    this.setState({isRegistered:false});
-                  } 
+    //axios.post("http://103.210.75.167:3004/api/admin-register",this.state).
+    axios.post("http://localhost:3004/api/admin-register",this.state).
+      then(res=>{
+        console.log(res.data);
+          if(res.data.registered)
+          {
+              // this.setState({logged:true});
+              console.log('logged in');
+              console.log(res.data);
+              alert('registerd');
+              this.setState({isRegistered:true});
+          }
+            else{
+              console.log('not loggedi in');
+              alert('Registeration failed, might be email is already taken');
+              this.setState({isRegistered:false});
+            } 
 
-            }).catch(err=>{this.setState({isRegistered:false})});        
+      }).catch(err=>{this.setState({isRegistered:false})});        
 
   }
 
@@ -90,7 +92,7 @@ class SignUp extends Component {
               <div className="col-md-3" />
               <div className="col-md-6">
                 <h2 align="center" style={{ color: "#111" }}>
-                  <b>New Student Registration</b>
+                  <b>New Admin Registration</b>
                 </h2>
                 <br />
                 <form

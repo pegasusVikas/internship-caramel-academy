@@ -30,8 +30,8 @@ import UserSignIn from "../components/Login/User/UserSignIn";
 import UserSignUp from "../components/Login/User/UserSignUp";
 import UserDashboard from "../components/Login/User/UserDashboard";
 import UserForgotPass from "../components/Login/User/UserForgotPass";
-import SignIn1 from "../components/Login/College/SignInCollege";
-import SignUp1 from "../components/Login/College/SignUpCollege";
+import SignInCollege from "../components/Login/College/SignInCollege";
+import SignUpCollege from "../components/Login/College/SignUpCollege";
 import CollegeDashboard from "../components/Login/College/dashboard";
 import SignIn2 from "../components/Login/Instructor/SignInInstructor";
 import InstructorDashboard from "../components/Login/Instructor/dashboard";
@@ -271,7 +271,7 @@ export default class Application extends Component {
         />
         <Route exact path="/lms/student/register" component={SignUp} />
         <Route exact path="/lms/student/forgot-password" component={ForgotPass} />
-        <Route exact path="/lms/college/college_login" component={SignIn1} />
+        <Route exact path="/lms/college/college_login" component={SignInCollege} />
         <Route
           exact
           path="/lms/instructor/instructor_login"
@@ -298,7 +298,7 @@ export default class Application extends Component {
         <Route exact path="/lms/user/register" component={UserSignUp} />
         <Route exact path="/lms/user/dashboard" component={UserDashboard} />
         <Route exact path="/lms/user/forgot-password" component={UserForgotPass} />
-        <Route exact path="/lms/college/register" component={SignUp1} />
+        <Route exact path="/lms/college/register" component={SignUpCollege} />
         <Route exact path="/lms/instructor/register" component={SignUp2} />
         <Route exact path="/lms/admin/register" component={AdminSignup} />
         <Route exact path="/lms/organisation/register" component={SignUp3} />

@@ -31,13 +31,14 @@ class SignInCollege extends Component {
       //.post("http://103.210.75.167:3004/api/university-authenticate", this.state)
       .post("http://localhost:3004/api/university-authenticate", this.state)
       .then((res) => {
+        console.log(res);
         if (res.data.logged) {
           // this.setState({logged:true});
           console.log("true");
           this.setState({
             error: false,
             islogged: true,
-            user: res.data.college,
+            user: res.data.college
           });
         } else {
           console.log("not logged in");
@@ -111,7 +112,7 @@ class SignInCollege extends Component {
                       <input
                         type="submit"
                         className="btn btn-lg btn-primary btn-block text-uppercase"
-                        value="Sigin"
+                        value="Sign In"
                       />
                       {this.state.error === true ? (
                         <p style={{ margin: 5 }}>Invalid Email or Password</p>

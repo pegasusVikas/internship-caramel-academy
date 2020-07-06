@@ -43,10 +43,6 @@ const upload = multer({
 });
 
 
-
-
-
-
 const ctrlUser = require('../controllers/user.controller');
 const ctrlStudent = require('../controllers/student.controller');
 const ctrlCorporate = require('../controllers/corporate.controller');

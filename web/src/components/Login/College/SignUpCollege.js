@@ -123,7 +123,7 @@ class SignUpCollege extends Component {
                           placeholder="College Name...."
                           className="form-control stureg"
                           required
-                          id="CollgeName"
+                          id="collegeName"
                           name="collegeName"
                           onChange={this.handleChange}
                         />
@@ -200,8 +200,8 @@ class SignUpCollege extends Component {
                     <select
                       className="form-control stureg"
                       required
-                      id="job"
-                      name="job"
+                      id="country"
+                      name="country"
                       onChange={this.handleChange}
                     >
                       <option value>- - - Select Your Country - - -</option>
