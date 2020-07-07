@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import NavBar from "./appbar";
+import NavBar from './appbar';
 import Grid from "@material-ui/core/Grid";
 import CardMedia from "@material-ui/core/CardMedia";
 import List from "@material-ui/core/List";
@@ -43,9 +43,10 @@ class Content extends Component{
 render() {
   const user=this.props.user;
   return (
+    <>
     <Grid container>
           <Grid item xs={12}>
-            <NavBar />z
+            <NavBar />
           </Grid>
           <Grid item xs={12}>
             {" "}
@@ -121,6 +122,7 @@ render() {
             <Footer />
           </Grid>
         </Grid>
+      </>
 
   )
 
