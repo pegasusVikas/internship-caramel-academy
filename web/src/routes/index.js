@@ -333,7 +333,7 @@ export default class Application extends Component {
         />
         <Route
           exact
-          path="/lms/organisations/dashboard"
+          path="/lms/organisation/dashboard"
           component={OrganisationDashboard}
         />
         <Route exact path="/lms/admin/dashboard" component={AdminDashboard} />

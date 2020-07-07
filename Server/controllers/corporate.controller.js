@@ -50,7 +50,7 @@ module.exports.authenticate = (req, res, next) => {
 		// error from passport middleware
 		if (err) return res.status(404).json({err:err,logged:false});
 		// registered corporationm
-		if (corporate) return res.status(200).json({ "token": instructor.generateJwt(), logged:true,organisation:corporate });
+		if (corporate) return res.status(200).json({ "token": corporate.generateJwt(), logged:true,organisation:corporate });
 		// unknown or wrong password
 		else return res.status(401).json({info:info,logged:false});
 	})(req, res);

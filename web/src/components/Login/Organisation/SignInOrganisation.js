@@ -27,8 +27,8 @@ class SignInOrganisation extends Component {
     e.preventDefault();
 
     console.log(this.state);
-    axios
-      .post("http://103.210.75.167:3004/api/corporate-authenticate", this.state)
+    axios//"http://103.210.75.167:3004/api/corporate-authenticate"
+      .post("http://localhost:3004/api/corporate-authenticate", this.state)
       .then((res) => {
         if (res.data.logged) {
           // this.setState({logged:true});
@@ -132,7 +132,7 @@ class SignInOrganisation extends Component {
             </div>
           </div>
         </div>
-        {this.state.islogged?<Redirect to={{pathname: "/lms/organisations/dashboard", state:this.state.user}} ></Redirect>:null}
+        {this.state.islogged?<Redirect to={{pathname: "/lms/organisation/dashboard", state:this.state.user}} ></Redirect>:null}
       </div>
     );
   }
