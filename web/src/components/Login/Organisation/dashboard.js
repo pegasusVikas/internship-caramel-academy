@@ -15,6 +15,9 @@ import RecentActorsIcon from "@material-ui/icons/RecentActors";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
+import Dashboard1 from './toggle/Dashboard1'
+import OurCourses from './toggle/OurCourses'
+
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
 }
@@ -46,12 +49,13 @@ render() {
   return (
     <>
     <Grid container>
+    <i className="far fa-user"></i>
           <Grid item xs={12}>
             <NavBar />
           </Grid>
           <Grid item xs={12}>
             {" "}
-            <div className="contained">
+            <div className="contained bg-info">
               <Grid container spacing={3}>
                 <Grid className="dasborad_text text" item xs={6}>
                   <h1>Caramel IT</h1>
@@ -68,15 +72,35 @@ render() {
                     component="img"
                     alt="Contemplative Reptile"
                     className="img"
-                    image="https://caramelit.com/images/Caramel-Horz.png"
+                    image="../../../images/caramelacademy.jpeg"
                     title="Contemplative Reptile"
                   />
                 </Grid>
               </Grid>
             </div>
           </Grid>
-          <Grid item xs={12}>
-            <div className="pink-container">
+          </Grid>
+          <div className="my-4 mx-1">
+            <div class="row">
+                <div class="col-3">
+                  <div class="nav flex-column " id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-pills-Dashboard-tab" data-toggle="pill" href="#v-pills-Dashboard" role="tab" aria-controls="v-pills-Dashboard" aria-selected="true">Dashboard</a>
+                    <a class="nav-link" id="v-pills-Course-tab" data-toggle="pill" href="#v-pills-Course" role="tab" aria-controls="v-pills-Course" aria-selected="false">Our Course</a>
+                    <a class="nav-link" id="v-pills-Student-tab" data-toggle="pill" href="#v-pills-Student" role="tab" aria-controls="v-pills-Student" aria-selected="false">Student</a>
+                    <a class="nav-link" id="v-pills-Notify-tab" data-toggle="pill" href="#v-pills-Notify" role="tab" aria-controls="v-pills-Notify" aria-selected="false">Notify Student</a>
+                    <a class="nav-link" id="v-pills-Account-tab" data-toggle="pill" href="#v-pills-Account" role="tab" aria-controls="v-pills-Account" aria-selected="false">Account</a>
+                  </div>
+                </div>
+                <div class="col-9">
+                  <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-Dashboard" role="tabpanel" aria-labelledby="v-pills-Dashboard-tab"><Dashboard1/></div>
+                    <div class="tab-pane fade" id="v-pills-Course" role="tabpanel" aria-labelledby="v-pills-Course-tab"><OurCourses/></div>
+                    <div class="tab-pane fade" id="v-pills-Student" role="tabpanel" aria-labelledby="v-pills-Student-tab">Messages</div>
+                    <div class="tab-pane fade" id="v-pills-Notify" role="tabpanel" aria-labelledby="v-pills-Notify-tab">Settings</div>
+                    <div class="tab-pane fade" id="v-pills-Account" role="tabpanel" aria-labelledby="v-pills-Account-tab">Settings</div>
+                </div> 
+              
+            {/*<div className='bg-info'>
               <List
                 className="skin-container"
                 component="nav"
@@ -117,12 +141,15 @@ render() {
                   <ListItemText primary="Account" />
                 </ListItemLink>
               </List>
-            </div>
-          </Grid>
+           </div>*/}
+          </div>
+          </div>
+          </div>
           <Grid item xs={12}>
             <Footer />
           </Grid>
-        </Grid>
+
+        
       </>
 
   )
