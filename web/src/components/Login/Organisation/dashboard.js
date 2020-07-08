@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import NavBar from './appbar';
+import NavBar from '../common/navbar';
 import Grid from "@material-ui/core/Grid";
 import CardMedia from "@material-ui/core/CardMedia";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
-import Footer from "./footer";
+import Footer from "../common/footer";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import ImportContactsIcon from "@material-ui/icons/ImportContacts";
 import RecentActorsIcon from "@material-ui/icons/RecentActors";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
 }

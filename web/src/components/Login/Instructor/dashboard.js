@@ -1,204 +1,87 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
-import { Button } from "reactstrap";
-// import  './dashboard.css'
-import pic from "../../images/bootcamp.png";
-class Dashboard extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    const user = this.props.location.state;
-    // console.log('state',this.props.location.state);
-    return (
-      <div>
-        {user ? (
-          <Content user={user} />
-        ) : (
-          <Redirect to="/lms/instructor/instructor_login" />
-        )}
-      </div>
-    );
-  }
+import NavBar from "../common/navbar";
+import Grid from "@material-ui/core/Grid";
+import CardMedia from "@material-ui/core/CardMedia";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import Divider from "@material-ui/core/Divider";
+import Footer from "../common/footer";
+
+function ListItemLink(props) {
+	return <ListItem button component="a" {...props} />;
 }
 
-function Navbar() {
-  return (
-    <nav
-      _ngcontent-iuq-c91
-      className="navbar navbar-expand-lg navbar-light"
-      style={{ backgroundColor: "rgb(182, 128, 231)" }}
-    >
-      <img
-        _ngcontent-iuq-c91
-        src="../../../images/caramelacademy.png"
-        width="150px"
-        alt="forecastr logo"
-        className="logo1 horizontal-logo"
-      />
-      <a _ngcontent-iuq-c91 href="#" className="navbar-brand" />
-      <button
-        _ngcontent-iuq-c91
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarTogglerDemo01"
-        aria-controls="navbarTogglerDemo01"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-        className="navbar-toggler"
-      >
-        <span _ngcontent-iuq-c91 className="navbar-toggler-icon" />
-      </button>
-      <div
-        _ngcontent-iuq-c91
-        id="navbarTogglerDemo01"
-        className="collapse navbar-collapse"
-      >
-        <form
-          _ngcontent-iuq-c91
-          noValidate
-          className="form-inline my-2 my-lg-0 example-spacer ng-untouched ng-pristine ng-valid"
-        >
-          <input
-            _ngcontent-iuq-c91
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-            className="form-control mr-sm-2"
-          />
-          <button
-            _ngcontent-iuq-c91
-            type="submit"
-            className="btn btn-outline-dark my-2 my-sm-0"
-          >
-            Search
-          </button>
-        </form>
-        {/* <ul _ngcontent-iuq-c91 className="navbar-nav mr-auto mt-2 mt-lg-0 ml-auto">
-          <li _ngcontent-iuq-c91 className="nav-item active">
-            <button _ngcontent-iuq-c91 className="btn">
-              <a _ngcontent-iuq-c91 href="#" className="nav-link">Wishlist <i _ngcontent-iuq-c91 className="fa fa-heart" /></a>
-            </button>
-          </li>
-          <li _ngcontent-iuq-c91 className="nav-item mr-auto ml-auto">
-            <button _ngcontent-iuq-c91 className="btn">
-              <a _ngcontent-iuq-c91 href="#" className="nav-link">Cart <i _ngcontent-iuq-c91 aria-hidden="true" className="fa fa-shopping-cart" /></a>
-            </button>
-          </li>
-        </ul> */}
-      </div>
-    </nav>
-  );
+class CollegeDashboard extends Component {
+	render() {
+		return (
+			<>
+				<Grid container>
+					<Grid item xs={12}>
+						<NavBar />
+					</Grid>
+					<Grid item xs={12}>
+						{" "}
+						<div className="container">
+							<Grid container spacing={3}>
+								<Grid className="dashboard_text text" item xs={6}>
+									<h1 style={{ color: "black" }}>ABC College of PQR</h1>
+									<p>
+										Lorem Ipsum is simply dummy text of the printing and
+										typesetting industry. Lorem Ipsum has been the industry's
+										standard dummy text ever since the 1500s, when an unknown
+										printer took a galley of type and scrambled it to make a
+										type specimen book.
+									</p>
+								</Grid>
+								<Grid className="dashboard_text img-container" item xs={6}>
+									<CardMedia
+										component="img"
+										alt="Contemplative Reptile"
+										className="img"
+										image="https://caramelit.com/images/Caramel-Horz.png"
+										title="Contemplative Reptile"
+									/>
+								</Grid>
+							</Grid>
+						</div>
+					</Grid>
+					<Grid item xs={12}>
+						<div className="pink-container">
+							<List
+								className="skin-container"
+								component="nav"
+								aria-label="secondary mailbox folders"
+							>
+								<ListItemLink href="#simple-list">
+									<ListItemText primary="Dashboard" />
+								</ListItemLink>
+								<Divider />
+								<ListItemLink href="#simple-list">
+									<ListItemText primary="Our Courses" />
+								</ListItemLink>
+								<Divider />
+								<ListItemLink href="#simple-list">
+									<ListItemText primary="Student" />
+								</ListItemLink>
+								<Divider />
+								<ListItemLink href="#simple-list">
+									<ListItemText primary="Notify Student" />
+								</ListItemLink>
+								<Divider />
+								<ListItemLink href="#simple-list">
+									<ListItemText primary="Account" />
+								</ListItemLink>
+							</List>
+						</div>
+					</Grid>
+					<Grid item xs={12}>
+						<Footer />
+					</Grid>
+				</Grid>
+			</>
+		);
+	}
 }
 
-class Content extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    const user = this.props.user;
-    return (
-      <div>
-        <Navbar />
-        <Test />
-      </div>
-    );
-  }
-}
-
-class Test extends Component {
-  render() {
-    return (
-      <div>
-        <div class="row">
-          <div className="column left" id="sidenav">
-            <p>Welcome</p>
-
-            <hr />
-            <a className="thiner" href="#">
-              Add Course
-            </a>
-            <a className="thiner" href="#">
-              View Your Courses
-            </a>
-          </div>
-          <div className="column right" id="mainbar">
-            <h2>Your Courses</h2>
-            <div className="card-deck">
-              <div className="card">
-                <div>
-                  <img
-                    className="card-img-top"
-                    src={pic}
-                    style={{
-                      width: "50%",
-                      height: "auto",
-                      padding: 15,
-                      borderRadius: "50%",
-                    }}
-                    alt="Card image cap"
-                  />
-                  <span>Students Enrolled:100</span>
-                </div>
-                <div className="card-body">
-                  <h5 className="card-title">Course Title</h5>
-                  <p className="card-text">
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
-                  </p>
-                </div>
-                <div className="card-footer">
-                  {/* <small className="text-muted">Last updated 3 mins ago</small> */}
-                  <Button
-                    className="btn btn-primary"
-                    style={{ marginRight: 10 }}
-                  >
-                    Goto Course
-                  </Button>
-                  <Button className="btn btn-info">SHARE</Button>
-                </div>
-              </div>
-              <div className="card">
-                <div>
-                  <img
-                    className="card-img-top"
-                    src={pic}
-                    style={{
-                      width: "50%",
-                      height: "auto",
-                      padding: 15,
-                      borderRadius: "50%",
-                    }}
-                    alt="Card image cap"
-                  />
-                  <span>Students Enrolled:100</span>
-                </div>
-                <div className="card-body">
-                  <h5 className="card-title">Course Title</h5>
-                  <p className="card-text">
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
-                  </p>
-                </div>
-                <div className="card-footer">
-                  {/* <small className="text-muted">Last updated 3 mins ago</small> */}
-                  <Button
-                    className="btn btn-primary"
-                    style={{ marginRight: 10 }}
-                  >
-                    Goto Course
-                  </Button>
-                  <Button className="btn btn-info">SHARE</Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
-
-export default Content;
+export default CollegeDashboard;

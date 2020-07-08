@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import NavBar from "../common/navbar";
 import Grid from "@material-ui/core/Grid";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -48,21 +48,3 @@ const Dashboard = () => {
 }
 
 export default Dashboard;
-
-/*
-import React, { Component } from "react";
-import NavBar from "../common/navbar";
-import Grid from "@material-ui/core/Grid";
-import CardMedia from "@material-ui/core/CardMedia";
-import Footer from "../common/footer";
-
-class Dashboard extends Component {
-	render() {
-		const user = this.props.location.state;
-		console.log(user);
-		
-	}
-}
-
-export default Dashboard;
-*/

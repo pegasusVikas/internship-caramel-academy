@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import NavBar from "./appbar";
+import NavBar from "../common/navbar";
 import Grid from "@material-ui/core/Grid";
 import CardMedia from "@material-ui/core/CardMedia";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
-import Footer from "./footer";
+import Footer from "../common/footer";
 
 function ListItemLink(props) {
 	return <ListItem button component="a" {...props} />;

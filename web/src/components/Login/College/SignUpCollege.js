@@ -1,9 +1,6 @@
-/* eslint-disable jsx-a11y/no-redundant-roles */
 import React, { Component } from "react";
 import axios from "axios";
-import { Link, Redirect } from "react-router-dom";
-// import "../../components/style.css";
-//import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Redirect } from "react-router-dom";
 
 class SignUpCollege extends Component {
   constructor(props) {

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./login.css";
 import axios from "axios";
 import { Link, Redirect } from "react-router-dom";
+
 class SignInCollege extends Component {
   constructor(props) {
     super(props);
@@ -147,10 +148,5 @@ class SignInCollege extends Component {
     );
   }
 }
-// const SignIn = () => {
-//   return (
-
-//   )
-// }
 
 export default SignInCollege;
