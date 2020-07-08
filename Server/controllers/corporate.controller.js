@@ -26,7 +26,7 @@ module.exports.register = (req, res, next) => {
                     to: req.body.emailAddress,
                     from: 'viswa.es27@gmail.com',
                     subject: 'Registration',
-                    text: 'You have successfully registered as a user at CaramelIT!',
+                    text: 'You have successfully registered as an Organization at CaramelIT!',
                 };
                 sgMail.send(msg);
             } catch (err) {

@@ -136,7 +136,8 @@ router.post('/courses', ctrlCourse.create);
 router.get('/courses', ctrlCourse.read);
 router.put('/courses/:id', ctrlCourse.update);
 router.delete('/courses/:id', ctrlCourse.delete);
-
+router.post('/courses/:userId/:courseId', ctrlCourse.enrol);
+router.post('/courses/instructor/:userId/:courseId', ctrlCourse.teach);
 
 router.post('/courses/upload/lesson', upload.single("lesson"), async(req, res) => {
     console.log('POST ROUTE UPLOAD LESSON');
@@ -166,6 +167,7 @@ router.post('/courses/upload/lesson', upload.single("lesson"), async(req, res) =
         res.status(500).send(err);
     }
 });
+
 router.post('/courses/upload/project', upload.single("project"), async(req, res) => {
     try {
         const project = req.file;
@@ -193,6 +195,7 @@ router.post('/courses/upload/project', upload.single("project"), async(req, res)
         res.status(500).send(err);
     }
 });
+
 router.post('/courses/upload/scenario', upload.single("scenario"), async(req, res) => {
     try {
         const scenario = req.file;
@@ -220,6 +223,7 @@ router.post('/courses/upload/scenario', upload.single("scenario"), async(req, re
         res.status(500).send(err);
     }
 });
+
 router.post('/courses/upload/test', upload.single("test"), async(req, res) => {
     try {
         const test = req.file;
