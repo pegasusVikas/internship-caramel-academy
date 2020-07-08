@@ -14,7 +14,7 @@ const Navbar = () => {
               {/* Brand*/}
               <a className="navbar-brand logo1" href="acadamy.html">
                 <img
-                  src="../../../images/caramelacademy.png"
+                  src="../../../public/Caramellogo.png"
                   width="200px"
                   height="70px"
                 />
