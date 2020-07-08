@@ -32,19 +32,22 @@ class SignIn extends Component {
       .then((res) => {
         if (res.data.logged) {
           console.log("logged in");
+          localStorage.setItem("user", JSON.stringify(res.data.user));
           this.setState({
             error: false,
             islogged: true,
-            user: res.data.student,
+            user: res.data.user,
           });
           this.props.user = "student";
           console.log("student");
         } else {
-          console.log("not loggedi in");
+          console.log("not logged in");
           this.setState({ error: true });
         }
       })
       .catch((err) => {
+        console.log("hola");
+        console.log(err.message);
         this.setState({ islogged: false, error: true });
       });
   }
