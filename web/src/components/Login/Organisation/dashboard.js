@@ -17,6 +17,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 import Dashboard1 from './toggle/Dashboard1'
 import OurCourses from './toggle/OurCourses'
+import NotifyStudent from './toggle/NotifyStudent'
 
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
@@ -95,7 +96,7 @@ render() {
                   <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-Dashboard" role="tabpanel" aria-labelledby="v-pills-Dashboard-tab"><Dashboard1/></div>
                     <div class="tab-pane fade" id="v-pills-Course" role="tabpanel" aria-labelledby="v-pills-Course-tab"><OurCourses/></div>
-                    <div class="tab-pane fade" id="v-pills-Student" role="tabpanel" aria-labelledby="v-pills-Student-tab">Messages</div>
+                    <div class="tab-pane fade" id="v-pills-Student" role="tabpanel" aria-labelledby="v-pills-Student-tab"><NotifyStudent/></div>
                     <div class="tab-pane fade" id="v-pills-Notify" role="tabpanel" aria-labelledby="v-pills-Notify-tab">Settings</div>
                     <div class="tab-pane fade" id="v-pills-Account" role="tabpanel" aria-labelledby="v-pills-Account-tab">Settings</div>
                 </div> 
