@@ -18,6 +18,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import Dashboard1 from './toggle/Dashboard1'
 import OurCourses from './toggle/OurCourses'
 import NotifyStudent from './toggle/NotifyStudent'
+import Student from './toggle/Student'
 
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
@@ -47,10 +48,10 @@ class Content extends Component{
   }
 render() {
   const user=this.props.user;
+  console.log(user)
   return (
     <>
     <Grid container>
-    <i className="far fa-user"></i>
           <Grid item xs={12}>
             <NavBar />
           </Grid>
@@ -59,7 +60,8 @@ render() {
             <div className="contained bg-info">
               <Grid container spacing={3}>
                 <Grid className="dasborad_text text" item xs={6}>
-                  <h1>Caramel IT</h1>
+                  <h2><u>Welcome organisation</u>:</h2>
+                  <h1>{user.corporateName}</h1>
                   <p>
                     Lorem Ipsum is simply dummy text of the printing and
                     typesetting industry. Lorem Ipsum has been the industry's
@@ -73,7 +75,7 @@ render() {
                     component="img"
                     alt="Contemplative Reptile"
                     className="img"
-                    image="../../../images/caramelacademy.jpeg"
+                    image="https://caramelit.com/images/Caramel-Horz.png"
                     title="Contemplative Reptile"
                   />
                 </Grid>
@@ -87,8 +89,8 @@ render() {
                   <div class="nav flex-column " id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-Dashboard-tab" data-toggle="pill" href="#v-pills-Dashboard" role="tab" aria-controls="v-pills-Dashboard" aria-selected="true">Dashboard</a>
                     <a class="nav-link" id="v-pills-Course-tab" data-toggle="pill" href="#v-pills-Course" role="tab" aria-controls="v-pills-Course" aria-selected="false">Our Course</a>
-                    <a class="nav-link" id="v-pills-Student-tab" data-toggle="pill" href="#v-pills-Student" role="tab" aria-controls="v-pills-Student" aria-selected="false">Student</a>
-                    <a class="nav-link" id="v-pills-Notify-tab" data-toggle="pill" href="#v-pills-Notify" role="tab" aria-controls="v-pills-Notify" aria-selected="false">Notify Student</a>
+                    <a class="nav-link" id="v-pills-Student-tab" data-toggle="pill" href="#v-pills-Student" role="tab" aria-controls="v-pills-Student" aria-selected="false">Notify Student</a>
+                    <a class="nav-link" id="v-pills-Notify-tab" data-toggle="pill" href="#v-pills-Notify" role="tab" aria-controls="v-pills-Notify" aria-selected="false">Students</a>
                     <a class="nav-link" id="v-pills-Account-tab" data-toggle="pill" href="#v-pills-Account" role="tab" aria-controls="v-pills-Account" aria-selected="false">Account</a>
                   </div>
                 </div>
@@ -97,7 +99,7 @@ render() {
                     <div class="tab-pane fade show active" id="v-pills-Dashboard" role="tabpanel" aria-labelledby="v-pills-Dashboard-tab"><Dashboard1/></div>
                     <div class="tab-pane fade" id="v-pills-Course" role="tabpanel" aria-labelledby="v-pills-Course-tab"><OurCourses/></div>
                     <div class="tab-pane fade" id="v-pills-Student" role="tabpanel" aria-labelledby="v-pills-Student-tab"><NotifyStudent/></div>
-                    <div class="tab-pane fade" id="v-pills-Notify" role="tabpanel" aria-labelledby="v-pills-Notify-tab">Settings</div>
+                    <div class="tab-pane fade" id="v-pills-Notify" role="tabpanel" aria-labelledby="v-pills-Notify-tab"><Student/></div>
                     <div class="tab-pane fade" id="v-pills-Account" role="tabpanel" aria-labelledby="v-pills-Account-tab">Settings</div>
                 </div> 
               
