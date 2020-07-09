@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
+import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import axios from "axios";
 class AddCategory extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class AddCategory extends Component {
   }
   render() {
     return (
-      <div className="admin-dashboard">
+      <div className="admin-dashboard" style={{ height: "100%" }}>
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
           <Link className="navbar-brand" to="/">
             <img
@@ -57,7 +58,7 @@ class AddCategory extends Component {
           className="btn btn-dark"
           style={{ margin: 50 }}
         >
-          Back
+          <div className="btn btn-info"><SkipPreviousIcon /> Back</div>
         </Link>
         <div className="form-group">
           <button
@@ -112,60 +113,58 @@ class AddProgram extends Component {
   }
   render() {
     return (
-      <div
-        className=""
-        style={{
-          fontSize: "1em",
-          marginLeft: 100,
-          marginRight: 100,
-          marginTop: 0,
-          paddingBottom: 75,
-        }}
-      >
-        <form style={{ backgroundColor: "white", padding: 15 }}>
-          <div class="form-group">
-            <label for="title">Title*</label>
-            <input
-              type="text"
-              onChange={this.handleChange}
-              className="form-control"
-              name="title"
-              id="title"
-              placeholder="Course Title"
-              required
-            />
-            {/* <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> */}
+      <div style={{
+        marginLeft: 100,
+        marginRight: 100,
+        marginTop: 0,
+        paddingBottom: 75,
+      }}>
+        <div className="card">
+          <div className="card-body">
+            <form style={{ padding: 15 }}>
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input
+                  type="text"
+                  onChange={this.handleChange}
+                  className="form-control"
+                  name="title"
+                  placeholder="Course Title"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="desc">Description</label>
+                <textarea
+                  className="form-control"
+                  onChange={this.handleChange}
+                  name="description"
+                  id="desc"
+                  placeholder="Description"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                onClick={this.onSubmit}
+                className="btn btn-primary"
+              >
+                Save Category
+              </button>
+              <div class="form-group">
+                <a
+                  href="/lms/admin/viewcategory"
+                  className="btn btn-info form-control"
+                  style={{ marginTop: 25, height: "4em" }}
+                >
+                  View Category
+                </a>
+              </div>
+            </form>
           </div>
-          <div class="form-group">
-            <label for="desc">Description*</label>
-            <textarea
-              className="form-control"
-              onChange={this.handleChange}
-              name="description"
-              id="desc"
-              placeholder="Description"
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            onClick={this.onSubmit}
-            className="btn btn-primary"
-          >
-            Save Category
-          </button>
-          <div class="form-group">
-            <a
-              href="/lms/admin/viewcategory"
-              className="btn btn-info form-control"
-              style={{ marginTop: 25, height: "4em" }}
-            >
-              View Category
-            </a>
-          </div>
-        </form>
+        </div>
       </div>
-    );
+    )
   }
 }
 
@@ -219,102 +218,87 @@ class AddSubProgram extends Component {
   render() {
     return (
       <div
-        className=""
         style={{
-          fontSize: "1em",
           marginLeft: 100,
           marginRight: 100,
           marginTop: 0,
           paddingBottom: 75,
         }}
       >
-        <form style={{ backgroundColor: "white", padding: 15 }}>
-          <div class="form-group">
-            <label for="title">Title*</label>
-            <input
-              type="text"
-              className="form-control"
-              onChange={this.handleChange}
-              name="title"
-              id="title"
-              placeholder="Course Title"
-              required
-            />
-            {/* <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> */}
-          </div>
-          {/* <div class="form-group">
-                <label for="description">Description*</label>
-                <textarea className="form-control" id="description" onChange={this.handleChange} name="description" placeholder="Description" required />
-            </div> */}
-          <div class="form-group">
-            <label for="desc">Description*</label>
-            <textarea
-              className="form-control"
-              onChange={this.handleChange}
-              name="description"
-              id="desc"
-              placeholder="Description"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Select Category*</label>
-            <select
-              className="form-control"
-              id="category"
-              placeholder="Description"
-              name="catId"
-              required
-              onChange={this.handleChange}
-            >
-              <option value="" selected disabled hidden>
-                Select Category
-              </option>
-              {this.state.categories.map((CATEGORY, i) => {
-                return (
-                  <option key={i} value={CATEGORY._id}>
-                    {CATEGORY.title}
+        <div className="card">
+          <div className="card-body">
+            <form style={{ backgroundColor: "white", padding: 15 }}>
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  onChange={this.handleChange}
+                  name="title"
+                  placeholder="Course Title"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="desc">Description</label>
+                <textarea
+                  className="form-control"
+                  onChange={this.handleChange}
+                  name="description"
+                  id="desc"
+                  placeholder="Description"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Select Category</label>
+                <select
+                  className="form-control"
+                  id="category"
+                  placeholder="Description"
+                  name="catId"
+                  required
+                  onChange={this.handleChange}
+                >
+                  <option value="" selected disabled hidden>
+                    Select Category
                   </option>
-                );
-              })}
-            </select>
-          </div>
-          <button
-            type="submit"
-            className="btn btn-primary"
-            onClick={this.onSubmit}
-          >
-            Save Sub Category
-          </button>
+                  {this.state.categories.map((CATEGORY, i) => {
+                    return (
+                      <option key={i} value={CATEGORY._id}>
+                        {CATEGORY.title}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+              <button
+                type="submit"
+                className="btn btn-primary"
+                onClick={this.onSubmit}
+              >
+                Save Sub Category
+              </button>
 
-          <div class="form-group">
-            <a
-              href="/lms/admin/viewcategory"
-              className="btn btn-info form-control"
-              style={{
-                marginTop: 25,
-                height: "4em",
-                verticalAlign: "text-bottom",
-              }}
-            >
-              View Category
-            </a>
+              <div class="form-group">
+                <a
+                  href="/lms/admin/viewcategory"
+                  className="btn btn-info form-control"
+                  style={{
+                    marginTop: 25,
+                    height: "4em",
+                    verticalAlign: "text-bottom",
+                  }}
+                >
+                  View Category
+                </a>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
     );
   }
 }
-// class Option extends Component{
-
-//     render(){
-//         const {title,_id} =this.props.category;
-//         return(
-//             <option value={_id}>
-//                 {title}
-//             </option>
-//         )
-//     }
-// }
 
 export default AddCategory;

@@ -176,61 +176,61 @@ export default class CourseAssessment extends Component {
         {this.state.step == 1 && (
           <div class="row container-fluid">
             <div class="container col-md-4" style={{ alignContent: "center" }}>
-              <br />
-              <h3 style={{ fontWeight: "bold" }}> Create Course Test</h3>
-              <form onSubmit={this.onSubmit}>
-                <div class="level">
-                  <p id="heading"> Select Course</p>
-                  <select
-                    class="form-control"
-                    id="sel1"
-                    name="course"
-                    value={this.state.course}
-                    onChange={this.handleChange}
-                  >
-                    <option>Javascript</option>
-                    <option>Core UI</option>
-                    <option>HTML</option>
-                    <option>CSS</option>
-                    <option>Python</option>
-                  </select>
-                </div>
+              <div className="card">
+                <div className="card-header bg-dark text-white"><strong>Create Course Test</strong></div>
+                <div className="card-body">
+                  <form onSubmit={this.onSubmit}>
+                    <div class="level">
+                      <p id="heading"> Select Course</p>
+                      <select
+                        class="form-control"
+                        id="sel1"
+                        name="course"
+                        value={this.state.course}
+                        onChange={this.handleChange}
+                      >
+                        <option>Javascript</option>
+                        <option>Core UI</option>
+                        <option>HTML</option>
+                        <option>CSS</option>
+                        <option>Python</option>
+                      </select>
+                    </div>
 
-                <div class="level">
-                  <p id="heading"> Select Difficulty</p>
-                  <select
-                    class="form-control"
-                    id="sel3"
-                    value={this.state.difficulty}
-                    onChange={this.handleChange}
-                    name="difficulty"
-                  >
-                    <option>Beginner</option>
-                    <option>Intermediate</option>
-                    <option>Expert</option>
-                  </select>
-                </div>
-                <div class="level">
-                  <p id="heading"> Select Duration</p>
-                  <select
-                    class="form-control"
-                    name="duration"
-                    value={this.state.duration}
-                    onChange={this.handleChange}
-                  >
-                    <option>60 Minutes</option>
-                    <option>90 Minutes</option>
-                    <option>120 Minutes</option>
-                  </select>
-                </div>
+                    <div class="level">
+                      <p id="heading"> Select Difficulty</p>
+                      <select
+                        class="form-control"
+                        id="sel3"
+                        value={this.state.difficulty}
+                        onChange={this.handleChange}
+                        name="difficulty"
+                      >
+                        <option>Beginner</option>
+                        <option>Intermediate</option>
+                        <option>Expert</option>
+                      </select>
+                    </div>
+                    <div class="level">
+                      <p id="heading"> Select Duration</p>
+                      <select
+                        class="form-control"
+                        name="duration"
+                        value={this.state.duration}
+                        onChange={this.handleChange}
+                      >
+                        <option>60 Minutes</option>
+                        <option>90 Minutes</option>
+                        <option>120 Minutes</option>
+                      </select>
+                    </div>
 
-                <button type="submit" class="btn btn-sm btn-primary">
-                  {" "}
-                  Generate Questions
-                </button>
-                <br />
-                <br />
-              </form>
+                    <button type="submit" className="btn btn-primary" style={{ display: "block", margin: "auto" }}>
+                      Generate Questions
+                    </button>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
         )}

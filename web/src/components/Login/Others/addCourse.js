@@ -225,7 +225,6 @@ class AddCourse extends Component {
                 <input
                   type="text"
                   className="form-control"
-                  id="title"
                   name="title"
                   placeholder="Course Title"
                   value={this.state.title}

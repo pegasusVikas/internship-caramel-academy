@@ -1,14 +1,9 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
-import ReactDOM from "react-dom";
 import "./dashboard.css";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import AddCategory from "./addCategory";
-import AddCourse from "./addCourse";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
+
 import Grid from "@material-ui/core/Grid";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
@@ -24,21 +19,11 @@ class Dashboard extends Component {
     this.manage = this.manage.bind(this);
   }
   manage() {
-    //  if(this.state.manage)
-    //     this.setState({manage:false});
-    //    else  this.setState({manage:true});
     this.setState({ manage: !this.state.manage });
   }
   render() {
-    // const user=this.props.location.state;
+    const user = JSON.parse(localStorage.getItem("admin"));
 
-    console.log("state", this.props.location.state);
-    const user = {
-      adminName: "John",
-      emailAddress: "a@a.c",
-    };
-    // if(user==null) return(<Redirect to="/lms/admin/admin_login" />);
-    // else
     return (
       <div>
         <nav className="navbar navbar-expand-sm bg-info navbar-info">
