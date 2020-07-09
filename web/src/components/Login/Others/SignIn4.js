@@ -28,22 +28,23 @@ class SignIn extends Component{
     e.preventDefault();
     axios.post("http://localhost:3004/api/admin-authenticate",this.state).
     //axios.post("http://103.210.75.167:3004/api/admin-authenticate",this.state).
-            then(res=>{
-                if(res.data.logged)
-                {
-                    // this.setState({logged:true});
-                    console.log('logged in');
-                    // console.log(res.data);
-                    this.setState({error:false, islogged:true,user:res.data.admin});
-                    // console.log(this.state.user);
-                }
-                  else{
-                     console.log('not loggedi in');
-                     this.setState({error:true});
-                  } 
+        then(res=>{
+            if(res.data.logged)
+            {
+                localStorage.setItem("admin", JSON.stringify(res.data.admin));
+                // this.setState({logged:true});
+                console.log('logged in');
+                // console.log(res.data);
+                this.setState({error:false, islogged:true,user:res.data.admin});
+                // console.log(this.state.user);
+            }
+              else{
+                  console.log('not loggedi in');
+                  this.setState({error:true});
+              } 
 
-            }).catch(err=>{console.log(err); this.setState({error:true})});
-                    
+        }).catch(err=>{console.log(err); this.setState({error:true})});
+                
     }
   render(){
     return(
@@ -59,7 +60,7 @@ class SignIn extends Component{
       <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div className="card card-signin my-5">
           <div className="card-body">
-            <h2 className="card-title text-center"><b>Sign In As An Admin</b></h2>
+            <h2 className="card-title text-center"><b>Sign In as an Admin</b></h2>
             <center>
               <span style={{color: 'red'}} /> <br /><br />
             </center>
@@ -73,7 +74,7 @@ class SignIn extends Component{
                 <label htmlFor="inputPassword">Password</label>
               </div>
  
-        <input type="submit" className="btn btn-lg btn-primary btn-block text-uppercase" value="Sigin" /> 
+        <input type="submit" className="btn btn-lg btn-primary btn-block text-uppercase" value="Sign In" /> 
         {this.state.error==true?<p style={{margin:5}}>Invalid Email or Password</p>:null}
         <hr className="my-4" />  
               <Link to="/lms/admin/register" style={{fontSize: '20px'}}>Sign Up</Link><Link className="float-right" to="/lms/user/forgot-password" style={{fontSize: '20px'}}>Forgot password?</Link>

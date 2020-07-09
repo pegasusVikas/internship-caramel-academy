@@ -234,113 +234,94 @@ export default class SkillAssessment extends Component {
   render() {
     return (
       <div style={{ backgroundColor: "" }}>
-        {/* <Header /> */}
         {this.state.step == 1 && (
           <div class="row container-fluid">
             <div class="container col-md-4" style={{ alignContent: "center" }}>
               <br />
-              <h3 style={{ fontWeight: "bold" }}> Create Skill Test</h3>
-              <div
-                style={{
-                  border: "1px solid back",
-                  borderRadius: "5px",
-                  //   backgroundColor: "white",
-                }}
-              >
-                <form onSubmit={this.onSubmit}>
-                  {/* <div>
-                  <p id="heading"> Enter User ID</p>
-                  <input
-                    class="form-control"
-                    type="text"
-                    name="userid"
-                    value={this.state.userid}
-                    onChange={this.handleChange}
-                  />
-                </div> */}
+              <div className="card">
+                <div className="card-header bg-dark text-white"><strong>Create Skill Test</strong></div>
+                <div className="card-body">
+                  <form onSubmit={this.onSubmit}>
+                    {this.state.selectedSkills.map((skill, i) => (
+                      <p>{skill.name}</p>
+                    ))}
+                    <div class="level">
+                      <p id="heading"> Select Skills</p>
+                      <Multiselect
+                        options={this.state.skills} // Options to display in the dropdown
+                        selectedValues={this.state.selectedSkills} // Preselected value to persist in dropdown
+                        onSelect={this.onSelect} // Function will trigger on select event
+                        onRemove={this.onRemove} // Function will trigger on remove event
+                        selectionLimit="5"
+                        displayValue="name" // Property name to display in the dropdown options
+                      />
+                    </div>
 
-                  {this.state.selectedSkills.map((skill, i) => (
-                    <p>{skill.name}</p>
-                  ))}
-                  <div class="level">
-                    <p id="heading"> Select Skills</p>
-                    <Multiselect
-                      options={this.state.skills} // Options to display in the dropdown
-                      selectedValues={this.state.selectedSkills} // Preselected value to persist in dropdown
-                      onSelect={this.onSelect} // Function will trigger on select event
-                      onRemove={this.onRemove} // Function will trigger on remove event
-                      selectionLimit="5"
-                      displayValue="name" // Property name to display in the dropdown options
-                    />
-                  </div>
+                    <div class="level">
+                      <p id="heading"> Select Difficulty</p>
+                      <select
+                        class="form-control"
+                        id="sel3"
+                        value={this.state.difficulty}
+                        onChange={this.handleChange}
+                        name="difficulty"
+                      >
+                        <option>Beginner</option>
+                        <option>Intermediate</option>
+                        <option>Expert</option>
+                      </select>
+                    </div>
+                    <div class="level">
+                      <p id="heading"> Number of Questions</p>
+                      <select
+                        class="form-control"
+                        id="sel3"
+                        value={this.state.no_of_questions}
+                        onChange={this.handleChange}
+                        name="no_of_questions"
+                      >
+                        <option>15</option>
+                        <option>30</option>
+                        <option>45</option>
+                        <option>60</option>
+                      </select>
+                    </div>
+                    <div class="level">
+                      <p id="heading"> Select Category</p>
+                      <select
+                        class="form-control"
+                        id="sel3"
+                        value={this.state.category}
+                        onChange={this.handleChange}
+                        name="category"
+                      >
+                        <option>IT Professional</option>
+                        <option>IT Student</option>
+                        <option>IT Non Professional</option>
+                      </select>
+                    </div>
+                    <div class="level">
+                      <p id="heading"> Select Proficiency</p>
+                      <select
+                        class="form-control"
+                        id="sel3"
+                        value={this.state.prof}
+                        onChange={this.handleChange}
+                        name="prof"
+                      >
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
 
-                  <div class="level">
-                    <p id="heading"> Select Difficulty</p>
-                    <select
-                      class="form-control"
-                      id="sel3"
-                      value={this.state.difficulty}
-                      onChange={this.handleChange}
-                      name="difficulty"
-                    >
-                      <option>Beginner</option>
-                      <option>Intermediate</option>
-                      <option>Expert</option>
-                    </select>
-                  </div>
-                  <div class="level">
-                    <p id="heading"> Number of Questions</p>
-                    <select
-                      class="form-control"
-                      id="sel3"
-                      value={this.state.no_of_questions}
-                      onChange={this.handleChange}
-                      name="no_of_questions"
-                    >
-                      <option>15</option>
-                      <option>30</option>
-                      <option>45</option>
-                      <option>60</option>
-                    </select>
-                  </div>
-                  <div class="level">
-                    <p id="heading"> Select Category</p>
-                    <select
-                      class="form-control"
-                      id="sel3"
-                      value={this.state.category}
-                      onChange={this.handleChange}
-                      name="category"
-                    >
-                      <option>IT Professional</option>
-                      <option>IT Student</option>
-                      <option>IT Non Professional</option>
-                    </select>
-                  </div>
-                  <div class="level">
-                    <p id="heading"> Select Proficiency</p>
-                    <select
-                      class="form-control"
-                      id="sel3"
-                      value={this.state.prof}
-                      onChange={this.handleChange}
-                      name="prof"
-                    >
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                  </div>
-
-                  <button type="submit" class="btn btn-sm btn-primary">
-                    {" "}
-                    Generate Questions
-                  </button>
-                  <br />
-                  <br />
-                </form>
+                    <button type="submit" class="btn btn-primary" style={{ display: "block", margin: "auto" }}>
+                      Generate Questions
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>

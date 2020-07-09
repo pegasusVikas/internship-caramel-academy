@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import "./questionBank.css";
-// import Header from "./header.js";
-// import Footer from "./footer.js";
 
 export default class QuestionBank extends Component {
   constructor(props) {
@@ -172,336 +169,295 @@ export default class QuestionBank extends Component {
 
   render() {
     return (
-      <div>
-        {/* <Header /> */}
-        {/* <h1>Add Course Component</h1> */}
-        <div class="row container-fluid">
-          <div class="col-md-4">
+      <div style={{padding: "1%" }}>
+        <div className="row container-fluid">
+          <div className="col-md-4">
             <div>
-              <h3>Upload questions in bulk</h3>
-              <p>
-                Use the form below to upload a list of questions. Click{" "}
-                <a
-                  href="/questions/template"
-                  //   href="#"
-                  onClick={this.onClickTemplate}
-                >
-                  here
-                </a>{" "}
-                for an example template.
-              </p>
-              <form
-                // action="/questions/upload"
-                // method="POST"
-                encType="multipart/form-data"
-                //onSumbit={this.onUpload}
-              >
-                <input
-                  type="file"
-                  name="file"
-                  accept="*.csv"
-                  onChange={this.onSelect}
-                />
-                <br />
-                <br />
-                <input
-                  type="submit"
-                  onClick={this.onUpload}
-                  value="Upload Questions"
-                />
-              </form>
+              <div className="card">
+                <div className="card-header bg-dark text-white"><strong>Upload questions in bulk</strong></div>
+                <div className="card-body">
+                  <p>
+                    Use the form below to upload a list of questions. Click{" "}
+                    <a
+                      href="/questions/template"
+                      //   href="#"
+                      onClick={this.onClickTemplate}
+                    >
+                      here
+                    </a>{" "}
+                    for an example template.
+                  </p>
+                  <form encType="multipart/form-data">
+                    <input
+                      type="file"
+                      name="file"
+                      accept="*.csv"
+                      onChange={this.onSelect}
+                    />
+                    <br />
+                    <br />
+                    <button
+                      className="btn btn-info"
+                      type="submit"
+                      onClick={this.onUpload}
+                    > Upload Questions </button>
+                  </form>
+                </div>
+              </div>
             </div>
             <br />
-            <h3> Add Question Manually</h3>
-            <form onSubmit={this.onSubmit}>
-              <div class="level">
-                <p id="heading"> Select Course Name</p>
-                <select
-                  class="form-control"
-                  id="sel1"
-                  name="question_course"
-                  value={this.state.question_course}
-                  onChange={this.handleChange}
-                >
-                  <option>Core UI</option>
-                  <option>Javascript</option>
-                  <option>HTML</option>
-                  <option>CSS</option>
-                  <option>Python</option>
-                </select>
-              </div>
-
-              <div class="level">
-                <p id="heading"> Select Module</p>
-                <select
-                  class="form-control"
-                  id="sel1"
-                  name="question_module"
-                  value={this.state.question_module}
-                  onChange={this.handleChange}
-                >
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-
-              <div class="level">
-                <p id="heading"> Select Topic(s)</p>
-                <select
-                  class="form-control"
-                  id="sel2"
-                  value={this.state.question_topic}
-                  // onChange={this.onChangeQuestionTopic}
-                  onChange={this.handleChange}
-                  name="question_topic"
-                >
-                  <option>Javascript</option>
-                  <option>HTML</option>
-                  <option>CSS</option>
-                  <option>Python</option>
-                  <option>Generic</option>
-                </select>
-              </div>
-
-              <div class="level">
-                <p id="heading"> Select Level</p>
-                <select
-                  class="form-control"
-                  id="sel3"
-                  value={this.state.question_level}
-                  // onChange={this.onChangeQuestionLevel}
-                  onChange={this.handleChange}
-                  name="question_level"
-                >
-                  <option>Beginner</option>
-                  <option>Intermediate</option>
-                  <option>Expert</option>
-                </select>
-              </div>
-
-              <div class="level">
-                <p id="heading"> Score</p>
-                <input
-                  type="number"
-                  class="form-control"
-                  id="sel3"
-                  value={this.state.score}
-                  // onChange={this.onChangeQuestionLevel}
-                  onChange={this.handleChange}
-                  name="score"
-                />
-              </div>
-
-              <div class="questype">
-                <p id="heading"> Add Question Type</p>
-                <select
-                  class="form-control"
-                  id="ques-type"
-                  value={this.state.question_type}
-                  // onChange={this.onChangeQuestionType}
-                  onChange={this.handleChange}
-                  name="question_type"
-                >
-                  <option
-                    placeholder="eg. mcq, subjective, true/false"
-                    value=" "
-                  ></option>
-                  <option value="mcq">MCQ</option>
-                  <option value="subjective">Subjective - 2</option>
-                  <option value="ts">Technical Sceanrio</option>
-                  <option value="truefalse">True/False - 1</option>
-                </select>
-              </div>
-
-              {this.state.question_type === "mcq" && (
-                <div>
-                  <div className="form-group">
-                    <p id="heading">Question</p>
-                    <textarea
-                      name="question"
-                      value={this.state.question}
+            <div className="card">
+              <div className="card-header bg-dark text-white"><strong>Add Question Manually</strong></div>
+              <div className="card-body">
+                <form onSubmit={this.onSubmit}>
+                  <div class="level">
+                    <p id="heading"> Select Course Name</p>
+                    <select
+                      class="form-control"
+                      id="sel1"
+                      name="question_course"
+                      value={this.state.question_course}
                       onChange={this.handleChange}
-                    ></textarea>
-                    <br />
-                    {/* <label id="heading">Options:</label>
-                    <ul>
-                      {this.state.options.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul> */}
-                    <label>Option 1:</label>
-                    <input
-                      type="text"
-                      name="option1"
-                      className="form-control"
-                      value={this.state.option1}
-                      onChange={this.handleChange}
-                    />
-                    <div className="form-group">
-                      <input
-                        type="checkbox"
-                        name="isOption1"
-                        // value={this.state.isOption1}
-                        onChange={this.handleChange}
-                        checked={this.state.isOption1}
-                      />
-                      <label>Is Option 1 correct?</label>
-                    </div>
-                    <label>Option 2:</label>
-                    <input
-                      type="text"
-                      name="option2"
-                      className="form-control"
-                      value={this.state.option2}
-                      onChange={this.handleChange}
-                    />
-                    <div className="form-group">
-                      <input
-                        type="checkbox"
-                        name="isOption2"
-                        // value={this.state.isOption1}
-                        onChange={this.handleChange}
-                        checked={this.state.isOption2}
-                      />
-                      <label>Is Option 2 correct?</label>
-                    </div>
-                    <label>Option 3:</label>
-                    <input
-                      type="text"
-                      name="option3"
-                      className="form-control"
-                      value={this.state.option3}
-                      onChange={this.handleChange}
-                    />
-                    <div className="form-group">
-                      <input
-                        type="checkbox"
-                        name="isOption3"
-                        // value={this.state.isOption1}
-                        onChange={this.handleChange}
-                        checked={this.state.isOption3}
-                      />
-                      <label>Is Option 3 correct?</label>
-                    </div>
-                    <label>Option 4:</label>
-                    <input
-                      type="text"
-                      name="option4"
-                      className="form-control"
-                      value={this.state.option4}
-                      onChange={this.handleChange}
-                    />
-                    <div className="form-group">
-                      <input
-                        type="checkbox"
-                        name="isOption4"
-                        // value={this.state.isOption1}
-                        onChange={this.handleChange}
-                        checked={this.state.isOption4}
-                      />
-                      <label>Is Option 4 correct?</label>
-                    </div>
-                    <br />
-                    {/* <button
-                      type="button"
-                      className="btn btn-primary"
-                      onClick={this.onAddOption}
                     >
-                      Add
-                    </button> */}
+                      <option>Core UI</option>
+                      <option>Javascript</option>
+                      <option>HTML</option>
+                      <option>CSS</option>
+                      <option>Python</option>
+                    </select>
                   </div>
-                  {/* <p id="heading">Answer</p>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="answer"
-                    value={this.state.answer}
-                    // onChange={this.onChangeAnswer}
-                    onChange={this.handleChange}
-                  /> */}
-                </div>
-              )}
-              {this.state.question_type === "subjective" && (
-                <div>
-                  <p id="heading">Question</p>
-                  <textarea
-                    value={this.state.question}
-                    name="question"
-                    onChange={this.handleChange}
-                  ></textarea>
 
-                  <p id="heading">Answer</p>
-                  <textarea
-                    value={this.state.answer}
-                    name="answer"
-                    // onChange={this.onChangeAnswer}
-                    onChange={this.handleChange}
-                  ></textarea>
-                </div>
-              )}
-              {this.state.question_type === "truefalse" && (
-                <div>
-                  <p id="heading">Question</p>
-                  <textarea
-                    rows="3"
-                    //    style="width:100%"
-                    style={{ width: "100%" }}
-                    value={this.state.question}
-                    name="question"
-                    onChange={this.handleChange}
-                  ></textarea>
-                  <br />
-                  <br />
-                  <input
-                    type="radio"
-                    id="false"
-                    name="answer"
-                    value="true"
-                    checked={this.state.answer === "true"}
-                    onChange={this.handleChange}
-                  />
-                  <label for="true">True</label>
-                  <br />
-                  <input
-                    type="radio"
-                    id="false"
-                    name="answer"
-                    value="false"
-                    checked={this.state.answer === "false"}
-                    onChange={this.handleChange}
-                  />
-                  <label for="false">False</label>
-                  <br />
-                </div>
-              )}
+                  <div class="level">
+                    <p id="heading"> Select Module</p>
+                    <select
+                      class="form-control"
+                      id="sel1"
+                      name="question_module"
+                      value={this.state.question_module}
+                      onChange={this.handleChange}
+                    >
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
 
-              {/* <div class="time">
-                <p id="heading">Enter Time:</p>
-                <input
-                  type="time"
-                  onChange={this.onChangeTime}
-                  value={this.state.time}
-                />
-              </div> */}
+                  <div class="level">
+                    <p id="heading"> Select Topic(s)</p>
+                    <select
+                      class="form-control"
+                      id="sel2"
+                      value={this.state.question_topic}
+                      onChange={this.handleChange}
+                      name="question_topic"
+                    >
+                      <option>Javascript</option>
+                      <option>HTML</option>
+                      <option>CSS</option>
+                      <option>Python</option>
+                      <option>Generic</option>
+                    </select>
+                  </div>
 
-              <button
-                type="submit"
-                class="btn btn-default btn-sm"
-                id="add-button"
-              >
-                Submit Question
-              </button>
-            </form>
+                  <div class="level">
+                    <p id="heading"> Select Level</p>
+                    <select
+                      class="form-control"
+                      id="sel3"
+                      value={this.state.question_level}
+                      onChange={this.handleChange}
+                      name="question_level"
+                    >
+                      <option>Beginner</option>
+                      <option>Intermediate</option>
+                      <option>Expert</option>
+                    </select>
+                  </div>
+
+                  <div class="level">
+                    <p id="heading"> Score</p>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="sel3"
+                      value={this.state.score}
+                      onChange={this.handleChange}
+                      name="score"
+                    />
+                  </div>
+
+                  <div class="questype">
+                    <p id="heading"> Add Question Type</p>
+                    <select
+                      class="form-control"
+                      id="ques-type"
+                      value={this.state.question_type}
+                      onChange={this.handleChange}
+                      name="question_type"
+                    >
+                      <option
+                        placeholder="eg. mcq, subjective, true/false"
+                        value=" "
+                      ></option>
+                      <option value="mcq">MCQ</option>
+                      <option value="subjective">Subjective - 2</option>
+                      <option value="ts">Technical Sceanrio</option>
+                      <option value="truefalse">True/False - 1</option>
+                    </select>
+                  </div>
+
+                  {this.state.question_type === "mcq" && (
+                    <div>
+                      <div className="form-group">
+                        <p id="heading">Question</p>
+                        <textarea
+                          name="question"
+                          value={this.state.question}
+                          onChange={this.handleChange}
+                        ></textarea>
+                        <br />
+                        <label>Option 1:</label>
+                        <input
+                          type="text"
+                          name="option1"
+                          className="form-control"
+                          value={this.state.option1}
+                          onChange={this.handleChange}
+                        />
+                        <div className="form-group">
+                          <input
+                            type="checkbox"
+                            name="isOption1"
+                            onChange={this.handleChange}
+                            checked={this.state.isOption1}
+                          />
+                          <label>Is Option 1 correct?</label>
+                        </div>
+                        <label>Option 2:</label>
+                        <input
+                          type="text"
+                          name="option2"
+                          className="form-control"
+                          value={this.state.option2}
+                          onChange={this.handleChange}
+                        />
+                        <div className="form-group">
+                          <input
+                            type="checkbox"
+                            name="isOption2"
+                            onChange={this.handleChange}
+                            checked={this.state.isOption2}
+                          />
+                          <label>Is Option 2 correct?</label>
+                        </div>
+                        <label>Option 3:</label>
+                        <input
+                          type="text"
+                          name="option3"
+                          className="form-control"
+                          value={this.state.option3}
+                          onChange={this.handleChange}
+                        />
+                        <div className="form-group">
+                          <input
+                            type="checkbox"
+                            name="isOption3"
+                            onChange={this.handleChange}
+                            checked={this.state.isOption3}
+                          />
+                          <label>Is Option 3 correct?</label>
+                        </div>
+                        <label>Option 4:</label>
+                        <input
+                          type="text"
+                          name="option4"
+                          className="form-control"
+                          value={this.state.option4}
+                          onChange={this.handleChange}
+                        />
+                        <div className="form-group">
+                          <input
+                            type="checkbox"
+                            name="isOption4"
+                            onChange={this.handleChange}
+                            checked={this.state.isOption4}
+                          />
+                          <label>Is Option 4 correct?</label>
+                        </div>
+                        <br />
+                      </div>
+                    </div>
+                  )}
+                  {this.state.question_type === "subjective" && (
+                    <div>
+                      <p id="heading">Question</p>
+                      <textarea
+                        value={this.state.question}
+                        name="question"
+                        onChange={this.handleChange}
+                      ></textarea>
+
+                      <p id="heading">Answer</p>
+                      <textarea
+                        value={this.state.answer}
+                        name="answer"
+                        onChange={this.handleChange}
+                      ></textarea>
+                    </div>
+                  )}
+                  {this.state.question_type === "truefalse" && (
+                    <div>
+                      <p id="heading">Question</p>
+                      <textarea
+                        rows="3"
+                        style={{ width: "100%" }}
+                        value={this.state.question}
+                        name="question"
+                        onChange={this.handleChange}
+                      ></textarea>
+                      <br />
+                      <br />
+                      <input
+                        type="radio"
+                        id="false"
+                        name="answer"
+                        value="true"
+                        checked={this.state.answer === "true"}
+                        onChange={this.handleChange}
+                      />
+                      <label for="true">True</label>
+                      <br />
+                      <input
+                        type="radio"
+                        id="false"
+                        name="answer"
+                        value="false"
+                        checked={this.state.answer === "false"}
+                        onChange={this.handleChange}
+                      />
+                      <label for="false">False</label>
+                      <br />
+                    </div>
+                  )}
+                  <button
+                    type="submit"
+                    className="btn btn-info"
+                    style={{ display: "block", margin: "auto" }}
+                  >
+                    Submit Question
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
-          <div class="col-md-8">
-            <div class="container">
-              <div class="table-responsive-sm">
-                <h3> List of Questions</h3>
-                <table class="table table-hover">
-                  <tr id="table-head">
+          <div className="col-md-8">
+            <div className="container overflow-auto" style={{ maxHeight: "1000px" }}>
+              <div className="table-responsive-sm">
+                <div className="card-header bg-dark text-white"><h3>List of Questions</h3></div>
+                <table className="table table-bordered">
+                  <tr>
                     <th>QUESTION COURSE</th>
                     <th>QUESTION MODULE</th>
                     <th>QUESTION TOPIC</th>
@@ -510,7 +466,6 @@ export default class QuestionBank extends Component {
                     <th>SCORE</th>
                     <th>QUESTION</th>
                     <th>ANSWER</th>
-
                     <th></th>
                   </tr>
                   <tbody>
@@ -539,8 +494,7 @@ export default class QuestionBank extends Component {
                               {currentQuestion.isOption1 === true && (
                                 <li
                                   style={{
-                                    background: "#75ff70",
-                                    // listStyleType: "none",
+                                    background: "#75ff70"
                                   }}
                                 >
                                   {currentQuestion.option1}
@@ -549,8 +503,7 @@ export default class QuestionBank extends Component {
                               {currentQuestion.isOption1 === false && (
                                 <li
                                   style={{
-                                    backgroundColor: "#ff525d",
-                                    // listStyleType: "none",
+                                    backgroundColor: "#ff525d"
                                   }}
                                 >
                                   {currentQuestion.option1}
@@ -560,8 +513,7 @@ export default class QuestionBank extends Component {
                               {currentQuestion.isOption2 === true && (
                                 <li
                                   style={{
-                                    background: "#75ff70",
-                                    // listStyleType: "none",
+                                    background: "#75ff70"
                                   }}
                                 >
                                   {currentQuestion.option2}
@@ -570,9 +522,7 @@ export default class QuestionBank extends Component {
                               {currentQuestion.isOption2 === false && (
                                 <li
                                   style={{
-                                    backgroundColor: "#ff525d",
-
-                                    // listStyleType: "none",
+                                    backgroundColor: "#ff525d"
                                   }}
                                 >
                                   {currentQuestion.option2}
@@ -582,8 +532,7 @@ export default class QuestionBank extends Component {
                               {currentQuestion.isOption3 === true && (
                                 <li
                                   style={{
-                                    background: "#75ff70",
-                                    // listStyleType: "none",
+                                    background: "#75ff70"
                                   }}
                                 >
                                   {currentQuestion.option3}
@@ -592,8 +541,7 @@ export default class QuestionBank extends Component {
                               {currentQuestion.isOption3 === false && (
                                 <li
                                   style={{
-                                    backgroundColor: "#ff525d",
-                                    // listStyleType: "none",
+                                    backgroundColor: "#ff525d"
                                   }}
                                 >
                                   {currentQuestion.option3}
@@ -603,8 +551,7 @@ export default class QuestionBank extends Component {
                               {currentQuestion.isOption4 === true && (
                                 <li
                                   style={{
-                                    background: "#75ff70",
-                                    // listStyleType: "none",
+                                    background: "#75ff70"
                                   }}
                                 >
                                   {currentQuestion.option4}
@@ -613,8 +560,7 @@ export default class QuestionBank extends Component {
                               {currentQuestion.isOption4 === false && (
                                 <li
                                   style={{
-                                    backgroundColor: "#ff525d",
-                                    // listStyleType: "none",
+                                    backgroundColor: "#ff525d"
                                   }}
                                 >
                                   {currentQuestion.option4}
@@ -623,25 +569,7 @@ export default class QuestionBank extends Component {
                             </ol>
                           </td>
                         )}
-
-                        {/* <td>
-                          <Link
-                            to={
-                              "/courses/" +
-                              this.props.match.params.id +
-                              "/edit/" +
-                              currentQuestion._id
-                            }
-                          >
-                            Edit
-                          </Link>
-                        </td> */}
                         <td>
-                          {/* <Link
-                              to={"/delete/" + currentQuestion.question._id}
-                            >
-                              Delete
-                            </Link>  */}
                           <button
                             className="btn btn-danger"
                             onClick={(ev) =>
