@@ -34,12 +34,12 @@ const CourseItem = (props) => {
     return (
         <div className="card">
             <div className="card-header bg-dark">
-                <span className="text-white">{course.title}</span>
+                <span className="text-white" style={{ fontWeight: "bold" }}>{course.title}</span>
             </div>
-            <div className="card-body">
+            <div className="card-body" style={{ backgroundColor: "#ccffff"}}>
                 {course.description}
             </div>
-            <div className="card-footer">
+            <div className="card-footer" style={{ backgroundColor: "#99ffff"}}>
                 <div className={`btn btn-${btn.color}`} onClick={() => handleClick(user, course._id)}>{btn.text}</div>
                 <div className="btn btn-primary" style={{float: "right"}}>View Course</div>
             </div>
