@@ -18,12 +18,11 @@ export default class AdminCoursePage extends Component {
     return (
       <div>
         <Navbar />
-        <div style={{ backgroundColor: "#002333" }}>
+        <div style={{ backgroundColor: "#002333", height: "750px" }}>
+          <h4 style={{ color: "white", marginLeft: "4%", fontWeight: "bold" }}>
+            <span style={{ color: "#1affff" }}>{this.props.course.title} </span>Fundamentals
+          </h4>
           <div style={{ marginLeft: "4%", marginRight: "4%" }}>
-            <h1 style={{ color: "white" }}>
-              {this.props.course.title} Fundamentals
-            </h1>
-            <hr style={{ border: "2px solid #34dbeb" }} />
             <div className="row" style={{ paddingBottom: "4%" }}>
               <div
                 className="col-md-8 col-sm-12"
@@ -39,19 +38,14 @@ export default class AdminCoursePage extends Component {
                 <iframe
                   src="https://onedrive.live.com/embed?cid=1488ABC83D8F1B5E&resid=1488ABC83D8F1B5E%21122&authkey=AOLA8ubRNnNSyFI&em=2"
                   width="100%"
-                  height="100%"
+                  height="700px"
                   frameborder="0"
                   scrolling="no"
+                  style={{ outline: "none" }}
                 ></iframe>
               </div>
-              <div className="col-md-4 col-sm-12" style={{ height: "500px" }}>
-                <table
-                  class="table table-striped"
-                  style={{
-                    // backgroundColor: "red",
-                    color: "white",
-                  }}
-                >
+              <div className="col-md-4 col-sm-12" style={{ height: "720px" }}>
+                <table class="table table-striped" style={{ color: "white" }}>
                   <thead>
                     <h3>15 Lectures (29m 00s)</h3>
                   </thead>
