@@ -5,7 +5,7 @@ const Student = () => {
     return (
         <div className="container-small">
             <div className="row">
-                <div className="col-6 bg-light"><h2>Courses</h2></div>
+                <div className="col-6 bg-light"><h2>Students</h2></div>
             </div>  
             <div className="row">
                 <div className="col-6">

@@ -51,6 +51,9 @@ import AddCategory from "../components/Login/Others/addCategory";
 import ViewCategory from "../components/Login/Others/viewCategory";
 
 import MainConsumer from "../components/Industries/Consumer/mainConsumer";
+
+import MainContact from '../components/contact/ContactPageAcademy/mainContact';
+ 
 // import MainAcademy from '../components/acadamy/mainAcademy';
 // import MainConsortium from '../components/consortium/mainConsortium';
 // import MainAutomative from '../components/Industries/Automotive/mainAutomative';
@@ -121,7 +124,7 @@ import MainConsumer from "../components/Industries/Consumer/mainConsumer";
 // import MainDockers from '../components/Courses/DevOps/Dockers/maindockers';
 // import MainKubernets from '../components/Courses/DevOps/Kubernets/mainKub';
 // import MainCHEF from '../components/Courses/DevOps/CHEF/mainChef';
-// import MainContact from '../components/contact/ContactPageAcademy/mainContact';
+ //import MainContact from '../components/contact/ContactPageAcademy/mainContact';
 // import MainDigitalMar from '../components/Courses/Digital Marketing/DigitalMain/mainDigiMar';
 // import MainFoundationDM from '../components/Courses/Digital Marketing/DMFoundation/mainFounda';
 // import MainExpertMar from '../components/Courses/Digital Marketing/DMExpert/mainExpMark';
@@ -396,6 +399,8 @@ export default class Application extends Component {
             />
           ))}
 
+          <Route path="/nodecontactform/acadamycontact" component={MainContact} />
+
         {/* <Route path="/consortium" component={MainConsortium} />
                 <Route path="/industries/automotive" component={MainAutomative} />
                 <Route path="/industries/communication" component={MainCommunication} />
@@ -464,7 +469,6 @@ export default class Application extends Component {
                 <Route path="/caramelit_new/courses/coursespage//devops" component={MainDevOps} />
                 <Route path="/caramelit_new/courses/coursespage/kubernets" component={MainKubernets} />
                 <Route path="/caramelit_new/courses/coursespage/chef" component={MainCHEF} />
-                <Route path="/nodecontactform/acadamycontact" component={MainContact} />
                 <Route path="/caramelit_new/courses/coursespage//digital" component={MainDigitalMar} />
                 <Route path="/caramelit_new/courses/coursespage/digitalmarketingfoundation" component={MainFoundationDM} />
                 <Route path="/caramelit_new/courses/coursespage/digitalmarketingexpert" component={MainExpertMar} />

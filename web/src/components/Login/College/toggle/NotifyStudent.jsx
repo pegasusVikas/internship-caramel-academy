@@ -6,7 +6,7 @@ const NotifyStudent = () => {
     return (
         <div className="container-small">
             <div className="row">
-                <div className="col-6 bg-light"><h2>Courses</h2></div>
+                <div className="col-6 bg-light"><h2>Notify</h2></div>
             </div>  
             <div className="row">
                 <div className="col-6">
