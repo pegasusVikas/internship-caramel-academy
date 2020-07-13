@@ -6,6 +6,7 @@ import "../Background.css";
 import "../App.css";
 import axios from "axios";
 
+import AddCourse from "../components/AddCourse";
 import MainProgram from "../components/Programs/MainProgram";
 import Main from "../components/Main";
 import MainFrontend from "../components/SubPrograms/UI/MainFrontend";
@@ -45,7 +46,7 @@ import AdminSignup from "../components/Login/Others/SignUp";
 // import Test from './components/test';
 import BackGround from "../Background";
 //import Dashboard from '../components/Student/dashboard';
-import AddCourse from "../components/Login/Others/addCourse";
+//import AddCourse from "../components/Login/Others/addCourse";
 import AddCategory from "../components/Login/Others/addCategory";
 import ViewCategory from "../components/Login/Others/viewCategory";
 

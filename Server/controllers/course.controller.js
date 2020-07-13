@@ -17,7 +17,7 @@ module.exports.create = (req, res, next) => {
 	console.log(
 		req.body.title + " " + req.body.description + " " + req.body.subcategoryId
 	);
-	const mod = require("../data/Module.json");
+	const mod = require("../data/table.json");
 
 	var crs = new Course({
 		title: req.body.title,

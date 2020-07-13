@@ -4,9 +4,10 @@ const cors = require("cors");
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
-//const moduleRoutes = express.Router();
+const path = require('path');
 
 const app = express();
+app.use(express.static(path.join(__dirname, "uploads")));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -21,7 +22,6 @@ app.use((req, res, next) => {
 
 require("./config/config");
 const studRoutes = require("./routes/index.router");
-const moduleRoute = require("./routes/module.route");
 const courseRoute = require("./routes/course.route");
 //Passport
 require("./config/passport");
@@ -49,7 +49,6 @@ app.use("/api", studRoutes);
 
 //UPLOAD MODULE ROUTES
 app.use("/api/module", require("./routes/upload.route"));
-app.use("/module", require("./routes/module.route"));
 app.use("/course", require("./routes/course.route"));
 
 //QUESTION BANK ROUTES

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Module = require("./modules.model");
+const Table = require("./table.model");
 
 const CourseSchema = new mongoose.Schema({
 	title: { type: String },
@@ -9,7 +9,7 @@ const CourseSchema = new mongoose.Schema({
 	category: { type: String },
 	subcategory: { type: String },
 	subcategoryName: { type: String },
-	modules: [Module],
+	modules: [Table],
 	taughtBy: {
 		type: mongoose.Schema.ObjectId,
 		ref: 'instructor',
@@ -19,7 +19,11 @@ const CourseSchema = new mongoose.Schema({
 		type: mongoose.Schema.ObjectId,
 		ref: 'user',
 		default: ""
-	}]
+	}],
+	embed: {
+		type: String,
+		default: ""
+	}
 });
 
 const Course = mongoose.model("Course", CourseSchema, "All_Course");

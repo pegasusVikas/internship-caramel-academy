@@ -15,6 +15,8 @@ export default class AdminCoursePage extends Component {
     console.log(this.props);
   }
   render() {
+    const src = this.props.course.embed;
+    console.log(src);
     return (
       <div>
         <Navbar />
@@ -35,14 +37,12 @@ export default class AdminCoursePage extends Component {
                   src="https://images.unsplash.com/photo-1544237526-cae15a57ed1e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=855&q=80"
                   style={{ width: "100%" }}
                 /> */}
-                <iframe
-                  src="https://onedrive.live.com/embed?cid=1488ABC83D8F1B5E&resid=1488ABC83D8F1B5E%21122&authkey=AOLA8ubRNnNSyFI&em=2"
-                  width="100%"
-                  height="700px"
-                  frameborder="0"
-                  scrolling="no"
-                  style={{ outline: "none" }}
-                ></iframe>
+                <iframe 
+                src={src} 
+                width="100%" 
+                height="700px" 
+                frameborder="0">
+                </iframe>
               </div>
               <div className="col-md-4 col-sm-12" style={{ height: "720px" }}>
                 <table class="table table-striped" style={{ color: "white" }}>

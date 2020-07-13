@@ -1,27 +1,25 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
+//var escape = require('escape-html');
 
 //Model
 //const Course = require("../course-models/course.model");
 const Course = require("../models/course/course.model");
-const Module = require("../models/course/modules.model");
 const SubCategory = require("../models/subcategory.model");
 const Category = require("../models/category.model");
 //Create Course
 router.route("/create").post((req, res) => {
   //Data
-  console.log(
-    req.body.title + " " + req.body.description + " " + req.body.subcategoryId
-  );
-  const mod = require("../data/Module.json");
+  console.log('hi');
+  const mod = require("../data/table.json");
   var subcategory_name = "";
   SubCategory.findById({ _id: req.body.subcategoryId }, function (
     err,
     subcategory
   ) {
     if (err) {
-      console.log("Error with updateing ");
+      console.log(err.message);
       return;
     } else {
       subcategory_name = subcategory.title;
@@ -33,7 +31,8 @@ router.route("/create").post((req, res) => {
         subcategory: req.body.subcategoryId,
         subcategoryName: subcategory_name,
         price: req.body.price,
-        modules: mod,
+        table: mod,
+        embed: req.body.embed.match(/(?<=src=")([^"]*)(?=")/gim)[0]
       });
       crs.save((err, doc) => {
         if (!err) {
@@ -45,13 +44,12 @@ router.route("/create").post((req, res) => {
             console.log("collection dropped");
           });
           console.log("balh");
-          // console.log(crs._id);
           SubCategory.findById({ _id: crs.subcategory }, function (
             err,
             subcategory
           ) {
             if (err) {
-              console.log("Error with updateing ");
+              console.log(err.message);
               return;
             }
             console.log("subcategory : " + subcategory);
