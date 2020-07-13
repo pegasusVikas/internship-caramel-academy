@@ -3,6 +3,7 @@ import { Link, Redirect } from "react-router-dom";
 import "./dashboard.css";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
+import Logo from "../common/logo.png";
 
 import Grid from "@material-ui/core/Grid";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
@@ -27,17 +28,6 @@ class Dashboard extends Component {
     return (
       <div>
         <nav className="navbar navbar-expand-sm bg-info navbar-info">
-          <ul class="navbar-nav ">
-            <li class="nav-item">
-              <button
-                id="collapse"
-                className="btn-info"
-                style={{ fontSize: "2.5em" }}
-              >
-                <span class="material-icons">menu</span>
-              </button>
-            </li>
-          </ul>
           <Link className="navbar-brand" to="/lms/">
             <img
               src="../../Caramellogo.png"
@@ -53,7 +43,9 @@ class Dashboard extends Component {
             class="collapse navbar-collapse justify-content-end"
             id="navbarTogglerDemo03"
           >
-            <ul class="navbar-nav "></ul>
+            <ul class="navbar-nav">
+						  <li><img src={Logo} width="50px" alt="mern" height="50px"/></li>
+					  </ul>
           </div>
         </nav>
 

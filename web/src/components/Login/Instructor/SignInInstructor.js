@@ -125,8 +125,7 @@ class SignInInstructor extends Component {
 											<input
 												type="submit"
 												className="btn btn-lg btn-primary btn-block text-uppercase"
-												value="Sigi
-												n"
+												value="Sign In"
 											/>
 											{this.state.error === true ? (
 												<p style={{ margin: 5 }}>Invalid Email or Password</p>

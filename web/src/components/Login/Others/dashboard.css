@@ -1,4 +1,3 @@
-
 .column {
   float: left;
   padding: 25px;
@@ -15,7 +14,7 @@
 
 .right {
   width: 80%;
-  background-image: url("./admincontentbackground.jpg");
+  background-image: url("./adminbackground.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -23,7 +22,7 @@
 
 .noright {
   width: 100%;
-  background-image: url("./admincontentbackground.jpg");
+  background-image: url("./adminbackground.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -72,7 +71,7 @@
     width: 80%;
     height: 100%;
 
-    background-image: url("./admincontentbackground.jpg");
+    background-image: url("./adminbackground.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -120,7 +119,7 @@
   }
 
   .admin-dashboard{
-    background-image: url("./admincontentbackground.jpg");
+    background-image: url("./adminbackground.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;

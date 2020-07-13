@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import './login.css';
 import axios from "axios";
 import { Link, Redirect } from "react-router-dom";
 class SignIn extends Component {
@@ -117,7 +116,7 @@ class SignIn extends Component {
 											<input
 												type="submit"
 												className="btn btn-lg btn-primary btn-block text-uppercase"
-												value="Sigin"
+												value="Sign In"
 											/>
 											{this.state.error == true ? (
 												<p style={{ margin: 5 }}>Invalid Email or Password</p>
