@@ -114,7 +114,7 @@ const Navbar = () => {
                   <li className="nav-item">
                     <a
                       className="nav-link px-lg-4 alink"
-                      href="nodecontactform/acadamycontact.html"
+                      href="/nodecontactform/acadamycontact"
                     >
                       Contact Us
                     </a>
