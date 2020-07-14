@@ -32,7 +32,7 @@ const upload = multer({
     fileFilter: (req, file, cb) => {
         console.log('FILEFILTTER ROUTE UPLOAD LESSON');
         // allow doc only
-        if (!file.originalname.match(/\.(doc|docx)$/)) {
+        if (!file.originalname.match(/\.(doc|docx|PNG)$/)) {
             return cb(new Error('Only doc are allowed.'), false);
         }
         cb(null, true);
@@ -147,24 +147,31 @@ router.post('/upload/table', upload.single('upload'), (req, res) => {
             mammoth
             .convertToHtml({ path: `./routes/uploads/${req.file.originalname}` })
             .then(function (result) {
+                //console.log(result)
                 const html = result.value; // The generated HTML
                 const converted = tabletojson.convert(html, {
-                useFirstRowForHeadings: true,
+                useFirstRowForHeadings: false,
                 });
                 var reswe = converted[0];
+                //console.log(reswe)
+                reswe=reswe.map((json)=>{return {
+                    S_No:json['0'],
+                    List:json['1'],
+                    Lessons_Time:json['2']
+                }})
+                reswe=reswe.slice(1)
                 fs.writeFile("../Server/data/table.json", JSON.stringify(reswe), function (err) {
                     if (err) {
                         console.log("aww man", err.message);
                         return;
                     }
                     const table = new Table({
-                        lessons: lsn
+                        lessons: reswe
                     });
                     table.save(err, doc => {
                         if (err) console.log("oopsie", err.message);
                         else {
-                            res.send(doc);
-                            return res.redirect("http://localhost:3000/lms/admin/addcourse");
+                             res.json(doc);
                         }
                     })
                 });
