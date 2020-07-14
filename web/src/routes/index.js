@@ -186,7 +186,7 @@ export default class Application extends Component {
     super(props);
     this.state = {
       islogged: false,
-      user: "admin",
+      user: "student",
       courses: [],
     };
   }
@@ -353,7 +353,6 @@ export default class Application extends Component {
               exact
               path={
                 "/caramelit_new/courses/coursespage/" +
-                course.title.toLowerCase()
               }
               // component={StudentCoursePage}
               component={() => <StudentCoursePage course={course} />}
@@ -366,7 +365,6 @@ export default class Application extends Component {
               exact
               path={
                 "/caramelit_new/courses/coursespage/" +
-                course.title.toLowerCase()
               }
               // component={StudentCoursePage}
               component={() => <InstructorCoursePage course={course} />}
@@ -392,7 +390,6 @@ export default class Application extends Component {
               exact
               path={
                 "/caramelit_new/courses/coursespage/" +
-                course.title.toLowerCase()
               }
               // component={StudentCoursePage}
               component={() => <NewUserCoursePage course={course} />}
