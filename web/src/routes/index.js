@@ -353,6 +353,7 @@ export default class Application extends Component {
               exact
               path={
                 "/caramelit_new/courses/coursespage/" +
+                course.title.toLowerCase().split(" ").join("")
               }
               // component={StudentCoursePage}
               component={() => <StudentCoursePage course={course} />}
@@ -365,6 +366,7 @@ export default class Application extends Component {
               exact
               path={
                 "/caramelit_new/courses/coursespage/" +
+                course.title.toLowerCase().split(" ").join("")
               }
               // component={StudentCoursePage}
               component={() => <InstructorCoursePage course={course} />}
@@ -390,6 +392,7 @@ export default class Application extends Component {
               exact
               path={
                 "/caramelit_new/courses/coursespage/" +
+                course.title.toLowerCase().split(" ").join("")
               }
               // component={StudentCoursePage}
               component={() => <NewUserCoursePage course={course} />}
