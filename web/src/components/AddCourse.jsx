@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+//import fetch from 'fetch';
 import axios from 'axios';
 
 const AddCourse = () => {
 
     const [state, setState] = useState({
         embed: "",
-        file: null,
+        upload: null,
         title: "",
         subcategory: null,
         description: "",
@@ -35,28 +36,36 @@ const AddCourse = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3004/api/upload/table", { file: state.file })
+        const FormData = {
+            upload: state.upload
+        }
+        const config = {
+            headers: {
+                "Content-Type": "multipart/form-data"
+            }
+        }
+        axios.post("http://localhost:3004/api/upload/table", FormData)
         .then(res => console.log(res.data))
         .catch(err => console.log(err.message));
     };
 
-    const onClick = () => {
-        console.log(state.embed);
-        const newCourse = {
-            title: state.title,
-            description: state.description,
-            subcategoryId: state.subcategory,
-            embed: state.embed
-        };
-        axios.post("http://localhost:3004/course/create", newCourse)
-        .then(res => console.log(res.data))
-        .catch(err => console.log(err.message));
-    };
+    // const onClick = () => {
+    //     console.log(state.embed);
+    //     const newCourse = {
+    //         title: state.title,
+    //         description: state.description,
+    //         subcategoryId: state.subcategory,
+    //         embed: state.embed
+    //     };
+    //     axios.post("http://localhost:3004/course/create", newCourse)
+    //     .then(res => console.log(res.data))
+    //     .catch(err => console.log(err.message));
+    // };
 
     return (
-        <form action="POST" onSubmit={onSubmit} encType="multipart/form-data">
-            <label for="table">Table of content</label>
-            <input type="file" name="file" value={state.file} onChange={handleChange}/> <br/>
+        <form method="POST" action="http://localhost:3004/api/upload/table" encType="multipart/form-data">
+            <label htmlFor="upload">Table of content</label>
+            <input type="file" name="upload" value={state.upload} onChange={handleChange}/> <br/>
             <input className="btn btn-primary" type="submit" value="Upload Table" />
         </form>
         // <div>

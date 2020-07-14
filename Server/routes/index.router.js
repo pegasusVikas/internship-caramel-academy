@@ -1,6 +1,7 @@
 const jwtHelper = require('../config/jwtHelper');
 const express = require('express');
 const router = express.Router();
+const path = require('path');
 const multer = require('multer');
 const bodyParser = require('body-parser');
 const TableSchema = require("../models/course/table.model");
@@ -17,11 +18,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 var storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, "../uploads/")
+        cb(null, path.resolve(__dirname, "./uploads/"))
     },
     // By default, multer removes file extensions so let's add them back
     filename: function(req, file, cb) {
-        cb(null, Date.now() + '_' + file.originalname )
+        cb(null, file.originalname )
     }
 });
 
@@ -37,6 +38,8 @@ const upload = multer({
         cb(null, true);
     }
 });
+
+
 
 const ctrlUser = require('../controllers/user.controller');
 const ctrlStudent = require('../controllers/student.controller');
@@ -129,9 +132,9 @@ router.delete('/courses/:id', ctrlCourse.delete);
 router.post('/courses/:userId/:courseId', ctrlCourse.enrol);
 router.post('/courses/instructor/:userId/:courseId', ctrlCourse.teach);
 
-router.post('/upload/table', upload.single("file"), (req, res) => {
+router.post('/upload/table', upload.single('upload'), (req, res) => {
     console.log("req.file = ", req.file);
-    console.log("req.body =", req.body);
+    console.log("req.body = ", req.body);
     try {
         const lesson = req.file;
         if (!lesson) {
@@ -141,35 +144,31 @@ router.post('/upload/table', upload.single("file"), (req, res) => {
                 data: 'No file is selected.'
             });
         } else {
-            //fs.writeFile("../Server/uploads/lesson.docx", lesson , function (err) {
-            //    if (err) {
-            //        console.log(err.message);
-            //       console.log("bye");
-            //        return;
-            //    }
-                mammoth
-                .convertToHtml({ path: "../Server/uploads/test.docx" })
-                .then(function (result) {
-                    const html = result.value; // The generated HTML
-                    const converted = tabletojson.convert(html, {
-                    useFirstRowForHeadings: true,
+            mammoth
+            .convertToHtml({ path: `./routes/uploads/${req.file.originalname}` })
+            .then(function (result) {
+                const html = result.value; // The generated HTML
+                const converted = tabletojson.convert(html, {
+                useFirstRowForHeadings: true,
+                });
+                var reswe = converted[0];
+                fs.writeFile("../Server/data/table.json", JSON.stringify(reswe), function (err) {
+                    if (err) {
+                        console.log("aww man", err.message);
+                        return;
+                    }
+                    const table = new Table({
+                        lessons: lsn
                     });
-                    var reswe = converted[0];
-                    fs.writeFile("../Server/data/table.json", JSON.stringify(reswe), function (err) {
-                        if (err) {
-                            console.log("aww man", err.message);
-                            return;
+                    table.save(err, doc => {
+                        if (err) console.log("oopsie", err.message);
+                        else {
+                            res.send(doc);
+                            return res.redirect("http://localhost:3000/lms/admin/addcourse");
                         }
-                        const table = new Table({
-                            lessons: lsn
-                        });
-                        table.save(err, doc => {
-                            if (err) console.log("oopsie", err.message);
-                            else res.send(doc);
-                        })
-                    });
-                }).catch(err => console.log("shet bro ", err.message));
-            //});
+                    })
+                });
+            }).catch(err => console.log("shet bro ", err.message));
         }
     } catch (err) {
         res.status(500).send(err);
