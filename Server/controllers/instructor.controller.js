@@ -4,7 +4,6 @@ const passport = require('passport');
 const _ = require('lodash');
 const sgMail = require('@sendgrid/mail');
 const crypto = require('crypto');
-const nodemailer = require('nodemailer');
 
 const passwordResetToken = require('../models/Reset Tokens/instructor-reset-token.model');
 

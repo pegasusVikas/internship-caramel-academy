@@ -9,4 +9,4 @@ const categorySchema = new Schema({
     subCatList: [{ type: String }]
 });
 
-module.exports = mongoose.model('Category', categorySchema);
+module.exports = mongoose.model('Category', categorySchema, "categories");

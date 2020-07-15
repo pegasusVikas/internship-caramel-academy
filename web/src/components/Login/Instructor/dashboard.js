@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import CourseItem from "./CourseItem";
 import Logo from "../common/logo.png";
-import "../Others/dashboard.css";
+import "./dashboard.css";
 
 const Dashboard = () => {
 	const user = JSON.parse(localStorage.getItem("instructor"));
@@ -60,22 +60,22 @@ const Dashboard = () => {
 				</div>
 			</nav>
 			<div class="row">
-				<div className="column left" id="sidebar" style={{ backgroundColor: "#ffffe6" }}>
+				<div className="column insleft" id="sidebar" style={{ backgroundColor: "#ffffe6" }}>
 					<p>{user.firstName} {user.lastName}</p>
 					<p style={{ textAlign: "left", paddingLeft: "15px" }}>
 					{user.emailAddress}
 					</p>
 					<hr />	
-					<div className="card-header">Account</div> <br />
-					<div className="card-header" onClick={courses}>Available Courses</div> <br />
-					<div className="card-header" onClick={teachingCourses}>Your Courses</div>
+					<div className="card-header" style={{ cursor: "pointer" }}>Account</div> <br />
+					<div className="card-header" onClick={courses} style={{ cursor: "pointer" }}>Available Courses</div> <br />
+					<div className="card-header" onClick={teachingCourses} style={{ cursor: "pointer" }}>Your Courses</div>
 					<hr />
 					<a className="btn btn-lg bg-dark text-white" href="/">
 						Logout
 					</a>
 				</div>
-				<div className="column right" id="sidebar">
-					<h2>Hello, Instructor - {user.firstName} {user.lastName} !</h2>
+				<div className="column insright" id="sidebar">
+					<h2 style={{ color: "white" }}>Hello, Instructor - {user.firstName} {user.lastName} !</h2>
 					{state.showCourses && <CourseItems courses={state.courses} user={user} userStyle={userStyle} teaching={false}/>}
 					{state.showTeachingCourses && <CourseItems courses={state.courses} user={user} userStyle={userStyle} teaching={true}/>}
 				</div>

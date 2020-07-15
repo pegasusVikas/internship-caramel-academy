@@ -9,4 +9,4 @@ const subCategorySchema = new Schema({
     courseList: [{ type: String }]
 });
 
-module.exports = mongoose.model('SubCategory', subCategorySchema);
+module.exports = mongoose.model('SubCategory', subCategorySchema, "subcategories");
