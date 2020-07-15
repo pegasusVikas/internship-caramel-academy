@@ -54,7 +54,9 @@ class SignUpOrganisation extends Component {
   render() {
     return (
       <div className="BackGround">
+      
         {this.state.isRegistered?<Redirect to={{pathname: "/lms/organisation/organisation_login"}} ></Redirect>:null}
+        
         <div className="light-bg">
           {/*  */}
           <nav className="navbar navbar-expand-sm">

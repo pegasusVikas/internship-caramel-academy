@@ -1,8 +1,10 @@
-import React, { Component } from "react";
+import React, { Component,useContext } from "react";
 import "./login.css";
 import axios from "axios";
 import { Link, Redirect } from 'react-router-dom';
+import UserContext from '../../context/user/userContext'
 class SignInOrganisation extends Component {
+  static contextType=UserContext;
   constructor(props) {
     super(props);
     this.state = {
@@ -15,6 +17,16 @@ class SignInOrganisation extends Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.onEmailChange = this.onEmailChange.bind(this);
     this.onPasswordChange = this.onPasswordChange.bind(this);
+    
+  }
+
+  componentDidUpdate(pP,pS,SS){
+    const context =this.context;
+    if(this.state.islogged){
+      const profile =this.state.user
+      profile.type="organisation"
+      context.setUser(profile);
+    }
   }
 
   onEmailChange(e) {
