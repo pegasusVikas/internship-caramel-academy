@@ -14,7 +14,7 @@ const Navbar = (props) => {
           <div className="container-fluid text5">
             <nav className="navbar navbar-expand-lg bg navbar-light" style={{ backgroundColor: course ? "#002333" : "" }}>
               {/* Brand*/}
-              <a className="navbar-brand logo1" href="acadamy.html">
+              <a className="navbar-brand logo1" href="/">
                 <img
                   src="../../../images/caramelacademy.png"
                   width="200px"

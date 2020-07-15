@@ -4,19 +4,13 @@ const mongoose = require("mongoose");
 const TableSchema = require("../models/course/table.model");
 const Table = mongoose.model("Table", TableSchema);
 const Course = require("../models/course/course.model");
-const SubCategory = require("../models/subcategory.model");
-const Category = require("../models/category.model");
+const SubCategory = require("../models/course/subcategory.model");
+const Category = require("../models/course/category.model");
 
 //Create Course
 router.route("/create").post((req, res) => {
 	//Data
 	console.log('hi');
-	let tableDoc = "";
-	Table.find((err, doc) => {
-		if (err) console.log(err.message);
-		console.log("table found ", doc);
-		tableDoc = doc;
-	});	
 	var subcategory_name = "";
 	SubCategory.findById({ _id: req.body.subcategoryId }, function (
 		err,
@@ -28,49 +22,55 @@ router.route("/create").post((req, res) => {
 		} else {
 			subcategory_name = subcategory.title;
 			console.log(subcategory_name);
-			var crs = new Course({
-				title: req.body.title,
-				description: req.body.description,
-				category: req.body.category,
-				subcategory: req.body.subcategoryId,
-				subcategoryName: subcategory_name,
-				price: req.body.price,
-				table: tableDoc,
-				embed: req.body.embed.match(/(?<=src=")([^"]*)(?=")/gim)[0]
-			});
-			crs.save((err, doc) => {
-				if (!err) {
-					console.log("Course saved in DB");
-					SubCategory.findById({ _id: crs.subcategory }, function (
-						err,
-						subcategory
-					) {
-						if (err) {
-							console.log(err.message);
-							return;
-						}
-						subcategory.noOfCourses = subcategory.noOfCourses + 1;
-						subcategory.courseList.push(crs._id);
-						subcategory.save(() => console.log(subcategory));
-						Category.findById({ _id: subcategory.catId }, function (
+			let tableDoc = "";
+			Table.find((err, doc) => {
+				if (err) console.log(err.message);
+				console.log("table found ", doc);
+				tableDoc = doc;
+				var crs = new Course({
+					title: req.body.title,
+					description: req.body.description,
+					category: req.body.category,
+					subcategory: req.body.subcategoryId,
+					subcategoryName: subcategory_name,
+					price: req.body.price,
+					table: tableDoc,
+					embed: req.body.embed.match(/(?<=src=")([^"]*)(?=")/gim)[0]
+				});
+				crs.save((err, doc) => {
+					if (!err) {
+						console.log("Course saved in DB");
+						SubCategory.findById({ _id: crs.subcategory }, function (
 							err,
-							catdoc
+							subcategory
 						) {
 							if (err) {
-								console.log("Error with updateing ");
+								console.log(err.message);
 								return;
 							}
-							catdoc.noOfCourses = catdoc.noOfCourses + 1;
-							catdoc.save(() => console.log(catdoc));
-							res.send({ message: "course created! "});
+							subcategory.noOfCourses = subcategory.noOfCourses + 1;
+							subcategory.courseList.push(crs._id);
+							subcategory.save(() => console.log(subcategory));
+							Category.findById({ _id: subcategory.catId }, function (
+								err,
+								catdoc
+							) {
+								if (err) {
+									console.log("Error with updateing ");
+									return;
+								}
+								catdoc.noOfCourses = catdoc.noOfCourses + 1;
+								catdoc.save(() => console.log(catdoc));
+								res.send({ message: "course created! "});
+							});
 						});
-					});
-				} else {
-					console.log(
-						"Error in Course Save :" + JSON.stringify(err, undefined, 2)
-					);
-				}
-			});
+					} else {
+						console.log(
+							"Error in Course Save :" + JSON.stringify(err, undefined, 2)
+						);
+					}
+				});
+			});	
 		}
 	});
 });

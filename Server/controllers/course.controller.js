@@ -1,63 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const Course = require("../models/course/course.model");
-const mongoose = require("mongoose");
-const TableSchema = require("../models/course/table.model");
-const Table = mongoose.model("Table", TableSchema);
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
-module.exports.create = (req, res, next) => {
-	console.log("Inside route post course create");
-	console.log(req.body.title + " " + req.body.description + " " + req.body.subcategoryId);
-	let tableDoc = "";
-	Table.find((err, doc) => {
-		if (err) console.log(err.message);
-		console.log("table found ", doc);
-		tableDoc = doc;
-	});	
-	var crs = new Course({
-		title: req.body.title,
-		description: req.body.description,
-		subcategory: req.body.subcategoryId,
-		price: req.body.price,
-		table: tableDoc,
-		enrolledBy: []
-	});
-
-	crs.save((err, doc) => {
-		if (!err) {
-			console.log("Course saved in DB");
-		} else {
-			console.log("Error in Course Save :" + JSON.stringify(err, undefined, 2));
-		}
-	});
-
-	SubCategory.findById({ _id: course.subCatId }, function (err, doc) {
-		if (err) {
-			console.log("Error with updating ");
-			return;
-		}
-		console.log(doc);
-		doc.noOfCourses = doc.noOfCourses + 1;
-		doc.subCourseList.push(course._id);
-		doc.save(() => console.log(doc));
-		Category.findById({ _id: doc.catId }, function (err, catdoc) {
-			if (err) {
-				console.log("Error with updating ");
-				return;
-			}
-			catdoc.noOfCourses = catdoc.noOfCourses + 1;
-			catdoc.save(() => console.log(catdoc));
-		});
-	});
-	res.status(201).json({
-		message: "Courses added successfully",
-		courseId: course._id,
-	});
-};
 
 module.exports.delete = (req, res, next) => {
 	console.log("ID = " + req.params.id);

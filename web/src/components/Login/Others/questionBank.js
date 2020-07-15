@@ -173,7 +173,7 @@ export default class QuestionBank extends Component {
         <div className="row container-fluid">
           <div className="col-md-4">
             <div>
-              <div className="card">
+              <div className="card" style={{ boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)" }}>
                 <div className="card-header bg-dark text-white"><strong>Upload questions in bulk</strong></div>
                 <div className="card-body">
                   <p>
@@ -206,7 +206,7 @@ export default class QuestionBank extends Component {
               </div>
             </div>
             <br />
-            <div className="card">
+            <div className="card" style={{ boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)" }}>
               <div className="card-header bg-dark text-white"><strong>Add Question Manually</strong></div>
               <div className="card-body">
                 <form onSubmit={this.onSubmit}>

@@ -1,4 +1,4 @@
-require('../models/student.model');
+require('../models/user/student.model');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const _ = require('lodash');

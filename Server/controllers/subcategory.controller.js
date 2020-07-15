@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const SubCategory = require("../models/subcategory.model");
-const Category = require("../models/category.model");
+const SubCategory = require("../models/course/subcategory.model");
+const Category = require("../models/course/category.model");
 const mongoose = require("mongoose");
 
 const app = express();

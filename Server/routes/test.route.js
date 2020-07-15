@@ -3,7 +3,7 @@ const testRoutes = express.Router();
 const mongoose = require("mongoose");
 
 let Test = require("../models/test.model");
-let Student = require("../models/student.model");
+let Student = require("../models/user/student.model");
 
 //CREATE TEST ROUTE
 testRoutes.route("/create").post(function (req, res) {

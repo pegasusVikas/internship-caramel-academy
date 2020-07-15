@@ -28,7 +28,7 @@ class Dashboard extends Component {
     return (
       <div>
         <nav className="navbar navbar-expand-sm bg-info navbar-info">
-          <Link className="navbar-brand" to="/lms/">
+          <Link className="navbar-brand" to="/">
             <img
               src="../../Caramellogo.png"
               alt="logo"
@@ -56,10 +56,6 @@ class Dashboard extends Component {
               {user.emailAddress}
             </p>
             <hr />
-            <h1>Pages</h1>
-            <a className="thiner" href="#">
-              Reports
-            </a>
             <a className="thiner" href="dashboard/questionBank">
               Question Bank
             </a>
@@ -72,15 +68,11 @@ class Dashboard extends Component {
             <a className="thiner" href="#" onClick={this.manage}>
               Manage
             </a>
-            <a className="thiner" href="#">
-              Template
-            </a>
             <hr />
             <div>
-              <h1>Tools</h1>{" "}
-              <a class="nav-link thiner" href="/lms/admin/admin_login">
-                Logout
-              </a>
+              <a className="btn btn-lg bg-dark text-white" href="/">
+						    Logout
+					    </a>
             </div>
           </div>
 

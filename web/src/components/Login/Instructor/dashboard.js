@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from 'react-router-dom';
 import CourseItem from "./CourseItem";
 import Logo from "../common/logo.png";
 import "../Others/dashboard.css";
@@ -40,7 +39,7 @@ const Dashboard = () => {
 	return (
 		<div>
 			<nav className="navbar navbar-expand-sm" style={{ backgroundColor: "#39004d" }}>  
-				<Link className="navbar-brand" to="/lms/">
+				<a className="navbar-brand" href="/">
 					<img
 					src="../../Caramellogo.png"
 					alt="logo"
@@ -50,7 +49,7 @@ const Dashboard = () => {
 						margin: "0px 0px 0px 0px",
 					}}
 					/>
-				</Link>
+				</a>
 				<div
 					class="collapse navbar-collapse justify-content-end"
 					id="navbarTogglerDemo03"
@@ -91,7 +90,7 @@ const CourseItems = ({ courses, user, userStyle, teaching }) => {
 		<div style={{ padding: "1%" }}>
 			<div style={userStyle}>
 				{courses.map(course => ((teaching ? course.taughtBy === user._id :  course.taughtBy !== user._id) &&
-					<CourseItem key={course._id} course={course} user={user._id} />
+					<CourseItem key={course._id} course={course} user={user._id} teaching={teaching} />
 				))}
 			</div>
 		</div>

@@ -1,4 +1,4 @@
-require('../models/university.model');
+require('../models/user/university.model');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const _ = require('lodash');

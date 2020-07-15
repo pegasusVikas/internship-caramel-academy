@@ -176,7 +176,7 @@ export default class CourseAssessment extends Component {
         {this.state.step == 1 && (
           <div class="row container-fluid">
             <div class="container col-md-4" style={{ alignContent: "center" }}>
-              <div className="card">
+              <div className="card" style={{ boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)" }}>
                 <div className="card-header bg-dark text-white"><strong>Create Course Test</strong></div>
                 <div className="card-body">
                   <form onSubmit={this.onSubmit}>

@@ -125,7 +125,6 @@ router.put('/subcategories/:id', ctrlSubCat.update);
 router.delete('/subcategories/:id', ctrlSubCat.delete);
 
 //Course Routes
-router.post('/courses', ctrlCourse.create);
 router.get('/courses', ctrlCourse.read);
 router.put('/courses/:id', ctrlCourse.update);
 router.delete('/courses/:id', ctrlCourse.delete);
