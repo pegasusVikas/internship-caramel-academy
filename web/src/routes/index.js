@@ -186,7 +186,7 @@ export default class Application extends Component {
     super(props);
     this.state = {
       islogged: false,
-      user: "student",
+      user: "admin",
       courses: [],
     };
   }

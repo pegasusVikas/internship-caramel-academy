@@ -24,10 +24,10 @@ export default class CourseInformationTab extends Component {
           <h1>Table of Content</h1>
           <table className="table table-striped">
             <tbody>
-              {this.props.course.modules[0].lessons.map((lesson, i) => (
+              {this.props.course.table[0].lessons.map((lesson, i) => (
                 <tr>
                   <td>{lesson.S_No}</td>
-                  <td>{lesson.Lessons_List}</td>
+                  <td>{lesson.List}</td>
                   <td>{lesson.Lessons_Time}</td>
                 </tr>
               ))}

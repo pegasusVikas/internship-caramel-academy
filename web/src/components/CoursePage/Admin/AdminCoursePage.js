@@ -33,10 +33,6 @@ export default class AdminCoursePage extends Component {
                   height: "500px",
                 }}
               >
-                {/* <img
-                  src="https://images.unsplash.com/photo-1544237526-cae15a57ed1e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=855&q=80"
-                  style={{ width: "100%" }}
-                /> */}
                 <iframe 
                 src={src} 
                 width="100%" 
@@ -57,69 +53,13 @@ export default class AdminCoursePage extends Component {
                       position: "absolute",
                     }}
                   >
-                    {this.props.course.modules[0].lessons.map((lesson, i) => (
+                    {this.props.course.table[0].lessons.map((lesson, i) => (
                       <tr style={{ width: "100%", display: "inline-table" }}>
-                        {/* <td>{lesson.S_No}</td> */}
-                        <td>{lesson.Lessons_List}</td>
+                        <td>{lesson.S_No}</td>
+                        <td>{lesson.List}</td>
                         <td>{lesson.Lessons_Time}</td>
                       </tr>
                     ))}
-                    <tr style={{ width: "100%", display: "inline-table" }}>
-                      <td>Topic 1</td>
-                      <td>1:56</td>
-                    </tr>
-                    <tr style={{ width: "100%", display: "inline-table" }}>
-                      <td>Topic 2</td>
-                      <td>1:56</td>
-                    </tr>
-                    <tr style={{ width: "100%", display: "inline-table" }}>
-                      <td>Topic 3</td>
-                      <td>1:56</td>
-                    </tr>
-                    <tr style={{ width: "100%", display: "inline-table" }}>
-                      <td>Topic 4</td>
-                      <td>1:56</td>
-                    </tr>
-                    <tr style={{ width: "100%", display: "inline-table" }}>
-                      <td>Topic 5</td>
-                      <td>1:56</td>
-                    </tr>
-                    <tr style={{ width: "100%", display: "inline-table" }}>
-                      <td>Topic 6</td>
-                      <td>1:56</td>
-                    </tr>
-                    <tr style={{ width: "100%", display: "inline-table" }}>
-                      <td>Topic 7</td>
-                      <td>1:56</td>
-                    </tr>
-                    <tr style={{ width: "100%", display: "inline-table" }}>
-                      <td>Topic 8</td>
-                      <td>1:56</td>
-                    </tr>
-                    <tr style={{ width: "100%", display: "inline-table" }}>
-                      <td>Topic 9</td>
-                      <td>1:56</td>
-                    </tr>
-                    <tr style={{ width: "100%", display: "inline-table" }}>
-                      <td>Topic 10</td>
-                      <td>1:56</td>
-                    </tr>
-                    <tr style={{ width: "100%", display: "inline-table" }}>
-                      <td>Topic 11</td>
-                      <td>1:56</td>
-                    </tr>
-                    <tr style={{ width: "100%", display: "inline-table" }}>
-                      <td>Topic 12</td>
-                      <td>1:56</td>
-                    </tr>
-                    <tr style={{ width: "100%", display: "inline-table" }}>
-                      <td>Topic 13</td>
-                      <td>1:56</td>
-                    </tr>
-                    <tr style={{ width: "100%", display: "inline-table" }}>
-                      <td>Topic 14</td>
-                      <td>1:56</td>
-                    </tr>
                   </tbody>
                 </table>
               </div>

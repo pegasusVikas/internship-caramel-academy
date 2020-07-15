@@ -138,7 +138,7 @@ router.post('/upload/table', upload.single('upload'), (req, res) => {
     try {
         const lesson = req.file;
         if (!lesson) {
-            console.log("oooooooo");
+            console.log("shet");
             return res.status(400).send({
                 status: false,
                 data: 'No file is selected.'
@@ -150,7 +150,7 @@ router.post('/upload/table', upload.single('upload'), (req, res) => {
                 //console.log(result)
                 const html = result.value; // The generated HTML
                 const converted = tabletojson.convert(html, {
-                useFirstRowForHeadings: false,
+                    useFirstRowForHeadings: false,
                 });
                 var reswe = converted[0];
                 //console.log(reswe)
@@ -159,23 +159,23 @@ router.post('/upload/table', upload.single('upload'), (req, res) => {
                     List:json['1'],
                     Lessons_Time:json['2']
                 }})
-                reswe=reswe.slice(1)
-                fs.writeFile("../Server/data/table.json", JSON.stringify(reswe), function (err) {
-                    if (err) {
-                        console.log("aww man", err.message);
-                        return;
-                    }
-                    const table = new Table({
-                        lessons: reswe
-                    });
-                    table.save(err, doc => {
-                        if (err) console.log("oopsie", err.message);
-                        else {
-                             res.json(doc);
-                        }
-                    })
+                reswe=reswe.slice(1);
+                //Drop the models collection, so another course can be added
+            
+                mongoose.connection.collections["tables"].drop().then(() => {
+                    console.log("collection dropped");           
+                }).catch(err => console.log(err.message));
+                const table = new Table({
+                    lessons: reswe
                 });
-            }).catch(err => console.log("shet bro ", err.message));
+                table.save((err, doc) => {
+                    if (err) console.log(err.message);
+                    else {
+                        console.log("table uploaded to db");
+                        res.status(200).json(doc);
+                    }
+                })
+            }).catch(err => console.log(err.message));
         }
     } catch (err) {
         res.status(500).send(err);

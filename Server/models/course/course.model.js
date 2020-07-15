@@ -9,7 +9,7 @@ const CourseSchema = new mongoose.Schema({
 	category: { type: String },
 	subcategory: { type: String },
 	subcategoryName: { type: String },
-	modules: [Table],
+	table: [Table],
 	taughtBy: {
 		type: mongoose.Schema.ObjectId,
 		ref: 'instructor',

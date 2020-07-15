@@ -94,6 +94,7 @@ const Navbar = (props) => {
                     <a
                       className="nav-link px-lg-4 alink"
                       href="/nodecontactform/acadamycontact"
+                      style={{ backgroundColor: course ? "#002333" : "" }}
                     >
                       Contact Us
                     </a>
