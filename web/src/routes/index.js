@@ -5,6 +5,7 @@ import { Route, Link, BrowserRouter as Router, Switch } from "react-router-dom";
 import "../Background.css";
 import "../App.css";
 import axios from "axios";
+import userContext from '../components/context/user/userContext'
 
 import AddCourse from "../components/AddCourse";
 import MainProgram from "../components/Programs/MainProgram";
@@ -182,16 +183,21 @@ import SkillAssessment from "../components/Login/Others/skillAssessment";
 import CourseAssessment from "../components/Login/Others/courseAssessment";
 
 export default class Application extends Component {
+  static contextType=userContext;
   constructor(props) {
     super(props);
     this.state = {
       islogged: false,
-      user: "admin",
+      user: "newuser",
       courses: [],
     };
+
   }
 
   componentDidMount() {
+    if(this.context.user.type){
+      this.setState({user:this.context.user.type});
+    }
     axios.get("http://localhost:3004/course", this.state).then((res) => {
       console.log(res.data);
       if (res.data) {
@@ -347,7 +353,7 @@ export default class Application extends Component {
         {/* <Route exact path='/' component={Dashboard} /> */}
         <Route exact path="/lms/admin/addcategory" component={AddCategory} />
 
-        {this.state.user === "student" &&
+        {this.state.user === "user" &&
           this.state.courses.map((course, i) => (
             <Route
               exact
