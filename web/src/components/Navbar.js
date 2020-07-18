@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link ,} from 'react-router-dom';
 
 const Navbar = (props) => {
   console.log(props.location);
@@ -14,13 +14,13 @@ const Navbar = (props) => {
           <div className="container-fluid text5">
             <nav className="navbar navbar-expand-lg bg navbar-light" style={{ backgroundColor: course ? "#002333" : "" }}>
               {/* Brand*/}
-              <a className="navbar-brand logo1" href="/">
+              <Link className="navbar-brand logo1" to="/">
                 <img
                   src="../../../images/caramelacademy.png"
                   width="200px"
                   height="70px"
                 />
-              </a>
+              </Link>
               {/* Toggler/collapsibe Button */}
               <button
                 className="navbar-toggler"
@@ -34,13 +34,13 @@ const Navbar = (props) => {
               <div className="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul className="navbar-nav ml-auto font-weight-bold" style={{ backgroundColor: course ? "#002333" : "" }}>
                   <li className="nav-item ">
-                    <a className="nav-link px-lg-4 alink" href="index.html" style={{ backgroundColor: course ? "#002333" : "" }}>
+                    <Link className="nav-link px-lg-4 alink" to="index.html" style={{ backgroundColor: course ? "#002333" : "" }}>
                       IT Services Home
-                    </a>
+                    </Link>
                   </li>
                   <li className="dropdown nav-item">
-                    <a
-                      href="#"
+                    <Link
+                      to="#"
                       className="dropdown-toggle nav-link px-lg-4 alink"
                       data-toggle="dropdown"
                       role="button"
@@ -49,55 +49,55 @@ const Navbar = (props) => {
                       style={{ backgroundColor: course ? "#002333" : "" }}
                     >
                       Register <span className="caret" />
-                    </a>
+                    </Link>
                     <ul className="dropdown-menu">
                       <li className="nav-item">
-                        <a className="nav-link px-lg-4" href="/lms/user/login" style={{ backgroundColor: course ? "#002333" : "" }}>
+                        <Link className="nav-link px-lg-4" to="/lms/user/login" style={{ backgroundColor: course ? "#002333" : "" }}>
                           User
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link px-lg-4" href="/lms/instructor/instructor_login" style={{ backgroundColor: course ? "#002333" : "" }}>
+                        <Link className="nav-link px-lg-4" to="/lms/instructor/instructor_login" style={{ backgroundColor: course ? "#002333" : "" }}>
                           Instructor
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a
+                        <Link
                           className="nav-link px-lg-4"
-                          href="/lms/organisation/organisation_login"
+                          to="/lms/organisation/organisation_login"
                           style={{ backgroundColor: course ? "#002333" : "" }}
                         >
                           Organization
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a
+                        <Link
                           className="nav-link px-lg-4 "
-                          href="/lms/college/college_login"
+                          to="/lms/college/college_login"
                           style={{ backgroundColor: course ? "#002333" : "" }}
                         >
                           University
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a
+                        <Link
                           className="nav-link px-lg-4"
-                          href="/lms/admin/admin_login"
+                          to="/lms/admin/admin_login"
                           style={{ backgroundColor: course ? "#002333" : "" }}
                         >
                           Admin
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
                   <li className="nav-item">
-                    <a
+                    <Link
                       className="nav-link px-lg-4 alink"
-                      href="/nodecontactform/acadamycontact"
+                      to="/nodecontactform/acadamycontact"
                       style={{ backgroundColor: course ? "#002333" : "" }}
                     >
                       Contact Us
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

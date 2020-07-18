@@ -56,7 +56,8 @@ class SignInCollege extends Component {
           console.log("not logged in");
           this.setState({ error: true });
         }
-      });
+      })
+      .catch((err)=>{console.log(err.message);this.setState({error:true})});
   }
   render() {
     return (

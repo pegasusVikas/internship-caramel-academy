@@ -193,11 +193,18 @@ export default class Application extends Component {
     };
 
   }
-
-  componentDidMount() {
+  componentDidUpdate(pP,pS,SS){
+    console.log(pS);
+    console.log("aaaaa");
+    console.log(this.state);
+    if(pS.user!=this.context.user.type){
     if(this.context.user.type){
       this.setState({user:this.context.user.type});
     }
+  }
+  }
+
+  componentDidMount() {
     axios.get("http://localhost:3004/course", this.state).then((res) => {
       console.log(res.data);
       if (res.data) {

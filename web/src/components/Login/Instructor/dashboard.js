@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from 'react-router-dom';
 import axios from "axios";
 import CourseItem from "./CourseItem";
 import Logo from "../common/logo.png";
@@ -39,7 +40,7 @@ const Dashboard = () => {
 	return (
 		<div>
 			<nav className="navbar navbar-expand-sm" style={{ backgroundColor: "#39004d" }}>  
-				<a className="navbar-brand" href="/">
+				<Link className="navbar-brand" to="/">
 					<img
 					src="../../Caramellogo.png"
 					alt="logo"
@@ -49,7 +50,7 @@ const Dashboard = () => {
 						margin: "0px 0px 0px 0px",
 					}}
 					/>
-				</a>
+				</Link>
 				<div
 					class="collapse navbar-collapse justify-content-end"
 					id="navbarTogglerDemo03"
@@ -70,9 +71,9 @@ const Dashboard = () => {
 					<div className="card-header" onClick={courses} style={{ cursor: "pointer" }}>Available Courses</div> <br />
 					<div className="card-header" onClick={teachingCourses} style={{ cursor: "pointer" }}>Your Courses</div>
 					<hr />
-					<a className="btn btn-lg bg-dark text-white" href="/">
+					<Link className="btn btn-lg bg-dark text-white" to="/">
 						Logout
-					</a>
+					</Link>
 				</div>
 				<div className="column insright" id="sidebar">
 					<h2 style={{ color: "white" }}>Hello, Instructor - {user.firstName} {user.lastName} !</h2>

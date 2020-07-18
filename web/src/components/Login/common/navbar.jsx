@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 import { Nav, NavDropdown } from "react-bootstrap";
 
 const Navbar = () => {
@@ -12,13 +13,13 @@ const Navbar = () => {
           <div className="container-fluid text5">
             <nav className="navbar navbar-expand-lg bg navbar-light">
               {/* Brand*/}
-              <a className="navbar-brand logo1" href="/">
+              <Link className="navbar-brand logo1" to="/">
                 <img
                   src="../../../images/caramelacademy.png"
                   width="200px"
                   height="70px"
                 />
-              </a>
+              </Link>
               {/* Toggler/collapsibe Button */}
               <button
                 className="navbar-toggler"
@@ -32,13 +33,13 @@ const Navbar = () => {
               <div className="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul className="navbar-nav ml-auto font-weight-bold">
                   <li className="nav-item ">
-                    <a className="nav-link px-lg-4 alink" href="index.html">
+                    <Link className="nav-link px-lg-4 alink" to="index.html">
                       IT Services Home
-                    </a>
+                    </Link>
                   </li>
                   <li className="dropdown nav-item">
-                    <a
-                      href="#"
+                    <Link
+                      to="#"
                       className="dropdown-toggle nav-link px-lg-4 alink"
                       data-toggle="dropdown"
                       role="button"
@@ -46,78 +47,78 @@ const Navbar = () => {
                       aria-expanded="false"
                     >
                       Resgistration <span className="caret" />
-                    </a>
+                    </Link>
                     <ul className="dropdown-menu">
                     <li className="nav-item">
-                        <a className="nav-link px-lg-4" href="/lms/user/login">
+                        <Link className="nav-link px-lg-4" to="/lms/user/login">
                           User
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link px-lg-4" href="/lms/student/login">
+                        <Link className="nav-link px-lg-4" to="/lms/student/login">
                           Student
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link px-lg-4" href="/lms/instructor/instructor_login">
+                        <Link className="nav-link px-lg-4" to="/lms/instructor/instructor_login">
                           Instructor
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a
+                        <Link
                           className="nav-link px-lg-4"
-                           href="/lms/organisation/organisation_login"
+                           to="/lms/organisation/organisation_login"
                         >
                           Corporates
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a
+                        <Link
                           className="nav-link px-lg-4 "
-                           href="/lms/college/college_login"
+                           to="/lms/college/college_login"
                         >
                           Universities
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a
+                        <Link
                           className="nav-link px-lg-4 "
                           // id="admin-bar"
-                          href="/lms/admin/admin_login"
+                          to="/lms/admin/admin_login"
                         >
                           Admin
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
                   {/* <NavDropdown
-                    href="#"
+                    to="#"
                     title="Registration"
                     id="basic-nav-dropdown"
                   >
-                    <NavDropdown.Item className="nav-link px-lg-4" href="#">
+                    <NavDropdown.Item className="nav-link px-lg-4" to="#">
                       Student
                     </NavDropdown.Item>
-                    <NavDropdown.Item className="nav-link px-lg-4" href="#">
+                    <NavDropdown.Item className="nav-link px-lg-4" to="#">
                       Instructor
                     </NavDropdown.Item>
-                    <NavDropdown.Item className="nav-link px-lg-4" href="#">
+                    <NavDropdown.Item className="nav-link px-lg-4" to="#">
                       Corporates
                     </NavDropdown.Item>
-                    <NavDropdown.Item className="nav-link px-lg-4 " href="#">
+                    <NavDropdown.Item className="nav-link px-lg-4 " to="#">
                       Universities
                     </NavDropdown.Item>
-                    <NavDropdown.Item className="nav-link px-lg-4 " href="#">
+                    <NavDropdown.Item className="nav-link px-lg-4 " to="#">
                       Admin
                     </NavDropdown.Item>
                   </NavDropdown> */}
                   <li className="nav-item">
-                    <a
+                    <Link
                       className="nav-link px-lg-4 alink"
-                      href="nodecontactform/acadamycontact.html"
+                      to="nodecontactform/acadamycontact.html"
                     >
                       Contact Us
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

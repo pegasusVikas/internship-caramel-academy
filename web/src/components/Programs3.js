@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.css";
 import { Tabs, Tab } from "react-bootstrap-tabs";
 // Put any other imports below so that CSS from your
@@ -13,9 +14,9 @@ const Programs3 = () => {
       >
         <ul className="ruby-menu">
           <li className="ruby-menu-mega-blog">
-            <a href="/caramelit_new/program" style={{ fontSize: "2em" }}>
+            <Link to="/caramelit_new/program" style={{ fontSize: "2em" }}>
               Software Development
-            </a> */}
+            </Link> */}
       {/* <Tabs
         onSelect={(index, label) => console.log(label + " selected")}
         headerStyle={{ fontWeight: "bold" }}
@@ -39,12 +40,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/coreui">
+                    <Link to="caramelit_new/courses/coursespage/coreui">
                       <img
                         src="images/core ui.jpeg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Core UI</p>
@@ -54,12 +55,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/advancedui">
+                    <Link to="caramelit_new/courses/coursespage/advancedui">
                       <img
                         src="images/advancedui.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Advanced UI</p>
@@ -69,12 +70,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second ">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/angularjs">
+                    <Link to="caramelit_new/courses/coursespage/angularjs">
                       <img
                         src="images/angular.png"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Angular JS</p>
@@ -85,12 +86,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/reactjs">
+                    <Link to="caramelit_new/courses/coursespage/reactjs">
                       <img
                         src="images/react2.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>React JS</p>
@@ -100,12 +101,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/vuejs">
+                    <Link to="caramelit_new/courses/coursespage/vuejs">
                       <img
                         src="images/vue.js1.jpeg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Vue JS</p>
@@ -124,9 +125,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/java">
+                    <Link to="caramelit_new/courses/coursespage/java">
                       <img src="images/java1.jpg" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Java</p>
@@ -136,9 +137,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/.net">
+                    <Link to="caramelit_new/courses/coursespage/.net">
                       <img src="images/net2.jpg" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>.NET</p>
@@ -148,12 +149,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second ">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/nodejs">
+                    <Link to="caramelit_new/courses/coursespage/nodejs">
                       <img
                         src="images/nodejs1.png"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Node JS</p>
@@ -164,9 +165,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/ruby">
+                    <Link to="caramelit_new/courses/coursespage/ruby">
                       <img src="images/ruby1.jpg" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Ruby</p>
@@ -176,12 +177,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/python">
+                    <Link to="caramelit_new/courses/coursespage/python">
                       <img
                         src="images/python1.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Python</p>
@@ -200,12 +201,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/corejava">
+                    <Link to="caramelit_new/courses/coursespage/corejava">
                       <img
                         src="images/core-java.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Core Java</p>
@@ -215,12 +216,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/.netcore">
+                    <Link to="caramelit_new/courses/coursespage/.netcore">
                       <img
                         src="images/net core.jpeg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>.NET Core</p>
@@ -230,9 +231,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second ">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/mevn">
+                    <Link to="caramelit_new/courses/coursespage/mevn">
                       <img src="images/mevn.jpg" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>MEVN</p>
@@ -242,12 +243,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/advancejava">
+                    <Link to="caramelit_new/courses/coursespage/advancejava">
                       <img
                         src="images/advanced1.png"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Advanced Java</p>
@@ -257,9 +258,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/mean">
+                    <Link to="caramelit_new/courses/coursespage/mean">
                       <img src="images/mean1.jpg" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>MEAN</p>
@@ -269,12 +270,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/golang">
+                    <Link to="caramelit_new/courses/coursespage/golang">
                       <img
                         src="images/golang.png"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Golang</p>
@@ -284,12 +285,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/fullstack.net">
+                    <Link to="caramelit_new/courses/coursespage/fullstack.net">
                       <img
                         src="images/fullstacknet.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>.NET</p>
@@ -299,9 +300,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="coursespage/measn">
+                    <Link to="coursespage/measn">
                       <img src="images/measn.jpg" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>MEASN</p>
@@ -311,9 +312,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/rubyfullstack">
+                    <Link to="caramelit_new/courses/coursespage/rubyfullstack">
                       <img src="images/ruby1.jpg" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Ruby</p>
@@ -332,12 +333,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/manualtesting">
+                    <Link to="caramelit_new/courses/coursespage/manualtesting">
                       <img
                         src="images/manualtesting.png"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Manual Testing</p>
@@ -347,12 +348,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/automation">
+                    <Link to="caramelit_new/courses/coursespage/automation">
                       <img
                         src="images/automationtesting.png"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Automation Testing</p>
@@ -362,12 +363,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second ">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/cloudtesting">
+                    <Link to="caramelit_new/courses/coursespage/cloudtesting">
                       <img
                         src="images/cloudtesting.png"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Cloud Testing</p>
@@ -378,12 +379,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/fullstacktesting">
+                    <Link to="caramelit_new/courses/coursespage/fullstacktesting">
                       <img
                         src=" images/fullstacktesting.png"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Full Stack Testing</p>
@@ -403,12 +404,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/dsbootcamp">
+                    <Link to="caramelit_new/courses/coursespage/dsbootcamp">
                       <img
                         src="images/bootcamp.png"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>DS BootCamp</p>
@@ -418,9 +419,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/datascientistcertification">
+                    <Link to="caramelit_new/courses/coursespage/datascientistcertification">
                       <img src="images/dsc.jpg" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Data Science Certification</p>
@@ -430,12 +431,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/coursespage/aimlexpertcourse">
+                    <Link to="caramelit_new/courses/coursespage/coursespage/aimlexpertcourse">
                       <img
                         src="images/aimlexpert.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>AI/ML Expert Course</p>
@@ -445,12 +446,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/mlwithpython">
+                    <Link to="caramelit_new/courses/coursespage/mlwithpython">
                       <img
                         src="images/mlpython.png"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>ML with Python</p>
@@ -460,9 +461,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/naturallanguageprocessing">
+                    <Link to="caramelit_new/courses/coursespage/naturallanguageprocessing">
                       <img src="images/nlp.jpg" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Natural Language Processing</p>
@@ -472,12 +473,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/hadoop">
+                    <Link to="caramelit_new/courses/coursespage/hadoop">
                       <img
                         src="images/hadoop1.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Hadoop</p>
@@ -487,12 +488,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/deeplearning">
+                    <Link to="caramelit_new/courses/coursespage/deeplearning">
                       <img
                         src="images/deeplearning1.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Deep Learning</p>
@@ -502,9 +503,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/rprogramming">
+                    <Link to="caramelit_new/courses/coursespage/rprogramming">
                       <img src="images/r pro.jpg" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>R programming</p>
@@ -514,12 +515,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/dataanalytics">
+                    <Link to="caramelit_new/courses/coursespage/dataanalytics">
                       <img
                         src="images/dataanalytics1.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Data Analytics</p>
@@ -529,12 +530,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/aimlfoundationcourse">
+                    <Link to="caramelit_new/courses/coursespage/aimlfoundationcourse">
                       <img
                         src="images/aimlfound.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>AI/ML Foundation Course</p>
@@ -553,12 +554,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/flutter">
+                    <Link to="caramelit_new/courses/coursespage/flutter">
                       <img
                         src="images/flutter1.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Flutter</p>
@@ -568,12 +569,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/xamarin">
+                    <Link to="caramelit_new/courses/coursespage/xamarin">
                       <img
                         src="images/xamarin1.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Xamarin</p>
@@ -583,12 +584,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/android">
+                    <Link to="caramelit_new/courses/coursespage/android">
                       <img
                         src="images/android1.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Android</p>
@@ -598,12 +599,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/ionic">
+                    <Link to="caramelit_new/courses/coursespage/ionic">
                       <img
                         src="images/ionic1.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Iconic</p>
@@ -613,12 +614,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/onsenui">
+                    <Link to="caramelit_new/courses/coursespage/onsenui">
                       <img
                         src="images/onsenui.png"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Onsen UI</p>
@@ -628,12 +629,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/reactnative">
+                    <Link to="caramelit_new/courses/coursespage/reactnative">
                       <img
                         src="images/reactnative.png"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>React Native</p>
@@ -643,9 +644,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/ios">
+                    <Link to="caramelit_new/courses/coursespage/ios">
                       <img src="images/ios.jpg" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>IOS</p>
@@ -665,12 +666,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/devopsfoundation">
+                    <Link to="caramelit_new/courses/coursespage/devopsfoundation">
                       <img
                         src="images/devopsfound.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>DevOps Foundation</p>
@@ -680,12 +681,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/devopsexpert">
+                    <Link to="caramelit_new/courses/coursespage/devopsexpert">
                       <img
                         src="images/devopsexpert.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>DevOps Expert</p>
@@ -695,12 +696,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/ansible">
+                    <Link to="caramelit_new/courses/coursespage/ansible">
                       <img
                         src="images/ansible2.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Ansibe</p>
@@ -710,9 +711,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/chef">
+                    <Link to="caramelit_new/courses/coursespage/chef">
                       <img src="images/chef2.png" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>CHEF</p>
@@ -722,12 +723,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/docker">
+                    <Link to="caramelit_new/courses/coursespage/docker">
                       <img
                         src="images/docker.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Dockers</p>
@@ -737,12 +738,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/kubernets">
+                    <Link to="caramelit_new/courses/coursespage/kubernets">
                       <img
                         src="images/kubernates.png"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Kubernets</p>
@@ -752,12 +753,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/openstack">
+                    <Link to="caramelit_new/courses/coursespage/openstack">
                       <img
                         src="images/openstack1.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Open Stack</p>
@@ -776,12 +777,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/awstechnicalessentials">
+                    <Link to="caramelit_new/courses/coursespage/awstechnicalessentials">
                       <img
                         src="images/aws technical.jpeg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>AWS Technical Essential</p>
@@ -791,12 +792,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/awscloudpractitioner">
+                    <Link to="caramelit_new/courses/coursespage/awscloudpractitioner">
                       <img
                         src="images/awscloud2.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>AWS Cloud Practitioner</p>
@@ -806,12 +807,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/awssolutionarchitectassociate ">
+                    <Link to="caramelit_new/courses/coursespage/awssolutionarchitectassociate ">
                       <img
                         src="images/awssolutionarchi2.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>AWS Solution Architect Associate</p>
@@ -821,12 +822,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/awsdeveloperassociate">
+                    <Link to="caramelit_new/courses/coursespage/awsdeveloperassociate">
                       <img
                         src="images/awsdeveloper1.png"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>AWS Developer Associate</p>
@@ -836,12 +837,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/awssysopsassociateadministrator">
+                    <Link to="caramelit_new/courses/coursespage/awssysopsassociateadministrator">
                       <img
                         src="images/aws sysops.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>AWS SysOps Associate Adminstrator</p>
@@ -851,9 +852,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/microsoftazurefundamentals">
+                    <Link to="caramelit_new/courses/coursespage/microsoftazurefundamentals">
                       <img src="images/Mcf.png" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Microsoft Azure Fundamentals</p>
@@ -863,9 +864,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/microsoftazureexpertcertification">
+                    <Link to="caramelit_new/courses/coursespage/microsoftazureexpertcertification">
                       <img src="images/mae.jpg" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Microsoft Azure Expert Certification</p>
@@ -884,12 +885,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/cissp">
+                    <Link to="caramelit_new/courses/coursespage/cissp">
                       <img
                         src="images/cissp2.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>CISSP</p>
@@ -899,9 +900,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/cisa">
+                    <Link to="caramelit_new/courses/coursespage/cisa">
                       <img src="images/cisa1.jpg" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>CISA</p>
@@ -911,9 +912,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/ceh">
+                    <Link to="caramelit_new/courses/coursespage/ceh">
                       <img src="images/ceh.jpg" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>CEH</p>
@@ -923,12 +924,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/comptiasecurity++">
+                    <Link to="caramelit_new/courses/coursespage/comptiasecurity++">
                       <img
                         src="images/comptiasecurity.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Comptia Security++</p>
@@ -938,9 +939,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/cism">
+                    <Link to="caramelit_new/courses/coursespage/cism">
                       <img src="images/cism1.jpg" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>CISM</p>
@@ -959,12 +960,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/salesforce">
+                    <Link to="caramelit_new/courses/coursespage/salesforce">
                       <img
                         src="images/salesforce1.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Salesforce</p>
@@ -974,12 +975,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/servicenow">
+                    <Link to="caramelit_new/courses/coursespage/servicenow">
                       <img
                         src="images/service-now.png"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Service Now</p>
@@ -989,12 +990,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/remedy">
+                    <Link to="caramelit_new/courses/coursespage/remedy">
                       <img
                         src="images/remedy.png"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Remedy</p>
@@ -1004,12 +1005,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/microsoftdynamics">
+                    <Link to="caramelit_new/courses/coursespage/microsoftdynamics">
                       <img
                         src="images/microdynamics.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Microdynamics</p>
@@ -1029,9 +1030,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/itilfoundation">
+                    <Link to="caramelit_new/courses/coursespage/itilfoundation">
                       <img src="images/itil.png" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>ITIL Foundation</p>
@@ -1041,9 +1042,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/pmp">
+                    <Link to="caramelit_new/courses/coursespage/pmp">
                       <img src="images/pmp.jpg" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>PMP</p>
@@ -1053,12 +1054,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/pmiacp">
+                    <Link to="caramelit_new/courses/coursespage/pmiacp">
                       <img
                         src="images/PMI-ACP.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>PMI-ACP</p>
@@ -1068,9 +1069,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/agile">
+                    <Link to="caramelit_new/courses/coursespage/agile">
                       <img src="images/Agile.jpg" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Agile</p>
@@ -1080,12 +1081,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/prince">
+                    <Link to="caramelit_new/courses/coursespage/prince">
                       <img
                         src="images/prince1.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Prince 2</p>
@@ -1105,9 +1106,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/sap">
+                    <Link to="caramelit_new/courses/coursespage/sap">
                       <img src="images/sap.jpg" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>SAP</p>
@@ -1117,12 +1118,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/oracle">
+                    <Link to="caramelit_new/courses/coursespage/oracle">
                       <img
                         src="images/oracle.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Oracle</p>
@@ -1132,12 +1133,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/inforln">
+                    <Link to="caramelit_new/courses/coursespage/inforln">
                       <img
                         src="images/inforln.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Infor LN</p>
@@ -1147,12 +1148,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/rootstack">
+                    <Link to="caramelit_new/courses/coursespage/rootstack">
                       <img
                         src="images/rootstack1.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>RootStack</p>
@@ -1171,12 +1172,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/digitalmarketingfoundation">
+                    <Link to="caramelit_new/courses/coursespage/digitalmarketingfoundation">
                       <img
                         src="images/digifound.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Digital Marketing Foundation</p>
@@ -1186,9 +1187,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/digitalmarketingexpert">
+                    <Link to="caramelit_new/courses/coursespage/digitalmarketingexpert">
                       <img src="images/digimarketexpert.jpg" />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Digital Marketing Expert</p>
@@ -1198,9 +1199,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/seo">
+                    <Link to="caramelit_new/courses/coursespage/seo">
                       <img src="images/SEO-1.jpg" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>SEO</p>
@@ -1210,9 +1211,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/smo">
+                    <Link to="caramelit_new/courses/coursespage/smo">
                       <img src="images/smo1.jpg" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>SMO</p>
@@ -1222,9 +1223,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/scm">
+                    <Link to="caramelit_new/courses/coursespage/scm">
                       <img src="images/scm1.jpg" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>SCM</p>
@@ -1234,9 +1235,9 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/smm">
+                    <Link to="caramelit_new/courses/coursespage/smm">
                       <img src="images/smm1.png" style={{ height: "110px" }} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>SMM</p>
@@ -1246,12 +1247,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/adwordsfoundation">
+                    <Link to="caramelit_new/courses/coursespage/adwordsfoundation">
                       <img
                         src="images/adwordfoun.png"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Adwords Foundation</p>
@@ -1261,12 +1262,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/adwordexpert">
+                    <Link to="caramelit_new/courses/coursespage/adwordexpert">
                       <img
                         src="images/adwordexpert.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Adword Expert</p>
@@ -1276,12 +1277,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/contentmarketing">
+                    <Link to="caramelit_new/courses/coursespage/contentmarketing">
                       <img
                         src="images/contentmarketing.png"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Content Marketing</p>
@@ -1291,12 +1292,12 @@ const Programs3 = () => {
               <div className="ruby-col-2">
                 <div className="second">
                   <div className="third">
-                    <a href="caramelit_new/courses/coursespage/branding">
+                    <Link to="caramelit_new/courses/coursespage/branding">
                       <img
                         src="images/branding.jpg"
                         style={{ height: "110px" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="four">
                     <p>Branding</p>

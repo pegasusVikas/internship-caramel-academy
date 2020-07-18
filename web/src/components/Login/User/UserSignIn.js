@@ -47,6 +47,7 @@ class SignIn extends Component {
 						islogged: true,
 						user: res.data.user,
 					});
+					localStorage.setItem("token",res.data.token);
 					this.props.user = "student";
 					console.log("student");
 				} else {
