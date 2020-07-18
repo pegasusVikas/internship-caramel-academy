@@ -75,17 +75,6 @@ router.route("/create").post((req, res) => {
 	});
 });
 
-//GET COURSES
-router.route("/").get((req, res) => {
-	Course.find(function (err, courses) {
-		if (err) {
-			console.log(err);
-		} else {
-			res.json(courses);
-		}
-	});
-});
-
 // DELETE COURSE
 router.route("/delete/:id").delete(function (req, res) {
 	Course.findById(req.params.id, function (err, course) {

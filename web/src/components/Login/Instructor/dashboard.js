@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from "axios";
 import CourseItem from "./CourseItem";
+import Account from "./Account";
 import Logo from "../common/logo.png";
 import "./dashboard.css";
 
@@ -10,6 +11,7 @@ const Dashboard = () => {
 
 	const [state, setState] = useState({
 		courses: null,
+		showAccount: false,
 		showCourses: false,
 		showTeachingCourses: false
 	});
@@ -24,17 +26,26 @@ const Dashboard = () => {
 		axios.get('http://localhost:3004/api/courses')
 		.then(res => {
 			setState({ courses: res.data.courses });
+			console.log(res.data);
 		}).catch(err => {
 			console.log(err.message);
 		});
 	}
 
+	let accountBorder = state.showAccount ? "2px solid #39004d" : ""; 
+	let courseBorder = state.showCourses ? "2px solid #39004d" : ""; 
+	let teachingBorder = state.showTeachingCourses ? "2px solid #39004d" : ""; 
+
+	const account = () => {
+		setState({ courses: state.courses, showAccount: !state.showAccount, showCourses: false, showTeachingCourses: false });
+	};
+
 	const courses = () => {
-		setState({ courses: state.courses, showCourses: !state.showCourses, showTeachingCourses: false });
+		setState({ courses: state.courses, showCourses: !state.showCourses, showTeachingCourses: false, showAccount: false });
 	};
 
 	const teachingCourses = () => {
-		setState({ courses: state.courses, showCourses: false, showTeachingCourses: !state.showTeachingCourses });
+		setState({ courses: state.courses, showCourses: false, showTeachingCourses: !state.showTeachingCourses, showAccount: false });
 	};
 
 	return (
@@ -67,9 +78,9 @@ const Dashboard = () => {
 					{user.emailAddress}
 					</p>
 					<hr />	
-					<div className="card-header" style={{ cursor: "pointer" }}>Account</div> <br />
-					<div className="card-header" onClick={courses} style={{ cursor: "pointer" }}>Available Courses</div> <br />
-					<div className="card-header" onClick={teachingCourses} style={{ cursor: "pointer" }}>Your Courses</div>
+					<div className="card-header" onClick={account} style={{ border: accountBorder, cursor: "pointer" }}>Account</div> <br />
+					<div className="card-header" onClick={courses} style={{ border: courseBorder, cursor: "pointer" }}>Available Courses</div> <br />
+					<div className="card-header" onClick={teachingCourses} style={{ border: teachingBorder, cursor: "pointer" }}>Your Courses</div>
 					<hr />
 					<Link className="btn btn-lg bg-dark text-white" to="/">
 						Logout
@@ -77,13 +88,33 @@ const Dashboard = () => {
 				</div>
 				<div className="column insright" id="sidebar">
 					<h2 style={{ color: "white" }}>Hello, Instructor - {user.firstName} {user.lastName} !</h2>
-					{state.showCourses && <CourseItems courses={state.courses} user={user} userStyle={userStyle} teaching={false}/>}
-					{state.showTeachingCourses && <CourseItems courses={state.courses} user={user} userStyle={userStyle} teaching={true}/>}
+					{state.showAccount && <AccountItems courses={state.courses} user={user} userStyle={userStyle} />} 
+					{state.showCourses && <CourseItems courses={state.courses} user={user} userStyle={userStyle} teaching={false} />}
+					{state.showTeachingCourses && <CourseItems courses={state.courses} user={user} userStyle={userStyle} teaching={true} />}
 				</div>
 			</div>
      	</div>
 	);
-}
+};
+
+const AccountItems = ({ courses, user, userStyle }) => {
+	let i = 0;
+	return (
+		<div>
+			<h4 style={{ color: "white", marginLeft: "2px" }}>Students enrolled for your courses:</h4> <hr />
+			<div style={{ padding: "1%" }}>
+				<div style={userStyle}>
+					{courses.map(course => (course.taughtBy === user._id &&
+						course.students.map(student => (
+							<Account key={i++} name={student.name} email={student.email} course={student.course} />
+						))
+					))}
+				</div>
+			</div>
+		</div>
+		
+	);
+};
 
 const CourseItems = ({ courses, user, userStyle, teaching }) => {
 	console.log(courses);

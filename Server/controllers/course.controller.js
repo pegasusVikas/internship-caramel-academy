@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const Course = require("../models/course/course.model");
+const Instructor = require("../models/user/instructor.model");
+const User = require("../models/user/user.model");
 
 const app = express();
 app.use(bodyParser.json());
@@ -47,12 +49,49 @@ module.exports.teach = async (req, res, next) => {
 
 
 module.exports.read = (req, res, next) => {
+	let courses = [];
 	Course.find().then((docs) => {
-		console.log("response");
-		console.log("Hello" + docs);
-		res.status(200).json({
-			message: "Categories fetched successfully",
-			courses: docs,
+		docs.map(doc => {
+			let id = doc.taughtBy;
+			Instructor.findById(id, (err, instructor) => {
+				let students = [];
+				if (err) {
+					console.log("Fetch Instructor error - ", err.message);
+					return;
+				}
+				let users = doc.enrolledBy;
+				let length = users.length;
+				users.map(user => {
+					User.findById(user._id, (err, userDoc) => {
+						if (err) {
+							console.log("Fetch student error -", err.message);
+							return;
+						}
+						if (userDoc === null) length -= 1;
+						userDoc !== null && students.push({
+							name: userDoc.firstName + " " + userDoc.lastName,
+							email: userDoc.emailAddress,
+							course: doc.title
+						});
+						if(students.length === length) {
+							courses.push({
+								...doc._doc,
+							    instructor: instructor !== null ? {
+									name: instructor.firstName + " " + instructor.lastName,
+									email: instructor.emailAddress
+								} : null,
+								students 
+							});
+							if (courses.length === docs.length) {
+								res.status(200).json({
+									message: "Categories fetched successfully",
+									courses
+								});
+							}	
+						}
+					})
+				});
+			});
 		});
 	});
 };

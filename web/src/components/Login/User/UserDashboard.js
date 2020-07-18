@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {Link} from 'react-router-dom'
 import axios from "axios";
 import CourseItem from "./CourseItem";
+import Account from "./Account";
 import Logo from "../common/logo.png";
 import "../Others/dashboard.css";
 
@@ -10,6 +11,7 @@ const Dashboard = () => {
 
 	const [state, setState] = useState({
 		courses: null,
+		showAccount: null,
 		showCourses: false,
 		showEnrolledCourses: false
 	});
@@ -29,12 +31,21 @@ const Dashboard = () => {
 		});
 	}
 
+	let accountBorder = state.showAccount ? "2px solid #39004d" : ""; 
+	let courseBorder = state.showCourses ? "2px solid #39004d" : ""; 
+	let enrolledBorder = state.showEnrolledCourses ? "2px solid #39004d" : ""; 
+
+	const account = () => {
+		setState({ courses: state.courses, showAccount: !state.showAccount, showCourses: false, showEnrolledCourses: false });
+	};
+
+
 	const courses = () => {
-		setState({ courses: state.courses, showCourses: !state.showCourses, showEnrolledCourses: false });
+		setState({ courses: state.courses, showCourses: !state.showCourses, showEnrolledCourses: false, showAccount: false });
 	};
 
 	const enrolledCourses = () => {
-		setState({ courses: state.courses, showCourses: false, showEnrolledCourses: !state.showEnrolledCourses });
+		setState({ courses: state.courses, showCourses: false, showEnrolledCourses: !state.showEnrolledCourses, showAccount: false });
 	};
 
 	return (
@@ -67,18 +78,17 @@ const Dashboard = () => {
 					{user.emailAddress}
 					</p>
 					<hr />	
-					<div className="card-header">Account</div> <br />
-					<div className="card-header" onClick={courses}>Courses</div> <br />
-					<div className="card-header" onClick={enrolledCourses}>Enrolled Courses</div>
+					<div className="card-header" onClick={account} style={{ border: accountBorder, cursor: "pointer" }}>Account</div> <br />
+					<div className="card-header" onClick={courses} style={{ border: courseBorder, cursor: "pointer" }}>Courses</div> <br />
+					<div className="card-header" onClick={enrolledCourses} style={{ border: enrolledBorder, cursor: "pointer" }}>Enrolled Courses</div>
 					<hr />
-					<div className="btn btn-lg bg-dark text-white">
-						<Link to="/">
+					<Link className="btn btn-lg bg-dark text-white" to="/">
 						Logout
-						</Link>
-					</div>
+					</Link>
 				</div>
 				<div className="column right" id="sidebar">
 					<h2>Hello, {user.profile} - {user.firstName} {user.lastName} !</h2>
+					{state.showAccount && <AccountItems courses={state.courses} user={user} userStyle={userStyle} />} 
 					{state.showCourses && <CourseItems courses={state.courses} user={user} userStyle={userStyle} enrolled={false}/>}
 					{state.showEnrolledCourses && <CourseItems courses={state.courses} user={user} userStyle={userStyle} enrolled={true}/>}
 				</div>
@@ -86,6 +96,22 @@ const Dashboard = () => {
      	</div>
 	);
 }
+
+const AccountItems = ({ courses, user, userStyle }) => {
+	let i = 0;
+	return (
+		<div>
+			<h4>Instructors for your courses:</h4>
+			<div style={{ padding: "1%" }}>
+				<div style={userStyle}>
+					{courses.map(course => course.instructor !== null && course.enrolledBy.indexOf(user._id) !== -1 && (
+						<Account key={i++} name={course.instructor.name} email={course.instructor.email} course={course.title} />
+					))}
+				</div>
+			</div>
+		</div>	
+	);
+};
 
 const CourseItems = ({ courses, user, userStyle, enrolled }) => {
 	console.log(courses);
