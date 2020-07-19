@@ -48,7 +48,7 @@ adminSchema.methods.verifyPassword = function (password) {
 };
 
 adminSchema.methods.generateJwt = function () {
-    return jwt.sign({ _id: this._id},
+    return jwt.sign({ _id: this._id,type:"admin"},
         process.env.JWT_SECRET,
     {
         expiresIn: process.env.JWT_EXP

@@ -57,6 +57,9 @@ class SignInInstructor extends Component {
 						islogged: true,
 						uns: res.data.instructor,
 					});
+
+					localStorage.setItem("token",res.data.token);
+
 					this.props.islogged = true;
 					console.log(this.props);
 				} else {

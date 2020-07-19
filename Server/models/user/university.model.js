@@ -62,7 +62,7 @@ universitySchema.methods.verifyPassword = function (password) {
 };
 
 universitySchema.methods.generateJwt = function () {
-    return jwt.sign({ _id: this._id},
+    return jwt.sign({ _id: this._id,type:"college"},
         process.env.JWT_SECRET,
     {
         expiresIn: process.env.JWT_EXP

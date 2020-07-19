@@ -29,8 +29,9 @@ passport.use('userLocal',
                 else if(!user.verifyPassword(password))
                     return done(null, false, { message: 'Wrong password.' });
                 // authentication succeeded
-                else
+                else{
                     return done(null, user);
+                }
             });
     })
 );

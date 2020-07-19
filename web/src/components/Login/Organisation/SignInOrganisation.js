@@ -46,6 +46,8 @@ class SignInOrganisation extends Component {
           // this.setState({logged:true});
           console.log("true");
           this.setState({error:false, islogged:true,user:res.data.organisation});
+          console.log("token",res.data.token);
+          localStorage.setItem("token",res.data.token);
         } else {
           console.log("not logged in");
           this.setState({ error: true });

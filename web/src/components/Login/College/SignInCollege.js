@@ -52,6 +52,7 @@ class SignInCollege extends Component {
             islogged: true,
             user: res.data.college
           });
+          localStorage.setItem("token",res.data.token);
         } else {
           console.log("not logged in");
           this.setState({ error: true });

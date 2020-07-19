@@ -47,6 +47,7 @@ class SignIn extends Component{
                 // console.log(res.data);
                 this.setState({error:false, islogged:true,user:res.data.admin});
                 // console.log(this.state.user);
+                localStorage.setItem("token",res.data.token);
             }
               else{
                   console.log('not loggedi in');

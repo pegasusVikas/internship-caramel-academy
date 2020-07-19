@@ -68,7 +68,7 @@ studentSchema.methods.verifyPassword = function (password) {
 };
 
 studentSchema.methods.generateJwt = function () {
-    return jwt.sign({ _id: this._id},
+    return jwt.sign({ _id: this._id,type:"student"},
         process.env.JWT_SECRET,
     {
         expiresIn: process.env.JWT_EXP
