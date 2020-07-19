@@ -18,19 +18,19 @@ export class ViewCourse extends Component {
   //       : this.setState({ [name]: value });
   //   }
   componentDidMount() {
-    axios.get("http://localhost:3004/course", this.state).then((res) => {
+    axios.get("http://localhost:3004/api/courses").then((res) => {
       console.log(res.data);
       if (res.data) {
-        this.setState({ courses: res.data });
+        this.setState({ courses: res.data.courses });
       } else {
         console.log("error");
       }
     });
   }
   updateList() {
-    axios.get("http://localhost:3004/course", this.state).then((res) => {
+    axios.get("http://localhost:3004/api/courses").then((res) => {
       if (res.data) {
-        this.setState({ courses: res.data });
+        this.setState({ courses: res.data.courses });
       } else {
         console.log("error");
       }

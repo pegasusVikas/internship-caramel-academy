@@ -4,6 +4,7 @@ import axios from "axios";
 import CourseItem from "./CourseItem";
 import Account from "./Account";
 import Logo from "../common/logo.png";
+import ErrorIcon from '@material-ui/icons/Error';
 import "../Others/dashboard.css";
 
 const Dashboard = () => {
@@ -74,7 +75,7 @@ const Dashboard = () => {
 			<div class="row">
 				<div className="column left" id="sidebar" style={{ backgroundColor: "#ccffff" }}>
 					<p>{user.firstName} {user.lastName}</p>
-					<p style={{ textAlign: "left", paddingLeft: "15px" }}>
+					<p style={{ textAlign: "left", paddingLeft: "5px" }}>
 					{user.emailAddress}
 					</p>
 					<hr />	
@@ -109,19 +110,22 @@ const AccountItems = ({ courses, user, userStyle }) => {
 					))}
 				</div>
 			</div>
+			{i === 0 && <div className="alert alert-warning"><ErrorIcon /> You do not seem to be enrolled in any courses</div>}
 		</div>	
 	);
 };
 
 const CourseItems = ({ courses, user, userStyle, enrolled }) => {
 	console.log(courses);
+	let i = 0;
     return (
 		<div style={{ padding: "1%" }}>
 			<div style={userStyle}>
 				{courses.map(course => ((enrolled ? course.enrolledBy.indexOf(user._id) !== -1 : course.enrolledBy.indexOf(user._id) === -1)  &&
-					<CourseItem key={course._id} course={course} user={user._id} enrolled={enrolled}/>
+					<CourseItem key={i++} course={course} user={user._id} enrolled={enrolled}/>
 				))}
 			</div>
+			{enrolled && i == 0 && <div className="alert alert-warning"><ErrorIcon /> You do not seem to be enrolled in any courses</div>}
 		</div>
 	);
 };

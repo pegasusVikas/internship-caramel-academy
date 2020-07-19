@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "../Instructor/card.css";
 import axios from "axios";
 
 const CourseItem = (props) => {
@@ -30,7 +31,7 @@ const CourseItem = (props) => {
 	};
 
     return (
-        <div className="card" style={{ boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)" }}>
+        <div className="card">
             <div className="card-header bg-dark">
                 <span className="text-white" style={{ fontWeight: "bold" }}>{course.title}</span>
             </div>

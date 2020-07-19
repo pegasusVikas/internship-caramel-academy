@@ -188,7 +188,7 @@ export default class Application extends Component {
     super(props);
     this.state = {
       islogged: false,
-      user: "newuser",
+      user: "admin",
       courses: [],
     };
 
@@ -205,10 +205,10 @@ export default class Application extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:3004/course", this.state).then((res) => {
+    axios.get("http://localhost:3004/api/courses").then((res) => {
       console.log(res.data);
       if (res.data) {
-        this.setState({ courses: res.data });
+        this.setState({ courses: res.data.courses });
       } else {
         console.log("error");
       }

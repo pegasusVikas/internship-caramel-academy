@@ -1,9 +1,10 @@
 import React from 'react';
+import "./card.css";
 
 const Account = ({ name, email, course}) => {
 
     return (
-        <div className="card" style={{ boxShadow: "0 8px 16px 0 rgba(0,0,0,0.2)" }}>
+        <div className="card">
             <div className="card-header"  style={{ backgroundColor: "#39004d" }}>
                 <span className="text-white" style={{ fontWeight: "bold" }}>{course}</span>
             </div>
