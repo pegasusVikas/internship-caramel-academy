@@ -50,6 +50,7 @@ import BackGround from "../Background";
 //import AddCourse from "../components/Login/Others/addCourse";
 import AddCategory from "../components/Login/Others/addCategory";
 import ViewCategory from "../components/Login/Others/viewCategory";
+import Cart from '../components/cart/user/Cart'
 
 import MainConsumer from "../components/Industries/Consumer/mainConsumer";
 
@@ -353,6 +354,13 @@ export default class Application extends Component {
           path="/lms/organisation/dashboard"
           component={OrganisationDashboard}
         />
+
+        <Route
+          exact
+          path="/lms/user/cart"
+          component={Cart}
+        />
+
         <Route exact path="/lms/admin/dashboard" component={AdminDashboard} />
         <Route exact path="/lms/admin/viewcourse" component={ViewCourse} />
         <Route exact path="/lms/admin/addcourse" component={AddCourse} />

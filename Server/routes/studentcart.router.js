@@ -67,11 +67,12 @@ studentCartRoute.route('/:userID/:courseID').delete(async (req, res, next) => {
   }
   })
 
-studentCartRoute.route('/:user_id').delete(async (req, res) => {
+studentCartRoute.route('/:userID').delete(async (req, res) => {
   try{
     const user=await User.findById(req.params.userID)
+    //console.log(req.params);
     if(!user)
-     res.json({error:"invalid user id"})
+     res.json({error:"invalid user ID"})
     else{
       user.cart=[];
       await user.save();

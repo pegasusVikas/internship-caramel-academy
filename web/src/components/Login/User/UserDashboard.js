@@ -52,7 +52,7 @@ const Dashboard = () => {
 	return (
 		<div> 
 			<nav className="navbar navbar-expand-sm bg-dark navbar-dark">
-				<Link className="navbar-brand" to="/">
+				<Link className="navbar-brand" to="/lms/user/cart">
 					<img
 					src="../../Caramellogo.png"
 					alt="logo"

@@ -1,1 +1,5 @@
 export const SET_USER="SET_USER"
+export const ADD_COURSE="ADD_COURSE"
+export const REMOVE_COURSE="REMOVE_COURSE"
+export const REMOVE_ALL_COURSE="REMOVE_ALL_COURSE"
+export const GET_COURSES="GET_COURSES"
