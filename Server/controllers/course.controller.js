@@ -61,7 +61,7 @@ module.exports.read = (req, res, next) => {
 				}
 				let users = doc.enrolledBy;
 				let length = users.length;
-				users.map(user => {
+				users.length > 0 && users.map(user => {
 					User.findById(user._id, (err, userDoc) => {
 						if (err) {
 							console.log("Fetch student error -", err.message);
@@ -89,8 +89,22 @@ module.exports.read = (req, res, next) => {
 								});
 							}	
 						}
-					})
+					});
 				});
+				courses.push({
+					...doc._doc,
+					instructor: instructor !== null ? {
+						name: instructor.firstName + " " + instructor.lastName,
+						email: instructor.emailAddress
+					} : null,
+					students: []
+				});
+				if (courses.length === docs.length) {
+					res.status(200).json({
+						message: "Categories fetched successfully",
+						courses
+					});
+				}	
 			});
 		});
 	});

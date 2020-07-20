@@ -4,6 +4,7 @@ import axios from "axios";
 import CourseItem from "./CourseItem";
 import Account from "./Account";
 import Logo from "../common/logo.png";
+import ErrorIcon from '@material-ui/icons/Error';
 import "./dashboard.css";
 
 const Dashboard = () => {
@@ -98,18 +99,21 @@ const Dashboard = () => {
 };
 
 const AccountItems = ({ courses, user, userStyle }) => {
-	let i = 0;
+	let i = 0, j = 0;
 	return (
 		<div>
 			<h4 style={{ color: "white", marginLeft: "2px" }}>Students enrolled for your courses:</h4> <hr />
 			<div style={{ padding: "1%" }}>
 				<div style={userStyle}>
-					{courses.map(course => (course.taughtBy === user._id &&
+					{courses.map(course => (course.students.length > 0 ?
+						course.taughtBy === user._id &&
 						course.students.map(student => (
 							<Account key={i++} name={student.name} email={student.email} course={student.course} />
-						))
+						)) : <div style={{ display: "none" }}>{j++}</div>
 					))}
 				</div>
+				{j == courses.length &&
+				<div className="alert alert-warning"><ErrorIcon /> You do not seem to have any students enrolled for your courses</div>}
 			</div>
 		</div>
 		
