@@ -19,10 +19,9 @@ const adminSchema = new mongoose.Schema({
     mobileNumber: {
         type: Number
     },
-    createdAt:{
-        type: Date,
-        default: Date.now
-    }
+},
+{
+    timestamps:true
 });
 
 // Custom validation for email

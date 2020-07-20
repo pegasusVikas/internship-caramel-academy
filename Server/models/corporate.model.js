@@ -22,10 +22,13 @@ const corporateSchema = new mongoose.Schema({
     others: {
         type: String
     },
-    createdAt:{
-        type: Date,
-        default: Date.now
-    }
+    cart:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"All_Course"
+    }]
+},
+{
+    timestamps:true
 });
 
 // Custom validation for email

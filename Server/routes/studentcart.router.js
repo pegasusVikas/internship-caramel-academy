@@ -3,68 +3,83 @@ const studentCartRoute = express.Router();
 var ObjectId = require('mongodb').ObjectID;
 
 // Cart model
+let User = require('../models/user/user.model');
+let Course = require('../models/course/course.model')
 let Cart = require('../models/student-cart.model');
 
 
-// Add To Cart
-studentCartRoute.route('/create').post((req, res, next) => {
-  Cart.create(req.body, (error, data) => {
-    if (error) {
-      return next(error)
-    } else {
-      res.json(data)
-    }
-  })
-});
 
-//Get All coursers
-studentCartRoute.route('/findall').get((req, res) => {
-  Cart.find((error, data) => {
-    if (error) {
-      return console.log('error'+JSON.stringify(error,undefined,20));
-    } else {
-      res.json(data)
-    }
-  })
+//Get All coursers of a user
+studentCartRoute.route('/:userID').get(async (req, res) => {
+  try{
+      const user= await User.findById(req.params.userID).exec();
+      if(!user){
+        res.json({error:"invalid user id"})
+      }
+      else{
+        res.json(user.cart);
+      }
+ }catch(err){
+   res.json({error:err.message})
+ }
+
 })
 
-// Get single employee
-studentCartRoute.route('/find/:id').get((req, res) => {
-  // Cart.findOne({"_id": new ObjectId(req.params.id)}, (error, data) => {
-    Cart.findById(req.params.id, (error, data) => {
-    if (error) {
-      return next(error)
-    } else {
-      console.log(data,'data')
-      res.json(data)
-    }
-  })
-})
-// Update cart
-studentCartRoute.route('/update/:id').put((req, res, next) => {
-    Cart.findByIdAndUpdate(req.params.id, {
-      $set: req.body
-    }, (error, data) => {
-      if (error) {
-        return next(error);
-        console.log(error)
-      } else {
-        res.json(data)
-        console.log('Data updated successfully')
+// Add course to user cart
+studentCartRoute.route('/:userID/:courseID').post(async (req, res) => {
+  try{
+    const user= await User.findById(req.params.userID).exec();
+      if(!user)
+        res.json({error:"invalid user id"})
+      else{
+        const course = await Course.findById(req.params.courseID).exec()
+        if(!course)
+          res.json({error:"invalid course id"})
+        else{
+          user.cart.push(course._id);
+          user.save() 
+          res.json(course);
+        }
       }
-    })
+  }catch(err){
+    res.json({error:err.message})
+  }
+})
+
+// delete a course in the cart
+studentCartRoute.route('/:userID/:courseID').delete(async (req, res, next) => {
+  try{
+    const user=await User.findById(req.params.userID)
+    if(!user)
+     res.json({error:"invalid user id"})
+    else{
+      const index=user.cart.indexOf(req.params.courseID);
+      if(index==-1)
+        res.json({error:"course not found"})
+      else{
+        user.cart=user.cart.filter((id)=>id!=req.params.courseID);
+        await user.save();
+        res.json(user.cart);
+      }
+    }
+  }catch(err){
+    res.json({error:err.message})
+  }
   })
 
-studentCartRoute.route('/delete/:course_id').delete((req, res, next) => {
-    Cart.findOneAndRemove(req.params.course_id, (error, data) => {
-      if (error) {
-        return next(error);
-      } else {
-        res.status(200).json({
-          msg: data
-        });
-      }
-    })
+studentCartRoute.route('/:user_id').delete(async (req, res) => {
+  try{
+    const user=await User.findById(req.params.userID)
+    if(!user)
+     res.json({error:"invalid user id"})
+    else{
+      user.cart=[];
+      await user.save();
+      res.json(user.cart);
+    }
+  }catch(err){
+    res.json({error:err.message})
+  }
   })
 
 module.exports = studentCartRoute;

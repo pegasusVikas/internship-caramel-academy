@@ -35,10 +35,9 @@ const instructorSchema = new mongoose.Schema({
     profileDetails: {
         type: String
     },
-    createdAt:{
-        type: Date,
-        default: Date.now
-    }
+},
+{
+    timestamps:true
 });
 
 // Custom validation for email

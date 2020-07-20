@@ -42,10 +42,6 @@ const userSchema = new mongoose.Schema({
     skillset: {
         type: Array
     },
-    createdAt:{
-        type: Date,
-        default: Date.now
-    },
     organization: {
         type: String
     },
@@ -58,7 +54,15 @@ const userSchema = new mongoose.Schema({
     hasExperience: {
         type: Boolean
     },
+    cart:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"All_Course"
+    }]
+    ,
     saltSecret: String
+},
+{
+    timestamps:true
 });
 
 // Custom validation for email
