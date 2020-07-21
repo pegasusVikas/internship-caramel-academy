@@ -84,7 +84,7 @@ module.exports.read = (req, res, next) => {
 							});
 							if (courses.length === docs.length) {
 								res.status(200).json({
-									message: "Categories fetched successfully",
+									message: "Courses fetched successfully",
 									courses
 								});
 							}	
@@ -101,7 +101,7 @@ module.exports.read = (req, res, next) => {
 				});
 				if (courses.length === docs.length) {
 					res.status(200).json({
-						message: "Categories fetched successfully",
+						message: "Courses fetched successfully",
 						courses
 					});
 				}	

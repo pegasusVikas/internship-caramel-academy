@@ -94,7 +94,7 @@ export default class CourseInformationTab extends Component {
         <div className="container" style={{ marginTop: "4%" }}>
           <div className="row">
             <div className="col-md-8">
-              <h2 style={{ fontWeight: "bold" }}>Greetings Adminstrator</h2>
+              <h2 style={{ fontWeight: "bold" }}>Greetings {this.props.user}</h2>
               <br />
               <div>
                 <h4 style={{ display: "inline" }}>What will you learn</h4>

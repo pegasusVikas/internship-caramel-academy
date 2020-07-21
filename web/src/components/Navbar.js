@@ -1,8 +1,7 @@
 import React from "react";
-import { withRouter, Link ,} from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 const Navbar = (props) => {
-  console.log(props.location);
   let course = props.location.pathname.split("/")[3] === "coursespage" ? true : false;
   return (
     <div>
@@ -48,7 +47,7 @@ const Navbar = (props) => {
                       aria-expanded="false"
                       style={{ backgroundColor: course ? "#002333" : "" }}
                     >
-                      Register <span className="caret" />
+                      Sign In <span className="caret" />
                     </Link>
                     <ul className="dropdown-menu">
                       <li className="nav-item">

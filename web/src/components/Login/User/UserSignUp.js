@@ -52,7 +52,7 @@ class SignUp extends Component {
           // this.setState({logged:true});
           console.log("logged in");
           console.log(res.data);
-          alert("registerd");
+          alert("registered");
           this.setState({ isRegistered: true });
         } else {
           console.log("not logged in");

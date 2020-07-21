@@ -12,7 +12,7 @@ const CourseItem = (props) => {
 
     const onClick = () => {
         window.open("/caramelit_new/courses/coursespage/" + course.title.toLowerCase().split(" ").join(""));
-    }
+    };
     
     const handleClick = (userId, courseId) => {
 		axios.post(`http://localhost:3004/api/courses/${userId}/${courseId}`)

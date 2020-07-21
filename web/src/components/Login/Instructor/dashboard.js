@@ -49,24 +49,17 @@ const Dashboard = () => {
 		setState({ courses: state.courses, showCourses: false, showTeachingCourses: !state.showTeachingCourses, showAccount: false });
 	};
 
+	const logout = () => {
+		localStorage.removeItem("instructor");
+	};
+
 	return (
 		<div>
 			<nav className="navbar navbar-expand-sm" style={{ backgroundColor: "#39004d" }}>  
 				<Link className="navbar-brand" to="/">
-					<img
-					src="../../Caramellogo.png"
-					alt="logo"
-					style={{
-						width: "240px",
-						height: "65px",
-						margin: "0px 0px 0px 0px",
-					}}
-					/>
+					<img src="../../Caramellogo.png" alt="logo" style={{ width: "240px", height: "65px", margin: "0px 0px 0px 0px" }} />
 				</Link>
-				<div
-					class="collapse navbar-collapse justify-content-end"
-					id="navbarTogglerDemo03"
-				>
+				<div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
 					<ul class="navbar-nav">
 						<li><img src={Logo} width="50px" alt="mern" height="50px"/></li>
 					</ul>
@@ -75,17 +68,13 @@ const Dashboard = () => {
 			<div class="row">
 				<div className="column insleft" id="sidebar" style={{ backgroundColor: "#ffffe6" }}>
 					<p>{user.firstName} {user.lastName}</p>
-					<p style={{ textAlign: "left", paddingLeft: "15px" }}>
-					{user.emailAddress}
-					</p>
+					<p style={{ textAlign: "center" }}>{user.emailAddress}</p>
 					<hr />	
 					<div className="card-header" onClick={account} style={{ border: accountBorder, cursor: "pointer" }}>Account</div> <br />
 					<div className="card-header" onClick={courses} style={{ border: courseBorder, cursor: "pointer" }}>Available Courses</div> <br />
 					<div className="card-header" onClick={teachingCourses} style={{ border: teachingBorder, cursor: "pointer" }}>Your Courses</div>
 					<hr />
-					<Link className="btn btn-lg bg-dark text-white" to="/">
-						Logout
-					</Link>
+					<Link className="btn btn-lg bg-dark text-white" to="/" onClick={logout}>Logout</Link>
 				</div>
 				<div className="column insright" id="sidebar">
 					<h2 style={{ color: "white" }}>Hello, Instructor - {user.firstName} {user.lastName} !</h2>
@@ -105,30 +94,28 @@ const AccountItems = ({ courses, user, userStyle }) => {
 			<h4 style={{ color: "white", marginLeft: "2px" }}>Students enrolled for your courses:</h4> <hr />
 			<div style={{ padding: "1%" }}>
 				<div style={userStyle}>
-					{courses.map(course => (course.students.length > 0 ?
-						course.taughtBy === user._id &&
+					{courses.map(course => (course.taughtBy === user._id &&
 						course.students.map(student => (
 							<Account key={i++} name={student.name} email={student.email} course={student.course} />
-						)) : <div style={{ display: "none" }}>{j++}</div>
+						)) 
 					))}
 				</div>
-				{j == courses.length &&
-				<div className="alert alert-warning"><ErrorIcon /> You do not seem to have any students enrolled for your courses</div>}
-			</div>
-		</div>
-		
+				<div className="alert alert-warning" style={{ display: i === 0 ? null : "none" }}><ErrorIcon /> You do not seem to have any students enrolled for your courses</div>
+			</div> 
+		</div>		
 	);
 };
 
 const CourseItems = ({ courses, user, userStyle, teaching }) => {
-	console.log(courses);
+	let i = 0;
     return (
 		<div style={{ padding: "1%" }}>
 			<div style={userStyle}>
 				{courses.map(course => ((teaching ? course.taughtBy === user._id :  course.taughtBy !== user._id) &&
-					<CourseItem key={course._id} course={course} user={user._id} teaching={teaching} />
+					<CourseItem key={i++} course={course} user={user._id} teaching={teaching} />
 				))}
 			</div>
+			<div className="alert alert-warning" style={{ display: teaching && i === 0 ? null : "none" }}><ErrorIcon /> You do not seem to be teaching any courses</div>
 		</div>
 	);
 };

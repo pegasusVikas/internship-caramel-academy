@@ -43,9 +43,8 @@ class AddCategory extends Component {
             <ul class="navbar-nav ">
               <li class="nav-item">
                 <a
-                  class="nav-link"
                   href="/lms/admin/admin_login"
-                  style={{ fontSize: "2.5em" }}
+                  style={{ fontSize: "1.5em" }}
                 >
                   Logout
                 </a>

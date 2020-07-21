@@ -192,17 +192,14 @@ export default class Application extends Component {
       user: "admin",
       courses: [],
     };
+  }
 
-  }
   componentDidUpdate(pP,pS,SS){
-    console.log(pS);
-    console.log("aaaaa");
-    console.log(this.state);
     if(pS.user!=this.context.user.type){
-    if(this.context.user.type){
-      this.setState({user:this.context.user.type});
+      if(this.context.user.type){
+        this.setState({user:this.context.user.type});
+      }
     }
-  }
   }
 
   componentDidMount() {
