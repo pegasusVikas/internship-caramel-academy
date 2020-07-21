@@ -1,6 +1,7 @@
 require('../models/user/user.model');
 const mongoose = require('mongoose');
 const passport = require('passport');
+const bcrypt = require('bcryptjs');
 const _ = require('lodash');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
@@ -8,7 +9,7 @@ const sgMail = require('@sendgrid/mail');
 const userpasswordResetToken = require('../models/Reset Tokens/user-reset-token.model');
 const User = mongoose.model('User');
 
-module.exports.register = (req, res, next) => {
+module.exports.register = async (req, res, next) => {
     var user = new User();
     user.profile = req.body.profile;
     user.firstName = req.body.firstName;
@@ -26,32 +27,42 @@ module.exports.register = (req, res, next) => {
     user.experience = req.body.experience;
     user.hasExperience = req.body.experience > 0 ? true : false;
     user.hasSkills = req.body.skillset.split(",").length > 0 ? true : false;
-    user.save((err, doc) => {
-        if (!err) {
-            try {
-                sgMail.setApiKey('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');
-                const msg = {
-                    to: req.body.emailAddress,
-                    from: 'viswa.es27@gmail.com',
-                    subject: 'Registration',
-                    text: 'You have successfully registered as a student at CaramelIT!',
-                };
-                sgMail.send(msg);
-            } catch (err) {
-                console.log(err.message);
-            }
-            res.json({user:doc,registered:true});
-        }
-        else {
-            console.log(err);
-            res.json({registered:false});
-            // if (err.code == 11000)
-            //     res.status(422).send(['Duplicate email adrress found.']).;
-            // else
-            //     return next(err);
-        }
-
-    });
+    try{
+    bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(req.body.password, salt, (err, hash) => {
+            user.password = hash;
+            user.saltSecret = salt;
+            user.save((err, doc) => {
+                if (!err) {
+                    try {
+                        sgMail.setApiKey('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');
+                        const msg = {
+                            to: req.body.emailAddress,
+                            from: 'viswa.es27@gmail.com',
+                            subject: 'Registration',
+                            text: 'You have successfully registered as a student at CaramelIT!',
+                        };
+                        sgMail.send(msg);
+                    } catch (err) {
+                        console.log(err.message);
+                    }
+                    res.json({user:doc,registered:true});
+                }
+                else {
+                    console.log(err);
+                    res.json({registered:false});
+                    // if (err.code == 11000)
+                    //     res.status(422).send(['Duplicate email adrress found.']).;
+                    // else
+                    //     return next(err);
+                }
+        
+            });
+        });
+    })
+    }catch(err){
+        res.json({registered:false,error:err.message});
+    }
 };
 
 module.exports.authenticate = (req, res, next) => {

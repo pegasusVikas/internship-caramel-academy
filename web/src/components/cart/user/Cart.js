@@ -37,8 +37,8 @@ export default class Cart extends React.Component {
 
   clearCart = () => {
     const context =this.context;
-    context.removeAllCourses(context.user._id);
-    this.setState({ products: [] });
+    const cart=context.removeAllCourses(context.user._id);
+    this.setState({ products:cart  });
   };
 
   render() {

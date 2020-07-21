@@ -12,7 +12,7 @@ const CourseSchema = new mongoose.Schema({
 	table: [Table],
 	taughtBy: {
 		type: mongoose.Schema.ObjectId,
-		ref: 'instructor',
+		ref: 'Instructor',
 		default: "5ef0b129030c551c709ce740"
 	},
 	enrolledBy: [{

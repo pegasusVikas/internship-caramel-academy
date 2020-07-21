@@ -19,7 +19,14 @@ var Admin = mongoose.model('Admin');
 passport.use('userLocal',
     new userLocalStrategy({ usernameField: 'emailAddress' },
     (username, password, done) => {
-        User.findOne({ emailAddress: username },
+        User.findOne({ emailAddress: username })
+        .populate({
+            path:'cart',
+            populate:[
+                {path:'taughtBy'}
+            ]
+        })
+        .exec(
             (err, user) => {
                 if (err) return done(err);
                 // unknown user
@@ -32,9 +39,9 @@ passport.use('userLocal',
                 else{
                     return done(null, user);
                 }
-            });
-    })
-);
+            
+             });
+   }));
 
 //Student passport
 passport.use('studentLocal',

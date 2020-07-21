@@ -56,7 +56,7 @@ const userSchema = new mongoose.Schema({
     },
     cart:[{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"All_Course"
+        ref:"Course"
     }]
     ,
     saltSecret: String
@@ -72,7 +72,7 @@ userSchema.path('emailAddress').validate((val) => {
 }, 'Invalid e-mail.');
 
 // Events
-userSchema.pre('save', function (next) {
+/*userSchema.pre('save', function (next) {
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(this.password, salt, (err, hash) => {
             this.password = hash;
@@ -80,7 +80,7 @@ userSchema.pre('save', function (next) {
             next();
         });
     });
-});
+});*/
 
 // Methods
 userSchema.methods.verifyPassword = function (password) {
