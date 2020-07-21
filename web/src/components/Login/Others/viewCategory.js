@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
+import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import axios from "axios";
 class ViewCateories extends Component {
   constructor(props) {
@@ -51,23 +52,27 @@ class ViewCateories extends Component {
             </ul>
           </div>
         </nav>
-        <Link to="dashboard" className="btn btn-dark" style={{ margin: 50 }}>
-          Back
+        <Link
+          to={{ pathname: "dashboard", state: this.state.user }}
+          className="btn btn-dark"
+          style={{ margin: 50 }}
+        >
+          <div className="btn btn-info"><SkipPreviousIcon /> Back</div>
         </Link>
         <div className="form-group switch">
           <button
             className={"btn btn-success " + this.state.prClass}
-            style={{ marginLeft: 50 }}
+            style={{ marginLeft: 50, color: "white" }}
             onClick={this.mprogram}
           >
-            View Group(Program)
+            <span style={{ color: "white" }}>View Group(Program)</span>
           </button>
           <button
             className={"btn btn-success " + this.state.subprClass}
             style={{ marginLeft: 50 }}
             onClick={this.msubprogram}
           >
-            View Sub-Group(Sub-Program)
+            <span style={{ color: "white" }}>View Sub-Group(Sub-Program)</span>
           </button>
         </div>
         {this.state.programs ? <ViewProgram /> : <ViewSubProgram />}
@@ -134,9 +139,9 @@ class ViewProgram extends Component {
 
   render() {
     return (
-      <div
-        className="view-table"
+      <div className="view-table bg-dark"
         style={{
+          color: "white",
           fontSize: "1.0em",
           marginLeft: 100,
           marginRight: 100,
@@ -158,7 +163,7 @@ class ViewProgram extends Component {
           <tbody>
             {this.state.categories.map((CATEGORY, i) => {
               return (
-                <tr>
+                <tr style={{ color: "white", fontWeight: "bold" }}>
                   <td>{CATEGORY.title}</td>
                   <td>{CATEGORY.description}</td>
                   <td>{CATEGORY.noOfSubCategories}</td>
@@ -260,9 +265,9 @@ class ViewSubProgram extends Component {
 
   render() {
     return (
-      <div
-        className="view-table"
+      <div className="view-table bg-dark"
         style={{
+          color: "white",
           fontSize: "1.0em",
           marginLeft: 100,
           marginRight: 100,
@@ -283,7 +288,7 @@ class ViewSubProgram extends Component {
           <tbody>
             {this.state.subcategories.map((CATEGORY, i) => {
               return (
-                <tr key={i}>
+                <tr style={{ color: "white", fontWeight: "bold" }} key={i}>
                   <td>{CATEGORY.title}</td>
                   <td>{CATEGORY.description}</td>
                   <td>{CATEGORY.noOfCourses}</td>

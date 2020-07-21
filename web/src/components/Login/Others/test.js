@@ -22,6 +22,11 @@ class Dashboard extends Component {
   manage() {
     this.setState({ manage: !this.state.manage });
   }
+
+  logout() {
+    localStorage.removeItem("admin");
+  }
+
   render() {
     const user = JSON.parse(localStorage.getItem("admin"));
 
@@ -70,9 +75,9 @@ class Dashboard extends Component {
             </a>
             <hr />
             <div>
-              <a className="btn btn-lg bg-dark text-white" href="/">
+              <Link className="btn btn-lg bg-dark text-white" to="/" onClick={this.logout}>
 						    Logout
-					    </a>
+					    </Link>
             </div>
           </div>
 

@@ -49,24 +49,17 @@ const Dashboard = () => {
 		setState({ courses: state.courses, showCourses: false, showEnrolledCourses: !state.showEnrolledCourses, showAccount: false });
 	};
 
+	const logout = () => {
+		localStorage.removeItem("user");
+	};
+
 	return (
 		<div> 
 			<nav className="navbar navbar-expand-sm bg-dark navbar-dark">
 				<Link className="navbar-brand" to="/lms/user/cart">
-					<img
-					src="../../Caramellogo.png"
-					alt="logo"
-					style={{
-						width: "240px",
-						height: "65px",
-						margin: "0px 0px 0px 0px",
-					}}
-					/>
+					<img src="../../Caramellogo.png" alt="logo" style={{ width: "240px", height: "65px", margin: "0px 0px 0px 0px" }} />
 				</Link>
-				<div
-					class="collapse navbar-collapse justify-content-end"
-					id="navbarTogglerDemo03"
-				>
+				<div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
 					<ul class="navbar-nav">
 						<li><img src={Logo} width="50px" alt="mern" height="50px"/></li>
 					</ul>
@@ -75,17 +68,13 @@ const Dashboard = () => {
 			<div class="row">
 				<div className="column left" id="sidebar" style={{ backgroundColor: "#ccffff" }}>
 					<p>{user.firstName} {user.lastName}</p>
-					<p style={{ textAlign: "left", paddingLeft: "5px" }}>
-					{user.emailAddress}
-					</p>
+					<p style={{ textAlign: "center" }}>{user.emailAddress}</p>
 					<hr />	
 					<div className="card-header" onClick={account} style={{ border: accountBorder, cursor: "pointer" }}>Account</div> <br />
 					<div className="card-header" onClick={courses} style={{ border: courseBorder, cursor: "pointer" }}>Courses</div> <br />
 					<div className="card-header" onClick={enrolledCourses} style={{ border: enrolledBorder, cursor: "pointer" }}>Enrolled Courses</div>
 					<hr />
-					<Link className="btn btn-lg bg-dark text-white" to="/">
-						Logout
-					</Link>
+					<Link className="btn btn-lg bg-dark text-white" to="/" onClick={logout}>Logout</Link>
 				</div>
 				<div className="column right" id="sidebar">
 					<h2>Hello, {user.profile} - {user.firstName} {user.lastName} !</h2>

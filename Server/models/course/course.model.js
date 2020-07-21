@@ -10,6 +10,8 @@ const CourseSchema = new mongoose.Schema({
 	subcategory: { type: String },
 	subcategoryName: { type: String },
 	table: [Table],
+	price: { type: Number, default: 0 },
+	discount: { type: Number, default: 0 },
 	taughtBy: {
 		type: mongoose.Schema.ObjectId,
 		ref: 'Instructor',
@@ -17,7 +19,7 @@ const CourseSchema = new mongoose.Schema({
 	},
 	enrolledBy: [{
 		type: mongoose.Schema.ObjectId,
-		ref: 'user',
+		ref: 'User',
 		default: ""
 	}],
 	embed: {
