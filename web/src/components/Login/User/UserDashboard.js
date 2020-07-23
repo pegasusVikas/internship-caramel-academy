@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from "axios";
 import CourseItem from "./CourseItem";
 import Account from "./Account";
@@ -56,11 +56,14 @@ const Dashboard = () => {
 	return (
 		<div> 
 			<nav className="navbar navbar-expand-sm bg-dark navbar-dark">
-				<Link className="navbar-brand" to="/lms/user/cart">
+				{/*<Link className="navbar-brand" to="/lms/user/cart">*/}
+				<Link className="navbar-brand" to="/">
 					<img src="../../Caramellogo.png" alt="logo" style={{ width: "240px", height: "65px", margin: "0px 0px 0px 0px" }} />
 				</Link>
 				<div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
 					<ul class="navbar-nav">
+						<li><Link className="nav-link" style={{ backgroundColor: "#343a40" }} to="/index">IT Services Home</Link></li>
+						<li><Link className="nav-link" style={{ backgroundColor: "#343a40" }} to="/nodecontactform/acadamycontact">Contact Us</Link></li>
 						<li><img src={Logo} width="50px" alt="mern" height="50px"/></li>
 					</ul>
 				</div>

@@ -33,7 +33,7 @@ const Navbar = (props) => {
               <div className="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul className="navbar-nav ml-auto font-weight-bold" style={{ backgroundColor: course ? "#002333" : "" }}>
                   <li className="nav-item ">
-                    <Link className="nav-link px-lg-4 alink" to="index.html" style={{ backgroundColor: course ? "#002333" : "" }}>
+                    <Link className="nav-link px-lg-4 alink" to="/index" style={{ backgroundColor: course ? "#002333" : "" }}>
                       IT Services Home
                     </Link>
                   </li>

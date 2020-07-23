@@ -61,6 +61,8 @@ const Dashboard = () => {
 				</Link>
 				<div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
 					<ul class="navbar-nav">
+						<li><Link className="nav-link" style={{ backgroundColor: "#39004d" }} to="/index">IT Services Home</Link></li>
+						<li><Link className="nav-link" style={{ backgroundColor: "#39004d" }} to="/nodecontactform/acadamycontact">Contact Us</Link></li>
 						<li><img src={Logo} width="50px" alt="mern" height="50px"/></li>
 					</ul>
 				</div>

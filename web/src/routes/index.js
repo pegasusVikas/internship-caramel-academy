@@ -8,6 +8,7 @@ import axios from "axios";
 import userContext from '../components/context/user/userContext'
 
 import AddCourse from "../components/AddCourse";
+import Itservices from "../components/Home/Itservices";
 import MainProgram from "../components/Programs/MainProgram";
 import Main from "../components/Main";
 import MainFrontend from "../components/SubPrograms/UI/MainFrontend";
@@ -216,9 +217,8 @@ export default class Application extends Component {
   render() {
     return (
       <Router>
-        {/* <div> */}
-
         <Route exact path="/" component={Main} />
+        <Route exact path="/index" component={Itservices} />
         <Route path="/caramelit_new/program" component={MainProgram} />
         <Route
           exact

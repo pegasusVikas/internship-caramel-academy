@@ -83,7 +83,7 @@ module.exports.read = (req, res, next) => {
 								students 
 							});
 							if (courses.length === docs.length) {
-								res.status(200).json({
+								return res.status(200).json({
 									message: "Courses fetched successfully",
 									courses
 								});
@@ -91,7 +91,7 @@ module.exports.read = (req, res, next) => {
 						}
 					});
 				});
-				courses.push({
+				users.length === 0 && courses.push({
 					...doc._doc,
 					instructor: instructor !== null ? {
 						name: instructor.firstName + " " + instructor.lastName,
@@ -100,7 +100,7 @@ module.exports.read = (req, res, next) => {
 					students: []
 				});
 				if (courses.length === docs.length) {
-					res.status(200).json({
+					return res.status(200).json({
 						message: "Courses fetched successfully",
 						courses
 					});
