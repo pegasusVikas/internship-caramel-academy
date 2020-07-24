@@ -12,7 +12,12 @@ let Cart = require('../models/student-cart.model');
 //Get All coursers of a user
 studentCartRoute.route('/:userID').get(async (req, res) => {
   try{
-      const user= await User.findById(req.params.userID).exec();
+      const user= await User.findById(req.params.userID).populate({
+        path:'cart',
+        populate:[
+            {path:'taughtBy'}
+        ]
+    }).exec();
       if(!user){
         res.json({error:"invalid user id"})
       }

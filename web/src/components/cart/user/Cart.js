@@ -11,8 +11,13 @@ export default class Cart extends React.Component {
     this.state = {
       total: 0,
     };
-  }
 
+    console.log(this.context);
+  }
+  componentDidMount(){
+    const context=this.context;
+    context.getCourses(context.user._id);
+  }
   componentWillMount() {
     const context = this.context;
     var products=context.user.cart;

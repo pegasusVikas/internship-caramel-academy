@@ -6,6 +6,7 @@ import Account from "./Account";
 import Logo from "../common/logo.png";
 import ErrorIcon from '@material-ui/icons/Error';
 import "../Others/dashboard.css";
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 const Dashboard = () => {
 	const user = JSON.parse(localStorage.getItem("user"));
@@ -64,6 +65,7 @@ const Dashboard = () => {
 					<ul class="navbar-nav">
 						<li><Link className="nav-link" style={{ backgroundColor: "#343a40" }} to="/index">IT Services Home</Link></li>
 						<li><Link className="nav-link" style={{ backgroundColor: "#343a40" }} to="/nodecontactform/acadamycontact">Contact Us</Link></li>
+						<li><Link className="nav-link" style={{ backgroundColor: "#343a40" }} to="/lms/user/cart"><ShoppingCartIcon/>Cart</Link></li>
 						<li><img src={Logo} width="50px" alt="mern" height="50px"/></li>
 					</ul>
 				</div>
