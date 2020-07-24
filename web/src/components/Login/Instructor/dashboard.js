@@ -6,6 +6,9 @@ import Account from "./Account";
 import Logo from "../common/logo.png";
 import ErrorIcon from '@material-ui/icons/Error';
 import "./dashboard.css";
+import EmailIcon from '@material-ui/icons/Email';
+import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const Dashboard = () => {
 	const user = JSON.parse(localStorage.getItem("instructor"));
@@ -61,8 +64,8 @@ const Dashboard = () => {
 				</Link>
 				<div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
 					<ul class="navbar-nav">
-						<li><Link className="nav-link" style={{ backgroundColor: "#39004d" }} to="/index">IT Services Home</Link></li>
-						<li><Link className="nav-link" style={{ backgroundColor: "#39004d" }} to="/nodecontactform/acadamycontact">Contact Us</Link></li>
+						<li><Link className="nav-link" style={{ backgroundColor: "#39004d" }} to="/index"><HomeRoundedIcon />{" "}IT Services Home</Link></li>
+						<li><Link className="nav-link" style={{ backgroundColor: "#39004d" }} to="/nodecontactform/acadamycontact"><EmailIcon />{" "}Contact Us</Link></li>
 						<li><img src={Logo} width="50px" alt="mern" height="50px"/></li>
 					</ul>
 				</div>
@@ -76,7 +79,7 @@ const Dashboard = () => {
 					<div className="card-header" onClick={courses} style={{ border: courseBorder, cursor: "pointer" }}>Available Courses</div> <br />
 					<div className="card-header" onClick={teachingCourses} style={{ border: teachingBorder, cursor: "pointer" }}>Your Courses</div>
 					<hr />
-					<Link className="btn btn-lg bg-dark text-white" to="/" onClick={logout}>Logout</Link>
+					<Link className="btn btn-lg bg-dark text-white" to="/" onClick={logout}><ExitToAppIcon />Logout</Link>
 				</div>
 				<div className="column insright" id="sidebar">
 					<h2 style={{ color: "white" }}>Hello, Instructor - {user.firstName} {user.lastName} !</h2>

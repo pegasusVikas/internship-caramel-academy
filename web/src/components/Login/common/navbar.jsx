@@ -1,6 +1,8 @@
 import React from "react";
-import {Link} from 'react-router-dom'
-import { Nav, NavDropdown } from "react-bootstrap";
+import { Link } from 'react-router-dom';
+import EmailIcon from '@material-ui/icons/Email';
+import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const Navbar = () => {
   return (
@@ -34,90 +36,23 @@ const Navbar = () => {
                 <ul className="navbar-nav ml-auto font-weight-bold">
                   <li className="nav-item ">
                     <Link className="nav-link px-lg-4 alink" to="/index">
-                      IT Services Home
+                      <HomeRoundedIcon />{" "}IT Services Home
                     </Link>
                   </li>
-                  <li className="dropdown nav-item">
-                    <Link
-                      to="#"
-                      className="dropdown-toggle nav-link px-lg-4 alink"
-                      data-toggle="dropdown"
-                      role="button"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Resgistration <span className="caret" />
-                    </Link>
-                    <ul className="dropdown-menu">
-                    <li className="nav-item">
-                        <Link className="nav-link px-lg-4" to="/lms/user/login">
-                          User
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link px-lg-4" to="/lms/student/login">
-                          Student
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link px-lg-4" to="/lms/instructor/instructor_login">
-                          Instructor
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link
-                          className="nav-link px-lg-4"
-                           to="/lms/organisation/organisation_login"
-                        >
-                          Corporates
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link
-                          className="nav-link px-lg-4 "
-                           to="/lms/college/college_login"
-                        >
-                          Universities
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link
-                          className="nav-link px-lg-4 "
-                          // id="admin-bar"
-                          to="/lms/admin/admin_login"
-                        >
-                          Admin
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                  {/* <NavDropdown
-                    to="#"
-                    title="Registration"
-                    id="basic-nav-dropdown"
-                  >
-                    <NavDropdown.Item className="nav-link px-lg-4" to="#">
-                      Student
-                    </NavDropdown.Item>
-                    <NavDropdown.Item className="nav-link px-lg-4" to="#">
-                      Instructor
-                    </NavDropdown.Item>
-                    <NavDropdown.Item className="nav-link px-lg-4" to="#">
-                      Corporates
-                    </NavDropdown.Item>
-                    <NavDropdown.Item className="nav-link px-lg-4 " to="#">
-                      Universities
-                    </NavDropdown.Item>
-                    <NavDropdown.Item className="nav-link px-lg-4 " to="#">
-                      Admin
-                    </NavDropdown.Item>
-                  </NavDropdown> */}
                   <li className="nav-item">
                     <Link
                       className="nav-link px-lg-4 alink"
                       to="/nodecontactform/acadamycontact"
                     >
-                      Contact Us
+                      <EmailIcon />{" "}Contact Us
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link
+                      className="nav-link px-lg-4 alink"
+                      to="/"
+                    >
+                      <ExitToAppIcon />{" "}Logout
                     </Link>
                   </li>
                 </ul>

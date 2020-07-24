@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-
-import { Tabs, Tab } from "react-bootstrap-tabs";
 import { Collapse } from "react-collapse";
-import { Card, CardDeck, CardColumns } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 const cardStyle = {
   width: "21em",
@@ -94,19 +90,9 @@ export default class CourseInformationTab extends Component {
         <div className="container" style={{ marginTop: "4%" }}>
           <div className="row">
             <div className="col-md-8">
-              <h2 style={{ fontWeight: "bold" }}>Greetings {this.props.user}</h2>
-              <br />
               <div>
                 <h4 style={{ display: "inline" }}>What will you learn</h4>
-                <button
-                  className="btn"
-                  style={{
-                    right: "8%",
-                    position: "absolute",
-                  }}
-                >
-                  Edit
-                </button>
+
                 <i
                   class="fa fa-arrow-down fa-2x"
                   onClick={this.show1}
@@ -139,15 +125,7 @@ export default class CourseInformationTab extends Component {
               </div>
               <div>
                 <h4 style={{ display: "inline" }}>Practice Assignments</h4>
-                <button
-                  className="btn"
-                  style={{
-                    right: "8%",
-                    position: "absolute",
-                  }}
-                >
-                  Edit
-                </button>
+
                 <i
                   class="fa fa-arrow-down fa-2x"
                   onClick={this.show2}
@@ -172,15 +150,7 @@ export default class CourseInformationTab extends Component {
               </div>
               <div>
                 <h4 style={{ display: "inline" }}>Technical Scenarios</h4>
-                <button
-                  className="btn"
-                  style={{
-                    right: "8%",
-                    position: "absolute",
-                  }}
-                >
-                  Edit
-                </button>
+
                 <i
                   class="fa fa-arrow-down fa-2x"
                   onClick={this.show3}
@@ -205,15 +175,7 @@ export default class CourseInformationTab extends Component {
               </div>
               <div>
                 <h4 style={{ display: "inline" }}>Mini Project</h4>
-                <button
-                  className="btn"
-                  style={{
-                    right: "8%",
-                    position: "absolute",
-                  }}
-                >
-                  Edit
-                </button>
+
                 <i
                   class="fa fa-arrow-down fa-2x"
                   onClick={this.show4}
@@ -240,15 +202,7 @@ export default class CourseInformationTab extends Component {
                 <h4 style={{ display: "inline" }}>
                   Discussion Forums and FAQs
                 </h4>
-                <button
-                  className="btn"
-                  style={{
-                    right: "8%",
-                    position: "absolute",
-                  }}
-                >
-                  Edit
-                </button>
+
                 <i
                   class="fa fa-arrow-down fa-2x"
                   onClick={this.show5}
@@ -386,24 +340,6 @@ export default class CourseInformationTab extends Component {
                   <button className="btn" style={{ backgroundColor: "pink" }}>
                     Send
                   </button>
-                </div>
-                <br />
-                <div className="row">
-                  <div className="col-md-9">
-                    <h3>VISIT THE PROGRAM </h3>
-                    <h3>PAGE FOR THIS</h3>
-                    <h3>COURSE </h3>
-                  </div>
-                  <div className="col-md-3">
-                    <button
-                      className="btn btn-primary"
-                      style={{
-                        marginTop: "30%",
-                      }}
-                    >
-                      GO
-                    </button>
-                  </div>
                 </div>
               </div>
             </div>

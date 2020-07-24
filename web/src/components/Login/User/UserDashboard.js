@@ -7,6 +7,9 @@ import Logo from "../common/logo.png";
 import ErrorIcon from '@material-ui/icons/Error';
 import "../Others/dashboard.css";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import EmailIcon from '@material-ui/icons/Email';
+import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const Dashboard = () => {
 	const user = JSON.parse(localStorage.getItem("user"));
@@ -63,9 +66,9 @@ const Dashboard = () => {
 				</Link>
 				<div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
 					<ul class="navbar-nav">
-						<li><Link className="nav-link" style={{ backgroundColor: "#343a40" }} to="/index">IT Services Home</Link></li>
-						<li><Link className="nav-link" style={{ backgroundColor: "#343a40" }} to="/nodecontactform/acadamycontact">Contact Us</Link></li>
-						<li><Link className="nav-link" style={{ backgroundColor: "#343a40" }} to="/lms/user/cart"><ShoppingCartIcon/>Cart</Link></li>
+						<li><Link className="nav-link" style={{ backgroundColor: "#343a40" }} to="/index"><HomeRoundedIcon />{" "}IT Services Home</Link></li>
+						<li><Link className="nav-link" style={{ backgroundColor: "#343a40" }} to="/nodecontactform/acadamycontact"><EmailIcon />{" "}Contact Us</Link></li>
+						<li><Link className="nav-link" style={{ backgroundColor: "#343a40" }} to="/lms/user/cart"><ShoppingCartIcon/>{" "}Cart</Link></li>
 						<li><img src={Logo} width="50px" alt="mern" height="50px"/></li>
 					</ul>
 				</div>
@@ -79,7 +82,7 @@ const Dashboard = () => {
 					<div className="card-header" onClick={courses} style={{ border: courseBorder, cursor: "pointer" }}>Courses</div> <br />
 					<div className="card-header" onClick={enrolledCourses} style={{ border: enrolledBorder, cursor: "pointer" }}>Enrolled Courses</div>
 					<hr />
-					<Link className="btn btn-lg bg-dark text-white" to="/" onClick={logout}>Logout</Link>
+					<Link className="btn btn-lg bg-dark text-white" to="/" onClick={logout}><ExitToAppIcon />Logout</Link>
 				</div>
 				<div className="column right" id="sidebar">
 					<h2>Hello, {user.profile} - {user.firstName} {user.lastName} !</h2>
