@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const SubCategory = require("../models/course/subcategory.model");
+const Course = require("../models/course/course.model");
 const Category = require("../models/course/category.model");
 const mongoose = require("mongoose");
 
@@ -71,9 +72,34 @@ module.exports.update = (req, res, next) => {
 
 module.exports.read = (req, res, next) => {
   SubCategory.find().then((docs) => {
-    res.status(200).json({
-      message: "Categories fetched successfully",
-      subcategories: docs,
-    });
+    let subCategories = [];
+    docs.map(doc => {
+      let courses = [];
+      doc.courseList.map(id => {
+        Course.findById(id, (err, course) => {
+          if (err) {
+            console.log(err.message);
+            return;
+          }
+          courses.push(course || null);
+          if (courses.length === doc.courseList.length) {
+            console.log("hi");
+            console.log(doc.title);
+            subCategories.push({
+              ...doc._doc, 
+              courses
+            });
+          }
+          console.log(subCategories.length, docs.length);
+          if (subCategories.length === docs.length - 1) {
+            console.log("bye");
+            res.status(200).json({
+              message: "SubCategories fetched successfully",
+              subCategories
+            });
+          }
+        })
+      })
+    })
   });
 };

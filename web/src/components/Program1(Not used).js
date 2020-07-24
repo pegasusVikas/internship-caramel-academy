@@ -1,13 +1,8 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import ScrollArea from "react-scrollbar";
-import { Card, CardDeck, CardColumns } from "react-bootstrap";
-import ItemsCarousel from "react-items-carousel";
-import range from "lodash/range";
-import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
 import Program3 from "./Programs3";
+import axios from 'axios';
 
 const cardStyle = {
   width: "10em",
@@ -16,6 +11,15 @@ const cardStyle = {
 };
 
 const Programs1 = () => {
+
+  axios.get("http://localhost:3004/categories")
+  .then(res => {
+    console.log(res.data);
+  })
+  .catch(err => {
+    console.log(err.message);
+  })
+
   return (
     <div>
       <section className="program-section" id="ourprogram">
