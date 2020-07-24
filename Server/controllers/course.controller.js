@@ -29,12 +29,24 @@ module.exports.update = (req, res, next) => {
 	});
 };
 
-module.exports.enrol = async (req, res, next) => {
-	const doc = await Course.findOne({ _id: req.params.courseId }).exec();
-	doc.enrolledBy.push(req.params.userId);
-	doc.save(() => console.log(doc));
-	res.status(200).json({
-		message: "Done",
+module.exports.checkout = async (req, res, next) => {
+	const courses = req.body.courses;
+	let i = 0;
+	courses.map(course => {
+		Course.findById(course._id, (err, doc) => {
+			if (err) {
+				console.log(err.message);
+				return;
+			}
+			doc.enrolledBy.push(req.params.userId);
+			doc.save(() => console.log(doc));
+			i++;
+			if (i === courses.length) {
+				res.status(200).json({
+					message: "Done",
+				});
+			}
+		});
 	});
 };
 

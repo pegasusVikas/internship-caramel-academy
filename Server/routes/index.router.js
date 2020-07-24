@@ -128,7 +128,7 @@ router.delete('/subcategories/:id', ctrlSubCat.delete);
 router.get('/courses', ctrlCourse.read);
 router.put('/courses/:id', ctrlCourse.update);
 router.delete('/courses/:id', ctrlCourse.delete);
-router.post('/courses/:userId/:courseId', ctrlCourse.enrol);
+router.post('/courses/user/:userId', ctrlCourse.checkout);
 router.post('/courses/instructor/:userId/:courseId', ctrlCourse.teach);
 
 router.post('/upload/table', upload.single('upload'), (req, res) => {

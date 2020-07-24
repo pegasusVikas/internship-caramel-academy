@@ -4,7 +4,6 @@ import Footer from "../../Footer";
 import { Tabs, Tab } from "react-bootstrap-tabs";
 import CourseInformationTab from "./CourseInformationTab";
 import "./newuser.css";
-//import CourseInformationTab from "../Student/CourseInformationTab";
 
 export default class NewUserCoursePage extends Component {
   constructor(props) {

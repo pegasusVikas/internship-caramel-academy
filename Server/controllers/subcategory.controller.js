@@ -91,7 +91,7 @@ module.exports.read = (req, res, next) => {
             });
           }
           console.log(subCategories.length, docs.length);
-          if (subCategories.length === docs.length - 1) {
+          if (subCategories.length === docs.length) {
             console.log("bye");
             res.status(200).json({
               message: "SubCategories fetched successfully",

@@ -37,7 +37,7 @@ const Navbar = (props) => {
                       IT Services Home
                     </Link>
                   </li>
-                  <li className="dropdown nav-item">
+                  <li className="dropdown nav-item" style={{ display: course ? "none" : null }}>
                     <Link
                       to="#"
                       className="dropdown-toggle nav-link px-lg-4 alink"

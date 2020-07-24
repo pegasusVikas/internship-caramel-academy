@@ -9,19 +9,18 @@ const AddCourse = () => {
         title: "",
         subcategory: null,
         description: "",
-        subcategories: [],
+        subcategories: null,
     });
 
-    if (state.subcategory === null) {
+    if (state.subcategories === null) {
         axios
         .get("http://localhost:3004/api/subcategories")
         .then((res) => {
-            if (res.data.subcategories) {
+            if (res.data.subCategories) {
                 setState({
-                    subcategories: res.data.subcategories,
-                    subcategory: res.data.subcategories[0]._id,
+                    subcategories: res.data.subCategories
                 });
-                console.log(res.data.subcategories[0]._id);
+                console.log(res.data.subCategories);
             } else {
                 console.log("error");
             }
@@ -80,6 +79,7 @@ const AddCourse = () => {
 
     return (
         <div className="container-fluid" style={{ padding: "10px" }}>
+            {state.subcategories !== null &&
             <div className="card" style={{ boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)", width:"100%" }}>
                 <div class="row container-fluid" style={{ padding: "20px" }}>    
                     <div class="container col-md-4 mt-2" style={{ alignContent: "center" }}>
@@ -158,6 +158,7 @@ const AddCourse = () => {
                     </div>
                 </div>
             </div>
+            }
         </div>
     );
 };

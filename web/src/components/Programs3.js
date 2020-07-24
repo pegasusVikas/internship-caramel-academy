@@ -19,30 +19,34 @@ const Programs3 = () => {
   })
   .catch(err => {
     console.log(err.message);
-  })
+  });
+
+  const userStyle = {
+		display : 'grid',
+		gridTemplateColumns : 'repeat(3, 1fr)',
+    gridGap : '1.5rem',
+    padding: "10px"
+	};
 
   return (
     <div>
       {state.subcategories !== null && 
-        <Tabs style={{ backgroundColor: "black", marginLeft: "1px", marginBottom: "1px" }}>
+        <Tabs style={{ backgroundImage: "linear-gradient(to left, #0e7fa7, #1d5787, #27386e)", marginLeft: "1px", marginBottom: "1px" }}>
           {state.subcategories.map(subcat => (
             <Tab label={subcat.title}>
-              {subcat.courses.map(course => (
-                <div className="ruby-grid ruby-grid-lined" style={{ height: "422px" }}>
-                  <div className="ruby-row">
-                    <div className="ruby-col-2">
-                      <div className="second">
-                        <div className="third">
-                          {course.title}
+              <div style={userStyle}>
+                  {subcat.courses.map(course => (  
+                    <div className="card">
+                        <div className="card-title bg-primary" style={{ textAlign: "center", padding: "3px" }}>
+                          <span className="text-black" style={{ fontWeight: "bold", fontSize: "20px" }}>{course.title}</span>
                         </div>
-                        <div className="four">
-                          <p>{course.title}</p>
+                        <div className="card-body">{course.description}</div>
+                        <div className="card-footer">
+                          <button className="btn btn-primary" disabled="true">View Course</button>
                         </div>
-                      </div>
                     </div>
-                  </div>
-                </div>
-              ))}
+                  ))}
+              </div>
             </Tab>
           ))}
         </Tabs>
