@@ -74,7 +74,7 @@ const Dashboard = () => {
 				<div className="column left" id="sidebar" style={{ backgroundColor: "#ccffff" }}>
 					<p>{user.firstName} {user.lastName}</p>
 					<p style={{ textAlign: "center" }}>{user.emailAddress}</p>
-					<hr />	
+					<hr/>	
 					<div className="card-header" onClick={account} style={{ border: accountBorder, cursor: "pointer" }}>Account</div> <br />
 					<div className="card-header" onClick={courses} style={{ border: courseBorder, cursor: "pointer" }}>Courses</div> <br />
 					<div className="card-header" onClick={enrolledCourses} style={{ border: enrolledBorder, cursor: "pointer" }}>Enrolled Courses</div>
@@ -109,7 +109,8 @@ const AccountItems = ({ courses, user, userStyle }) => {
 	);
 };
 
-const CourseItems = ({ courses, user, userStyle, enrolled }) => {
+const CourseItems = (props) => {
+	const { courses, user, userStyle, enrolled } = props
 	console.log(courses);
 	let i = 0;
     return (

@@ -54,7 +54,7 @@ studentCartRoute.route('/:userID/:courseID').post(async (req, res) => {
 // delete a course in the cart
 studentCartRoute.route('/:userID/:courseID').delete(async (req, res, next) => {
   try{
-    const user=await User.findById(req.params.userID)
+    var user=await User.findById(req.params.userID)
     if(!user)
      res.json({error:"invalid user id"})
     else{
@@ -64,6 +64,12 @@ studentCartRoute.route('/:userID/:courseID').delete(async (req, res, next) => {
       else{
         user.cart=user.cart.filter((id)=>id!=req.params.courseID);
         await user.save();
+        user=await User.findById(req.params.userID).populate({
+          path:'cart',
+          populate:[
+              {path:'taughtBy'}
+          ]
+      })
         res.json(user.cart);
       }
     }
