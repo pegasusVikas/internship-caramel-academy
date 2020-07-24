@@ -33,7 +33,7 @@ const Navbar = () => {
               <div className="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul className="navbar-nav ml-auto font-weight-bold">
                   <li className="nav-item ">
-                    <Link className="nav-link px-lg-4 alink" to="index.html">
+                    <Link className="nav-link px-lg-4 alink" to="/index">
                       IT Services Home
                     </Link>
                   </li>
@@ -115,7 +115,7 @@ const Navbar = () => {
                   <li className="nav-item">
                     <Link
                       className="nav-link px-lg-4 alink"
-                      to="nodecontactform/acadamycontact.html"
+                      to="/nodecontactform/acadamycontact"
                     >
                       Contact Us
                     </Link>

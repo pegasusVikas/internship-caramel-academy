@@ -11,7 +11,7 @@ const Account = ({ name, email, course}) => {
             <div className="card-body" style={{ backgroundColor: "#ffffe6" }}>
                 Name: {name} 
                 <br/>
-                Email address: {email}
+                Email: {email}
             </div>
         </div>
     )
