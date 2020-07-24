@@ -41,14 +41,15 @@ const UserState = (props) => {
 
     //REMOVE A COURSE
     const removeCourse=async  (userID,courseID)=>{
-        //console.log(userID)
+        console.log(userID,courseID)
         try{
         const res=await axios.delete("http://localhost:3004/api/studcart/"+userID+"/"+courseID);
         if(res.data.error){
             console.log("error:"+res.data.error);//set error
-        }else
+        }else{
+            console.log(res.data)
             dispatch({type:REMOVE_COURSE,payload:res.data})
-        
+        }
         }catch(err){
             console.log("error:"+err.message);//set error
         }
@@ -73,7 +74,9 @@ const UserState = (props) => {
         value={{
             user:state.user,
             setUser:setUser,
-            removeAllCourses:removeAllCourses
+            removeAllCourses:removeAllCourses,
+            removeCourse:removeCourse,
+            getCourses:getCourses
         }}
         >
         {props.children}

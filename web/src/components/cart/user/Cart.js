@@ -9,30 +9,25 @@ export default class Cart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: [],
       total: 0,
     };
   }
 
-  /*componentWillMount() {
-    let cart = localStorage.getItem("cart");
-    if (!cart) return;
-    getCartProducts(cart).then((products) => {
+  componentWillMount() {
+    const context = this.context;
+    var products=context.user.cart;
+    if (!products) return;
       let total = 0;
       for (var i = 0; i < products.length; i++) {
         total += products[i].price;
       }
-      this.setState({ products, total });
-    });
-  }*/
+      this.setState({ total:total });
+    
+  }
 
   removeFromCart = (product) => {
-    let products = this.state.products.filter((item) => item.id !== product.id);
-    let cart = JSON.parse(localStorage.getItem("cart"));
-    delete cart[product.id.toString()];
-    localStorage.setItem("cart", JSON.stringify(cart));
-    let total = this.state.total - product.price;
-    this.setState({ products, total });
+    const context = this.context;
+    context.removeCourse(context.user._id,product._id);
   };
 
   clearCart = () => {
@@ -42,7 +37,8 @@ export default class Cart extends React.Component {
   };
 
   render() {
-    const { products, total } = this.state;
+    const { total } = this.state;
+    const products =this.context.user.cart;
     return (
       <div className=" container">
         <h3 className="card-title">Cart</h3>
@@ -54,10 +50,6 @@ export default class Cart extends React.Component {
             key={index}
           />
         ))}
-        <CartItem
-            product={{instructor:"vikas",price:"500",name:"how to play pubg"}}
-            remove={this.removeFromCart}
-          />
         <hr />
         {products.length ? (
           <div>

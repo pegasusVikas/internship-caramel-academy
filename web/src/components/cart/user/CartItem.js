@@ -15,12 +15,12 @@ export default class CartItem extends React.Component {
       >
         <div className="card-body  p-3 mb-2 bg-light text-dark">
           <h4 className="card-header p-3 mb-2 bg-secondary text-white">
-            {product.name}
+            {product.title}
           </h4>
           {
             <h4 className="card-text">
               <small>Instructor: </small>
-              {product.instructor}
+              {product.taughtBy.firstName+' '+product.taughtBy.lastName}
             </h4>
           }
           <p className="card-text">{product.description}</p>
@@ -30,7 +30,7 @@ export default class CartItem extends React.Component {
 
           <button
             className="btn btn-sm btn-warning float-right"
-            onClick={() => this.props.remove(product._id)}
+            onClick={() => this.props.remove(product)}
           >
             Remove from cart
           </button>
