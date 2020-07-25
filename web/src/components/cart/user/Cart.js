@@ -2,9 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../Login/common/logo.png";
 import DashboardIcon from '@material-ui/icons/Dashboard';
+import axios from 'axios';
 //import { getCartProducts } from "../repository";
 import CartItem from "./CartItem";
-import userContext from '../../context/user/userContext'
+import userContext from '../../context/user/userContext';
+import EmailIcon from '@material-ui/icons/Email';
+import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 
 export default class Cart extends React.Component {
   static contextType=userContext;
@@ -22,6 +25,7 @@ export default class Cart extends React.Component {
   }
   componentWillMount() {
     const context = this.context;
+    console.log(context);
     var products=context.user.cart;
     if (!products) return;
       let total = 0;
@@ -45,12 +49,13 @@ export default class Cart extends React.Component {
 
   enroll=()=>{
     const context=this.context;
-    const formdata=new FormData();
-    formdata.append('courses',context.user.cart)
-    axios.post("/courses/user/"+context.user._id,formdata)
+    //const formdata=new FormData();
+    //formdata.append('courses',context.user.cart)
+    axios.post(`http://localhost:3004/api/courses/user/${context.user._id}`, { "courses": context.user.cart})
     .then(res => {
       if(res.data.message){
         context.removeAllCourses(context.user._id);
+        window.alert("Done");
       }
       else{
         console.log("Error: cant checkout")
@@ -71,9 +76,9 @@ export default class Cart extends React.Component {
         </Link>
         <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
           <ul class="navbar-nav">
-            <li><Link className="nav-link" style={{ backgroundColor: "#343a40" }} to="/index">IT Services Home</Link></li>
-            <li><Link className="nav-link" style={{ backgroundColor: "#343a40" }} to="/nodecontactform/acadamycontact">Contact Us</Link></li>
-            <li><Link className="nav-link" style={{ backgroundColor: "#343a40" }} to="/lms/user/dashboard"><DashboardIcon/>Dashboard</Link></li>
+            <li><Link className="nav-link" style={{ backgroundColor: "#343a40" }} to="/index"><HomeRoundedIcon />{" "}IT Services Home</Link></li>
+            <li><Link className="nav-link" style={{ backgroundColor: "#343a40" }} to="/nodecontactform/acadamycontact"><EmailIcon />{" "}Contact Us</Link></li>
+            <li><Link className="nav-link" style={{ backgroundColor: "#343a40" }} to="/lms/user/dashboard"><DashboardIcon/>{" "}Dashboard</Link></li>
             <li><img src={Logo} width="50px" alt="mern" height="50px"/></li>
           </ul>
         </div>
@@ -106,9 +111,7 @@ export default class Cart extends React.Component {
         ) : (
           ""
         )}
-        <Link to="/checkout">
-          <button className="btn btn-success float-right" onClick={enroll}>Checkout</button>
-        </Link>
+        <button className="btn btn-success float-right" onClick={this.enroll}>Checkout</button>
         <button
           className="btn btn-danger float-right"
           onClick={this.clearCart}

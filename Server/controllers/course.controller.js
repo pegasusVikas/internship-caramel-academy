@@ -29,8 +29,10 @@ module.exports.update = (req, res, next) => {
 	});
 };
 
+
 module.exports.checkout = async (req, res, next) => {
 	const courses = req.body.courses;
+	console.log(courses);
 	let i = 0;
 	courses.map(course => {
 		Course.findById(course._id, (err, doc) => {
@@ -39,9 +41,10 @@ module.exports.checkout = async (req, res, next) => {
 				return;
 			}
 			doc.enrolledBy.push(req.params.userId);
-			doc.save(() => console.log(doc));
+			doc.save(() => console.log("doc saved"));
 			i++;
 			if (i === courses.length) {
+				console.log("DONE");
 				res.status(200).json({
 					message: "Done",
 				});
