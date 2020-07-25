@@ -32,7 +32,7 @@ const CourseItem = (props) => {
 
     return (
         <>
-        {(course.taughtBy === "5ef0b129030c551c709ce740" || teaching) &&
+        {(course.taughtBy === "5f05e4ce1172af181036b727" || teaching) &&
         <div className="card">
             <div className="card-header"  style={{ backgroundColor: "#39004d" }}>
                 <span className="text-white" style={{ fontWeight: "bold" }}>{course.title}</span>
