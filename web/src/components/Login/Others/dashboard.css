@@ -6,14 +6,14 @@
 }
 
 .left {
-  width: 24%;
+  width: 25%;
   z-index: 1;
   height: 100vh;
   background-color: #111; 
 }
 
 .right {
-  width: 76%;
+  width: 75%;
   background-image: url("./adminbackground.jpg");
   background-repeat: no-repeat;
   background-size: cover;
