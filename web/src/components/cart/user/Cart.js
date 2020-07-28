@@ -5,6 +5,7 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 //import { getCartProducts } from "../repository";
 import CartItem from "./CartItem";
 import userContext from '../../context/user/userContext'
+import axios from 'axios'
 
 export default class Cart extends React.Component {
   static contextType=userContext;
@@ -107,7 +108,7 @@ export default class Cart extends React.Component {
           ""
         )}
         <Link to="/checkout">
-          <button className="btn btn-success float-right" onClick={enroll}>Checkout</button>
+          <button className="btn btn-success float-right" onClick={this.enroll}>Checkout</button>
         </Link>
         <button
           className="btn btn-danger float-right"
