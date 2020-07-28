@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import "./card.css";
 import axios from "axios";
+import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
+import BeenhereIcon from '@material-ui/icons/Beenhere';
+import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 
 const CourseItem = (props) => {
 
     const { user, course, teaching } = props;
 
 	const [btn, setBtn] = useState({
-		text: teaching ? "Teaching" : "Teach",
-        color: teaching ? "info" : "success",
+        text: teaching ? <div><BeenhereIcon /> Teaching</div> : <div><AssignmentIndIcon />Teach Course</div>,
+        color: teaching ? "yellow" : "#66ff99",
     });
 
     const onClick = () => {
@@ -20,8 +23,7 @@ const CourseItem = (props) => {
 		.then(res => {
 			if (res.data.message === "Done") {
 				setBtn({
-					text: "Teaching",
-                    color: "info"
+					text: <div><BeenhereIcon /> Teaching</div>
                 });
                 window.location.href="/lms/instructor/dashboard"
 			}
@@ -41,8 +43,8 @@ const CourseItem = (props) => {
                 {course.description}
             </div>
             <div className="card-footer" style={{ backgroundColor: "#ffffcc"}}>
-                <button className={`btn btn-${btn.color}`} disabled={teaching} onClick={() => handleClick(user, course._id)}>{btn.text}</button>
-                <button onClick={onClick} className="btn btn-primary" style={{float: "right"}}>View Course</button>
+                <button className="btn btn-sm" disabled={teaching} onClick={() => handleClick(user, course._id)} style={{ borderRadius: "30px", backgroundColor: btn.color }}>{btn.text}</button>
+                <button onClick={onClick} className="btn btn-sm" style={{ float: "right", borderRadius: "30px", backgroundColor: "#eb99ff" }}><LibraryBooksIcon />{" "}View Course</button>
             </div>
         </div>
         }

@@ -47,21 +47,16 @@ testRoutes.route("/").get(function (req, res) {
 testRoutes.route("/login").post(function (req, res) {
   console.log(req.body);
   console.log("Login Test Route");
-  let id = req.body.password;
-  let email = req.body.userid;
-  Test.findById(id, function (err, test) {
-    //console.log(test);
+  let password = req.body.password;
+  let id = req.body.userid;
+  Test.find({ user_id: id }, function (err, test) {
+   // console.log(test);
     if (err) {
       console.log(err);
     } else {
-      if (
-        test.user_id == email
-        // &&  test.test_completed == false
-      ) {
         console.log(test);
         res.json(test);
       }
-    }
   });
 });
 
@@ -70,7 +65,7 @@ testRoutes.route("/:id").get(function (req, res) {
   //console.log(req.body);
   let id = req.params.id;
   console.log("Get Test Route");
-  Test.findById(id, function (err, test) {
+  Test.find({ user_id: id }, function (err, test) {
     //console.log(test);
     if (err) {
       console.log(err);
