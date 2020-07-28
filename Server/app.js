@@ -57,6 +57,9 @@ app.use("/test", require("./routes/test.route"));
 app.use("/skilltest", require("./routes/skilltest.route"));
 app.use("/coursetest", require("./routes/coursetest.route"));
 
+//NEW USER ROUTES
+app.use("/newuser", require("./routes/newuser.route"));
+
 //Cart
 app.use("/api/studcart", studCart);
 

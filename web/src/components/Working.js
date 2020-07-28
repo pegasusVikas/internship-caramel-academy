@@ -150,7 +150,7 @@ export default class Working extends Component {
                       style={{ width: "8%", height: "8%" }}
                     />
                     <div className="eval">
-                      <a href="https://caramelit.com/">
+                      <a href="http://localhost:3000/apply">
                         <h2>PROFILE EVALUATION</h2>
                       </a>
                       <br />
@@ -172,7 +172,7 @@ export default class Working extends Component {
                     </div>
                   </div>
                 </div>
-                )}
+                )
                 <div className="enrollment">
                   <a href="#">
                     <h1>ENROLLMENT</h1>

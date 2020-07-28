@@ -7,6 +7,7 @@ import "../App.css";
 import axios from "axios";
 import userContext from '../components/context/user/userContext'
 
+import Apply from "../components/evaluation/Apply";
 import AddCourse from "../components/AddCourse";
 import Itservices from "../components/Home/Itservices";
 import MainProgram from "../components/Programs/MainProgram";
@@ -219,6 +220,7 @@ export default class Application extends Component {
       <Router>
         <Route exact path="/" component={Main} />
         <Route exact path="/index" component={Itservices} />
+        <Route exact path="/apply" component={Apply} />
         <Route path="/caramelit_new/program" component={MainProgram} />
         <Route
           exact

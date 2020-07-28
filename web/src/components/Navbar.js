@@ -1,5 +1,8 @@
 import React from "react";
 import { withRouter, Link } from 'react-router-dom';
+import EmailIcon from '@material-ui/icons/Email';
+import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const Navbar = (props) => {
   let course = props.location.pathname.split("/")[3] === "coursespage" ? true : false;
@@ -34,7 +37,7 @@ const Navbar = (props) => {
                 <ul className="navbar-nav ml-auto font-weight-bold" style={{ backgroundColor: course ? "#002333" : "" }}>
                   <li className="nav-item ">
                     <Link className="nav-link px-lg-4 alink" to="/index" style={{ backgroundColor: course ? "#002333" : "" }}>
-                      IT Services Home
+                      <HomeRoundedIcon />IT Services Home
                     </Link>
                   </li>
                   <li className="dropdown nav-item" style={{ display: course ? "none" : null }}>
@@ -47,7 +50,7 @@ const Navbar = (props) => {
                       aria-expanded="false"
                       style={{ backgroundColor: course ? "#002333" : "" }}
                     >
-                      Sign In <span className="caret" />
+                      <ExitToAppIcon />Sign In <span className="caret" />
                     </Link>
                     <ul className="dropdown-menu">
                       <li className="nav-item">
@@ -95,7 +98,7 @@ const Navbar = (props) => {
                       to="/nodecontactform/acadamycontact"
                       style={{ backgroundColor: course ? "#002333" : "" }}
                     >
-                      Contact Us
+                      <EmailIcon />Contact Us
                     </Link>
                   </li>
                 </ul>
