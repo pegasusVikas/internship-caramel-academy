@@ -9,9 +9,9 @@ const Account = ({ name, email, course}) => {
                 <span className="text-white" style={{ fontWeight: "bold" }}>{course}</span>
             </div>
             <div className="card-body" style={{ backgroundColor: "#ffffe6" }}>
-                Student Name: {name} 
+                Name: {name} 
                 <br/>
-                Email address: {email}
+                Email: {email}
             </div>
         </div>
     )

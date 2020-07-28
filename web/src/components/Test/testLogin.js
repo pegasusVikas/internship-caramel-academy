@@ -37,7 +37,7 @@ export default class TestLogin extends Component {
         //this.setState({ questions: response.data });
         if (response.data) {
           console.log(response.data);
-          this.props.history.push("/test/" + this.state.password);
+          this.props.history.push("/test/" + this.state.id);
         } else {
           console.log("wrong");
         }

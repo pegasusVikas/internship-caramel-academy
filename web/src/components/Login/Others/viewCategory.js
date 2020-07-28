@@ -226,8 +226,8 @@ class ViewSubProgram extends Component {
     axios
       .get("http://localhost:3004/api/subcategories", this.state)
       .then((res) => {
-        if (res.data.subcategories) {
-          this.setState({ subcategories: res.data.subcategories });
+        if (res.data.subCategories) {
+          this.setState({ subcategories: res.data.subCategories });
         } else {
           console.log("error");
           // alert('Error While Adding');
@@ -240,8 +240,8 @@ class ViewSubProgram extends Component {
   axios
   .get("http://localhost:3004/api/subcategories", this.state)
   .then((res) => {
-    if (res.data.subcategories) {
-      this.setState({ subcategories: res.data.subcategories });
+    if (res.data.subCategories) {
+      this.setState({ subcategories: res.data.subCategories });
     } else {
       console.log("error");
       // alert('Error While Adding');

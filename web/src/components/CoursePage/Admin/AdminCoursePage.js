@@ -26,7 +26,7 @@ export default class AdminCoursePage extends Component {
             <span style={{ color: "#1affff" }}>{this.props.course.title} </span>Fundamentals
           </h4>
           <div style={{ marginLeft: "4%", marginRight: "4%" }}>
-            {this.props.course.enrolledBy.indexOf(user._id) !== -1 ?
+            {(user !== null && this.props.course.enrolledBy.indexOf(user._id) !== -1) || admin !== null || instructor !== null ?
             <div className="row" style={{ paddingBottom: "4%" }}>
               <div className="col-md-8 col-sm-12" style={{ height: "500px" }}
               >
