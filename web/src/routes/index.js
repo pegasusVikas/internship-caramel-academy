@@ -336,7 +336,7 @@ export default class Application extends Component {
           component={CourseAssessment}
         />
         <Route exact path="/testLogin" component={TestLogin} />
-        <Route exact path="/test/:id" component={Test} />
+        <Route exact path="/test" component={Test} />
 
         <Route
           exact

@@ -1,137 +1,180 @@
 const express = require("express");
 const testRoutes = express.Router();
-const mongoose = require("mongoose");
+const sgMail = require('@sendgrid/mail');
 
+let NewUser = require("../models/user/newuser.model");
 let Test = require("../models/test.model");
-let Student = require("../models/user/student.model");
+
 
 //CREATE TEST ROUTE
 testRoutes.route("/create").post(function (req, res) {
-  let test = new Test(req.body);
-  Student.find({ emailAddress: test.user_id }, function (err, student) {
-    if (err) {
-      console.log(err);
-    } else {
-      if (student[0]) {
-        console.log("exists");
-        test
-          .save()
-          .then((test) => {
-            res.status(200).json({ test: "test added successfully" });
-            //console.log(test);
-            console.log("Test Added");
-          })
-          .catch((err) => {
-            res.status(400).send("adding new test failed");
-            console.log(err);
-          });
-      } else {
-        console.log("not exist");
-      }
-    }
-  });
+	console.log("email = ", req.body.user_id);
+	let test = new Test(req.body);
+	test.save().then(test => {
+		NewUser.find({ email: req.body.user_id }, (err, docs) => {
+		console.log("NEW USER = ", docs[0]);
+		let doc = docs[0];
+		if (err) {
+			console.log(err.message);
+			return;
+		}
+		if (doc !== null) {
+			let pass = doc.password;
+			Admin.find((err, admins) => {
+			if (err) {
+				console.log(err.message);
+				return;
+			}
+			admins.map(admin => {
+				try {
+				sgMail.setApiKey('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');
+				const msg = {
+					to: admin.emailAddress,
+					from: 'viswa.es27@gmail.com',
+					subject: 'Caramel IT Academy Skill based test',
+					text: `This email is to inform you that a skill based test has been created for user ${doc.email}.`
+				};
+				sgMail.send(msg);
+				} catch (err) {
+				console.log(err.message);
+				}
+			});
+			})
+			try {
+			sgMail.setApiKey('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');
+			const msg = {
+				to: doc.email,
+				from: 'viswa.es27@gmail.com',
+				subject: 'Caramel IT Academy Skill based test',
+				text: `You are receiving this email because you applied for a skill based test at Caramel Academy. You can login any time to take the test with your email id and this password: ${pass}`
+			};
+			sgMail.send(msg);
+			res.status(200).json({ test: "test added successfully" });
+			} catch (err) {
+			console.log(err.message);
+			}
+		}
+		})
+	}).catch((err) => {
+		res.status(400).send("adding new test failed");
+		console.log(err);
+	});	
 });
 
 //GET TESTS ROUTE
 testRoutes.route("/").get(function (req, res) {
-  Test.find(function (err, tests) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.json(tests);
-    }
-  });
+	Test.find(function (err, tests) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.json(tests);
+		}
+	});
 });
 
 //LOGIN TEST ROUTE
 testRoutes.route("/login").post(function (req, res) {
-  console.log(req.body);
-  console.log("Login Test Route");
-  let password = req.body.password;
-  let id = req.body.userid;
-  Test.find({ user_id: id }, function (err, test) {
-   // console.log(test);
-    if (err) {
-      console.log(err);
-    } else {
-        console.log(test);
-        res.json(test);
-      }
-  });
+	console.log(req.body);
+	console.log("get");
+	let id = req.body.userid;
+	let pass = req.body.password;
+	NewUser.find({ email: id }, (err, users) => {
+		let user = users[0];
+		if (err) {
+		console.log(err.message);
+		return;
+		}
+		if (user !== null && user.password === pass) {
+		Test.find({ user_id: id }, (err, test) => {
+			if (err) {
+			console.log(err.message);
+			return;
+			} 
+			if (test !== null) {
+			console.log(test);
+			res.status(200).send({ msg: "done", test: test[0] });
+			}
+		});
+		} else {
+		res.status(400).send({ msg: "Invalid Credentials! "});
+		}
+	})
 });
 
 //GET TEST ROUTE
 testRoutes.route("/:id").get(function (req, res) {
-  //console.log(req.body);
-  let id = req.params.id;
-  console.log("Get Test Route");
-  Test.find({ user_id: id }, function (err, test) {
-    //console.log(test);
-    if (err) {
-      console.log(err);
-    } else {
-      // if(test.test_completed==false){
-      res.json(test);
-      // }
-    }
-  });
+	let id = req.params.id;
+	console.log("here");
+	Test.findById(id, function (err, test) {
+		//console.log(test);
+		if (err) {
+		console.log(err);
+		} else {
+		res.json(test);
+		}
+	});
 });
 
 //UPDATE TEST ROUTE (FOR UPDATING ANSWERS GIVEN BY STUDENT AND SCORE)
 testRoutes.route("/update/:id").post(function (req, res) {
-  console.log("Test update Route");
-  Test.findById(req.params.id, function (err, test) {
-    if (!test) {
-      res.status(404).send("Course not found");
-    } else {
-      questionList = req.body.question_list;
-      var marks_scored = 0;
-      questionList.forEach((question) => {
-        var correct = false;
-        if (question.answer_given != "") {
-          console.log(question);
-          console.log(question.answer_given);
-          console.log(question.isOption2);
-        }
-        if (question.answer_given == "option1" && question.isOption1 === true) {
-          correct = true;
-        } else if (
-          question.answer_given == "option2" &&
-          question.isOption2 === true
-        ) {
-          correct = true;
-        } else if (
-          question.answer_given == "option3" &&
-          question.isOption3 === true
-        ) {
-          correct = true;
-        } else if (
-          question.answer_given == "option4" &&
-          question.isOption4 === true
-        ) {
-          correct = true;
-        }
-        if (correct == true) {
-          marks_scored = marks_scored + question.score;
-        }
-      });
-      test.question_list = questionList;
-      test.marks_scored = marks_scored;
-      test.test_started = req.body.test_started;
-      test.test_completed = req.body.test_completed;
-    }
-
-    test
-      .save()
-      .then((test) => {
-        //res.json("Test Updated");
-        console.log(test);
-        res.json(test);
-      })
-      .catch((err) => {
-        res.status(400).send("Update not possisble");
-      });
-  });
+	console.log("Test update Route");
+	Test.findOneAndUpdate(
+		{ _id: req.params.id },
+		{ $set: { completed: true, score: req.body.score, question_list: req.body.questions }}, 
+		{ new: true },
+		(err, test) => {
+			if (err) {
+				console.log("Test saving error: ", err.message);
+				return res.status(400).send("Update not possible");
+			}
+			if (!test) {
+				return res.status(404).send("Test not found");
+		}
+		NewUser.findOneAndUpdate(
+		{ email: test.user_id },
+		{ $set: { completed: true, score: req.body.score }},
+		{ new: true },
+		(err, user => {
+			if (err) {
+			console.log(err.message);
+			return;
+			}
+			try {
+			sgMail.setApiKey('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');
+			const msg = {
+				to: user.email,
+				from: 'viswa.es27@gmail.com',
+				subject: 'Caramel IT Academy Skill based test',
+				text: `Congrats! You have finished your test and obtained a score of ${req.body.score}!`
+			};
+			sgMail.send(msg);
+			} catch (err) {
+			console.log(err.message);
+			}
+			Admin.find((err, admins) => {
+			if (err) {
+				console.log(err.message);
+				return;
+			}
+			admins.map(admin => {
+				try {
+				sgMail.setApiKey('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');
+				const msg = {
+					to: admin.emailAddress,
+					from: 'viswa.es27@gmail.com',
+					subject: 'Caramel IT Academy Skill based test',
+					text: `You are receiving this email because the user ${test.user_id} completed their skill based test.`
+				};
+				sgMail.send(msg);
+				} catch (err) {
+				console.log(err.message);
+				}
+			});
+			})
+		})
+	)
+	res.json(test);
+	});
 });
 
 module.exports = testRoutes;

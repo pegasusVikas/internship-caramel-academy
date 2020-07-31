@@ -18,7 +18,8 @@ const Apply = () => {
         skillSet: "",
         proficiency: "",
         registered: false,
-        display: "none"
+        display: "none",
+        message: ""
     });
 
     const setRegister = () => {
@@ -47,7 +48,8 @@ const Apply = () => {
                     email: "",
                     skillSet: "",
                     proficiency: "",
-                    display: null
+                    display: null,
+                    message: res.data.msg
                 });
             };
         }).catch(err => {
@@ -72,7 +74,7 @@ const Apply = () => {
                     </div>
                     <div className="card-body">
                         <div className="form">
-                            <div className="alert alert-warning" style={{ display: state.display }}><InfoIcon />{" "}You shall receive an email with the password to login to your test, stay tuned!</div>
+                            <div className="alert alert-warning" style={{ display: state.display }}><InfoIcon />{" "}{state.message}</div>
                             <div style={{ textAlign: "center", fontWeight: "bold" }}>
                                 <span>Apply for profile evaluation(skill based test)</span>
                             </div> <hr/>
