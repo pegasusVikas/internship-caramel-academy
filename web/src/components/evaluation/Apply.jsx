@@ -19,7 +19,7 @@ const Apply = () => {
         proficiency: "",
         registered: false,
         display: "none",
-        message: ""
+        message: "",
     });
 
     const setRegister = () => {
@@ -57,6 +57,29 @@ const Apply = () => {
         });
     };
 
+    const submit2 = (e) => {
+        e.preventDefault();
+
+        axios.post("http://localhost:3004/newuser/applyCourse", {
+            email: state.email,
+            skillSet: state.skillSet,
+            proficiency: state.proficiency
+        }).then(res => {
+            if(res.data) {
+                console.log(res.data);
+                setState({
+                    email: "",
+                    skillSet: "",
+                    proficiency: "",
+                    display: null,
+                    message: res.data.msg
+                });
+            };
+        }).catch(err => {
+            console.log(err.message);
+        });
+    };
+
     return (
         <div>
             <Navbar /><br/>
@@ -72,7 +95,7 @@ const Apply = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="card-body">
+                    <div className="card-body" style={{ display: !state.registered ? null : "none" }}>
                         <div className="form">
                             <div className="alert alert-warning" style={{ display: state.display }}><InfoIcon />{" "}{state.message}</div>
                             <div style={{ textAlign: "center", fontWeight: "bold" }}>
@@ -91,6 +114,29 @@ const Apply = () => {
                                 <input type="number" className="form-control" id="proficiency" name="proficiency" value={state.proficiency} onChange={handlechange} placeholder="Enter a number between 1-5" />
                             </div>
                             <div className="btn btn-info" style={{  marginLeft : "85%", borderRadius: "30px" }} onClick={submit}>
+                                <SendIcon />{" "}Submit 
+                            </div>
+                        </div>
+                    </div>
+                    <div className="card-body" style={{ display: state.registered ? null : "none" }}>
+                        <div className="form">
+                            <div className="alert alert-warning" style={{ display: state.display }}><InfoIcon />{" "}{state.message}</div>
+                            <div style={{ textAlign: "center", fontWeight: "bold" }}>
+                                <span>Apply for profile evaluation(course based test)</span>
+                            </div> <hr/>
+                            <div className="form-group">
+                                <EmailIcon />{" "}<label for="email">Email Address</label>
+                                <input type="email" className="form-control" id="email" name="email" value={state.email} onChange={handlechange} placeholder="Enter your email address" />
+                            </div>
+                            <div className="form-group">
+                                <MenuBookIcon />{" "}<label for="skills">Course</label>
+                                <input type="text" className="form-control" id="skills" name="skillSet" value={state.skillSet} onChange={handlechange} placeholder="Ex: React" />
+                            </div>
+                            <div className="form-group">
+                                <AssessmentIcon />{" "}<label for="proficiency">Proficiency</label>
+                                <input type="number" className="form-control" id="proficiency" name="proficiency" value={state.proficiency} onChange={handlechange} placeholder="Enter a number between 1-5" />
+                            </div>
+                            <div className="btn btn-info" style={{  marginLeft : "85%", borderRadius: "30px" }} onClick={submit2}>
                                 <SendIcon />{" "}Submit 
                             </div>
                         </div>

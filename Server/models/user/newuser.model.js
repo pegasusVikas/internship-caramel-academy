@@ -24,6 +24,10 @@ const newUserSchema = new mongoose.Schema({
     proficiency: {
         type: Number,
         required: true
+    },
+    member: {
+        type: Boolean,
+        default: false
     }
 });
 
