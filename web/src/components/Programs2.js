@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import OwlCarousel from "react-owl-carousel";
 import "../components/css/owl.carousel.css";
 import "../components/css/owl.theme.default.css";
-import { Row, Container, Col } from "react-bootstrap";
+
+import react2 from "./images/react2.jpg";
 
 export default class Programs2 extends Component {
   constructor(props) {
@@ -67,7 +67,7 @@ export default class Programs2 extends Component {
                     <img src="images/core ui.jpeg" />
                   </div>
                   <div className="sub1">
-                    <h5>CoreUI</h5>
+                    <h5>Web Development</h5>
                     <a href="courses/coursespage/coreui.html">
                       <button id="read">KNOW MORE</button>
                     </a>
@@ -97,7 +97,7 @@ export default class Programs2 extends Component {
                 </div>
                 <div className="course" id="notreq">
                   <div className="sub">
-                    <img src="images/react2.jpg" />
+                    <img src={react2} />
                   </div>
                   <div className="sub1">
                     <h5>React JS</h5>
@@ -130,7 +130,7 @@ export default class Programs2 extends Component {
                 </div>
                 <div className="course" id="notreq">
                   <div className="sub">
-                    <img src="images/net_1.jpg" />
+                    <img src="images/net2jpg" />
                   </div>
                   <div className="sub1">
                     <h5>.NET</h5>
@@ -176,7 +176,7 @@ export default class Programs2 extends Component {
                     <img src="images/core ui.jpeg" />
                   </div>
                   <div className="sub1">
-                    <h5>CoreUI</h5>
+                    <h5>Web Development</h5>
                     <a href="courses/coursespage/coreui.html">
                       <button id="read">KNOW MORE</button>
                     </a>
@@ -239,7 +239,7 @@ export default class Programs2 extends Component {
                 </div>
                 <div className="course">
                   <div className="sub">
-                    <img src="images/.net_1.jpg" />
+                    <img src="images/net2.jpg" />
                   </div>
                   <div className="sub1">
                     <h5>.NET</h5>

@@ -86,16 +86,17 @@ export default class AdminCoursePage extends Component {
             }}
             className="coursepagetabs"
           >
-            <Tab label="Course Information">
+            <Tab label="Lessons">
               <CourseInformationTab user={admin !== null ? "Admin" : instructor !== null ? "Instructor" : "Student"}/>
             </Tab>
-            <Tab label="Table of Contents">
+            <Tab label="Handouts">
               <CourseContentTab course={this.props.course} />
             </Tab>
-            <Tab label="Projects">Tab 3 content</Tab>
-            <Tab label="Additional Resources">Tab 4 content</Tab>
-            <Tab label="Reviews">Tab 5 content</Tab>
-            <Tab label="Notes">Tab 6 content</Tab>
+            <Tab label="Tutorials">Tab 3 content</Tab>
+            <Tab label="Scenarios">Tab 4 content</Tab>
+            <Tab label="Assignments">Tab 5 content</Tab>
+            <Tab label="Examples">Tab 6 content</Tab>
+            <Tab label="Additional Details">Tab 7 content</Tab>
           </Tabs>
         </div>
         <Footer />

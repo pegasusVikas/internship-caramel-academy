@@ -87,10 +87,10 @@ const Apply = () => {
                 <div className="custom-card">
                     <div className="card-panel"> 
                         <div className="card-row">
-                            <div onClick={setRegister} className="card-tab">
+                            <div onClick={setRegister} className="card-tab" style={{ backgroundColor: state.registered ? "#4d4d4d" : "" }}>
                                 <h5><VerifiedUserIcon />Registered User</h5>
                             </div>
-                            <div onClick={setNew} className="card-tab">
+                            <div onClick={setNew} className="card-tab" style={{ backgroundColor: !state.registered ? "#4d4d4d" : "" }}>
                                 <h5><PersonIcon />New User</h5>
                             </div>
                         </div>

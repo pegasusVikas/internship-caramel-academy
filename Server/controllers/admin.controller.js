@@ -24,8 +24,8 @@ module.exports.register = (req, res, next) => {
                 const msg = {
                     to: req.body.emailAddress,
                     from: 'viswa.es27@gmail.com',
-                    subject: 'Registration',
-                    text: 'You have successfully registered as an Admin at CaramelIT!',
+                    subject: 'Caramel IT Academy - Registration',
+                    text: 'You have successfully registered as an Admin at Caramel IT Academy!',
                 };
                 sgMail.send(msg);
             } catch (err) {
@@ -86,13 +86,12 @@ module.exports.ResetPassword = async(req, res) => {
         if (err) { return res.status(500).send({ msg: err.message }); }
         passwordResetToken.find({ _adminId: admin._id, resettoken: { $ne: resettoken.resettoken } }).remove().exec();
         res.status(200).json({ message: 'Reset Password successfully.' });
-        res.status(200).json({ message: 'Reset Password successfully.' });
 		try {
             sgMail.setApiKey('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');
             const msg = {
                 to: req.body.emailAddress,
                 from: 'viswa.es27@gmail.com',
-                subject: 'Password Reset',
+                subject: 'Caramel IT Academy - Password Reset',
                 text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
                 'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
                 'http://localhost:4200/response-reset-password/' + resettoken.resettoken + '\n\n' +
