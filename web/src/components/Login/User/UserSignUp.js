@@ -143,7 +143,7 @@ class SignUp extends Component {
                     >
                       <option value>- - - Select Your Profile - - -</option>
                       <option value="Student">Student</option>
-                      <option value="IT Professional">IT Professional</option>
+                      <option value="IT Professional">Working Professional</option>
                     </select>
                     <span
                       className="glyphicon form-control-feedback"
