@@ -28,6 +28,10 @@ const newUserSchema = new mongoose.Schema({
     member: {
         type: Boolean,
         default: false
+    },
+    type: {
+        type: String,
+        default: "skill"
     }
 });
 

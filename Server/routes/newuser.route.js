@@ -8,37 +8,28 @@ router.route("/apply").post((req, res) => {
     const { email, skillSet, proficiency } = req.body;
     let skills = skillSet.split(",");
     const password = crypto.randomBytes(32).toString('hex');
-    User.find({ emailAddress: email }, (err, doc) => {
+    NewUser.find({ email: email }, (err, doc) => {
         if (err) {
             console.log(err.message);
             return;
         }
-        if (doc) {
-            return res.send({ msg: "You are a registered user and cannot apply for this. Please apply for course based test!" });
+        if (!doc) {
+            return res.send({ msg: "You have already applied for a skill based test, please keep an eye out on your inbox!" });
         }
-        NewUser.find({ email: email }, (err, doc) => {
+        let newUser = new NewUser({
+            email,
+            password,
+            skills,
+            proficiency
+        });
+        newUser.save((err, doc) => {
             if (err) {
                 console.log(err.message);
                 return;
             }
-            if (!doc) {
-                return res.send({ msg: "You have already applied for a skill based test, please keep an eye out on your inbox!" });
-            }
-            let newUser = new NewUser({
-                email,
-                password,
-                skills,
-                proficiency
-            });
-            newUser.save((err, doc) => {
-                if (err) {
-                    console.log(err.message);
-                    return;
-                }
-                res.status(200).send({
-                    msg: "You shall receive an email with the password to login to your test, stay tuned!",
-                    doc
-                });
+            res.status(200).send({
+                msg: "You shall receive an email with the password to login to your test, stay tuned!",
+                doc
             });
         });
     });
@@ -69,7 +60,8 @@ router.route("/applyCourse").post((req, res) => {
                 password,
                 skills,
                 proficiency,
-                member: true
+                member: true,
+                type: "course"
             });
             newUser.save((err, doc) => {
                 if (err) {
