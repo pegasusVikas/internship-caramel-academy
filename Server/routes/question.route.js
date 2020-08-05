@@ -3,7 +3,7 @@ const questionRoutes = express.Router();
 const mongoose = require("mongoose");
 // const fileUpload = require("express-fileupload");
 // var csv = require("fast-csv");
-// var json2csv = require("json2csv").parse;
+var json2csv = require("json2csv").parse;
 
 // const app = express();
 // app.use(fileUpload());
@@ -117,31 +117,31 @@ questionRoutes.route("/delete/:id").delete(function (req, res) {
 //     });
 // });
 
-// questionRoutes.route("/template").get(function (req, res) {
-//   var fields = [
-//     "question_course",
-//     "question_module",
-//     "question_topic",
-//     "question_level",
-//     "question_type",
-//     "question",
-//     "answer",
-//     "option1",
-//     "option2",
-//     "option3",
-//     "option4",
-//     "isOption1",
-//     "isOption2",
-//     "isOption3",
-//     "isOption4",
-//     "score",
-//     "time",
-//   ];
-//   var csv = json2csv({ data: "", fields: fields });
-//   res.set("Content-Disposition", "attachment;filename=questions.csv");
-//   res.set("Content-Type", "application/octet-stream");
+questionRoutes.route("/template").get(function (req, res) {
+  var fields = [
+    "question_course",
+    "question_module",
+    "question_topic",
+    "question_level",
+    "question_type",
+    "question",
+    "answer",
+    "option1",
+    "option2",
+    "option3",
+    "option4",
+    "isOption1",
+    "isOption2",
+    "isOption3",
+    "isOption4",
+    "score",
+    "time",
+  ];
+  var csv = json2csv({ data: "", fields: fields });
+  res.set("Content-Disposition", "attachment;filename=questions.csv");
+  res.set("Content-Type", "application/octet-stream");
 
-//   res.send(csv);
-// });
+  res.send(csv);
+});
 
 module.exports = questionRoutes;

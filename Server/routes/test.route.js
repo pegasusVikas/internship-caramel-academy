@@ -5,71 +5,74 @@ const sgMail = require('@sendgrid/mail');
 let NewUser = require("../models/user/newuser.model");
 let Test = require("../models/test.model");
 
+const sendEmail = (to, subject, text) => {
+	try {
+	  sgMail.setApiKey('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');
+	  const msg = {
+		to,
+		from: 'viswa.es27@gmail.com',
+		subject,
+		text
+	};
+	  sgMail.send(msg);
+	} catch (err) {
+	  console.log(err.message);
+	}
+  }
 
 //CREATE TEST ROUTE
 testRoutes.route("/create").post(function (req, res) {
-	console.log("email = ", req.body.user_id);
 	let test = new Test(req.body);
-	test.save().then(test => {
-		NewUser.find({ email: req.body.user_id }, (err, docs) => {
-		console.log("NEW USER = ", docs[0]);
+	test.save().then(() => {
+	  NewUser.find({ email: req.body.user_id }, (err, docs) => {
 		let doc = docs[0];
 		if (err) {
-			console.log(err.message);
-			return;
+		  console.log(err.message);
+		  return;
 		}
 		if (doc !== null) {
-			let pass = doc.password;
-			Admin.find((err, admins) => {
+		  let pass = doc.password;
+		  Admin.find((err, admins) => {
 			if (err) {
-				console.log(err.message);
-				return;
+			  console.log(err.message);
+			  return;
 			}
 			admins.map(admin => {
-				try {
-				sgMail.setApiKey('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');
-				const msg = {
-					to: admin.emailAddress,
-					from: 'viswa.es27@gmail.com',
-					subject: 'Caramel IT Academy Skill based test',
-					text: `This email is to inform you that a skill based test has been created for user ${doc.email}.`
-				};
-				sgMail.send(msg);
-				} catch (err) {
-				console.log(err.message);
-				}
+			  sendEmail(
+				admin.emailAddress,
+				'Caramel IT Academy',
+				`This email is to inform you that a ${req.body.test_type} based test has been created for user ${doc.email}.`
+			  );
 			});
-			})
-			try {
-			sgMail.setApiKey('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');
-			const msg = {
-				to: doc.email,
-				from: 'viswa.es27@gmail.com',
-				subject: 'Caramel IT Academy Skill based test',
-				text: `You are receiving this email because you applied for a skill based test at Caramel Academy. You can login any time to take the test with your email id and this password: ${pass}`
-			};
-			sgMail.send(msg);
-			res.status(200).json({ test: "test added successfully" });
-			} catch (err) {
-			console.log(err.message);
-			}
+		  })
+		  sendEmail(
+			doc.email,
+			'Caramel IT Academy',
+			`You are receiving this email because you applied for a ${req.body.test_type} based test at Caramel Academy. You can login any time to take the test with your email id and this password: ${pass}`
+		  );
 		}
-		})
+	  })
 	}).catch((err) => {
-		res.status(400).send("adding new test failed");
-		console.log(err);
-	});	
-});
+	  res.status(400).send("adding new test failed");
+	  console.log(err);
+	});
+  });
+  
 
 //GET TESTS ROUTE
 testRoutes.route("/").get(function (req, res) {
-	Test.find(function (err, tests) {
-		if (err) {
-			console.log(err);
-		} else {
-			res.json(tests);
-		}
-	});
+  Test.find(function (err, tests) {
+    if (err) {
+      console.log(err);
+    } else {
+      const user_list=tests.map((user)=>{
+        user.question_list=null; //making user question_list null because it too large,makes json transfer slow 
+        return user
+      })
+      
+      res.json(user_list);
+    }
+  });
 });
 
 //LOGIN TEST ROUTE

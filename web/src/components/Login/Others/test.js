@@ -15,7 +15,6 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       manage: false,
-      addcategory: true,
     };
     this.manage = this.manage.bind(this);
   }
@@ -73,6 +72,9 @@ class Dashboard extends Component {
             <a className="thiner" href="#" onClick={this.manage}>
               Manage
             </a>
+            <Link className="thiner" to={{pathname:"/lms/admin/testDashboard",state:this.props.location.state}}>
+              Test
+            </Link>
             <hr />
             <div>
               <Link className="btn btn-lg bg-dark text-white" to="/" onClick={this.logout}>

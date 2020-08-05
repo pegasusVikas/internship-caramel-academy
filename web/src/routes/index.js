@@ -182,8 +182,9 @@ import { ViewCourse } from "../components/Login/Others/viewCourse";
 import TestLogin from "../components/Test/testLogin";
 import Test from "../components/Test/test";
 import QuestionBank from "../components/Login/Others/questionBank";
-import SkillAssessment from "../components/Login/Others/skillAssessment";
+import SkillAssessment from "../components/Login/Others/TestAssessment/SkillTest";
 import CourseAssessment from "../components/Login/Others/courseAssessment";
+import TestDashboard from "../components/Login/Others/TestDashboard";
 
 export default class Application extends Component {
   static contextType=userContext;
@@ -361,6 +362,8 @@ export default class Application extends Component {
         />
 
         <Route exact path="/lms/admin/dashboard" component={AdminDashboard} />
+        <Route exact path="/lms/admin/testDashboard" component={TestDashboard} />
+        <Route path="/lms/admin/skillAssessment" component={SkillAssessment} />
         <Route exact path="/lms/admin/viewcourse" component={ViewCourse} />
         <Route exact path="/lms/admin/addcourse" component={AddCourse} />
         <Route exact path="/lms/admin/viewcategory" component={ViewCategory} />
