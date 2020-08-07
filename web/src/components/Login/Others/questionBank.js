@@ -454,7 +454,7 @@ export default class QuestionBank extends Component {
           </div>
           <div className="col-md-8">
             <div className="container overflow-auto" style={{ maxHeight: "1000px" }}>
-              <div className="table-responsive-sm">
+              <div className="table-responsive-sm" style={{ width: "1100px" }}>
                 <div className="card-header bg-dark text-white"><h3>List of Questions</h3></div>
                 <table className="table table-bordered">
                   <tr>
