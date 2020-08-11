@@ -7,7 +7,7 @@ const morgan = require("morgan");
 const path = require('path');
 
 const app = express();
-app.use(express.static(path.join(__dirname, "uploads")));
+//app.use(express.static(path.join(__dirname, "uploads")));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");

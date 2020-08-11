@@ -18,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 var storage = multer.diskStorage({
     destination: function(req, file, cb) {
+        console.log(__dirname)
         cb(null, path.resolve(__dirname, "./uploads/"))
     },
     // By default, multer removes file extensions so let's add them back
@@ -32,7 +33,7 @@ const upload = multer({
     fileFilter: (req, file, cb) => {
         console.log('FILEFILTTER ROUTE UPLOAD LESSON');
         // allow doc only
-        if (!file.originalname.match(/\.(doc|docx|PNG)$/)) {
+        if (!file.originalname.match(/\.(doc|docx)$/)) {
             return cb(new Error('Only doc are allowed.'), false);
         }
         cb(null, true);
@@ -159,6 +160,7 @@ router.post('/upload/table', upload.single('upload'), (req, res) => {
                     Lessons_Time:json['2']
                 }})
                 reswe=reswe.slice(1);
+                console.log(reswe)
                 //Drop the models collection, so another course can be added
             
                 mongoose.connection.collections["tables"].drop().then(() => {
