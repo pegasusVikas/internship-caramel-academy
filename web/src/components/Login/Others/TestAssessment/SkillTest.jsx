@@ -140,79 +140,81 @@ export default class SkillAssessment extends Component {
 				<Header />
 				{this.state.step == 1 && (
 					<div class="row container-fluid">
-						<div class="container col-md-6" style={{ alignContent: "center" }}>
+						<div class="container col-md-6" style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "3%" }}>
 							<br />
-							<h3> Add Question Manually</h3>
-							<form onSubmit={this.onSubmit}>
-								<div class="course">
-									<p id="heading"> Select Skills</p>
-									<Multiselect
-										options={this.state.skills} // Options to display in the dropdown
-										selectedValues={[]} // Preselected value to persist in dropdown
-										onSelect={this.onSelect} // Function will trigger on select event
-										onRemove={this.onRemove} // Function will trigger on remove event
-										selectionLimit="5"
-										displayValue="name" // Property name to display in the dropdown options
-									/>
-								</div>
+							<div className="card" style={{  textAlign: "left", width: "35vw" }}>
+								<div className="card-header bg-dark text-white" style={{ fontWeight: "bold" }}> Create Skill Test</div>
+								<div className="card-body">
+									<form onSubmit={this.onSubmit}>
+										<div className="level">
+											<p id="heading"> Select Skills</p>
+											<Multiselect
+												options={this.state.skills} // Options to display in the dropdown
+												selectedValues={[]} // Preselected value to persist in dropdown
+												onSelect={this.onSelect} // Function will trigger on select event
+												onRemove={this.onRemove} // Function will trigger on remove event
+												selectionLimit="5"
+												displayValue="name" // Property name to display in the dropdown options
+											/>
+										</div>
+										<div class="level">
+											<p id="heading"> Select Difficulty</p>
+											<select
+												class="form-control"
+												id="sel3"
+												value={this.state.difficulty}
+												onChange={this.handleChange}
+												name="difficulty"
+											>
+												<option>Beginner</option>
+												<option>Intermediate</option>
+												<option>Expert</option>
+											</select>
+										</div>
+										<div class="level">
+											<p id="heading"> Select Category</p>
+											<select
+												class="form-control"
+												id="sel3"
+												value={this.state.category}
+												onChange={this.handleChange}
+												name="category"
+											>
+												<option>Student</option>
+												<option>Working Professional</option>
+											</select>
+										</div>
+										<div class="level">
+											<p id="heading"> Select Proficiency</p>
+											<select
+												class="form-control"
+												id="sel3"
+												value={this.state.prof}
+												onChange={this.handleChange}
+												name="prof"
+											>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
+											</select>
+										</div>
 
-								<div class="level">
-									<p id="heading"> Select Difficulty</p>
-									<select
-										class="form-control"
-										id="sel3"
-										value={this.state.difficulty}
-										onChange={this.handleChange}
-										name="difficulty"
-									>
-										<option>Beginner</option>
-										<option>Intermediate</option>
-										<option>Expert</option>
-									</select>
+										<button type="submit" className="btn btn-primary" style={{ display: "block", margin: "auto" }}>
+                      						Generate Questions
+                    					</button>
+										<br />
+										<br />
+									</form>
 								</div>
-								<div class="level">
-									<p id="heading"> Select Category</p>
-									<select
-										class="form-control"
-										id="sel3"
-										value={this.state.category}
-										onChange={this.handleChange}
-										name="category"
-									>
-										<option>Student</option>
-										<option>Working Professional</option>
-									</select>
-								</div>
-								<div class="level">
-									<p id="heading"> Select Proficiency</p>
-									<select
-										class="form-control"
-										id="sel3"
-										value={this.state.prof}
-										onChange={this.handleChange}
-										name="prof"
-									>
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-										<option>5</option>
-									</select>
-								</div>
-
-								<button type="submit" class="btn btn-sm btn-primary">
-									{" "}
-									Generate Questions
-								</button>
-								<br />
-								<br />
-							</form>
+							</div>
 						</div>
 					</div>
 				)}
 				{this.state.step == 2 && (
 					<div class="container">
-						<div class="table-responsive-sm">
+						<div class="table-responsive-sm" style={{ border: "1px solid black" }}>
 							<table class="table table-hover">
 								<h3> List of Questions</h3>
 								<tr id="table-head">
@@ -252,44 +254,54 @@ export default class SkillAssessment extends Component {
 					</div>
 				)}
 				{this.state.step == 3 && (
-					<div className="flex-container schedule container-fluid">
-						<div>
-							<p id="heading"> Enter User Email ID</p>
-							<input
-								class="form-control"
-								type="text"
-								name="user_email_id"
-								value={this.state.user_email_id}
-								onChange={this.handleChange}
-							/>
+					<div class="row container-fluid">
+					<div class="container col-md-6" style={{ alignContent: "center" }}>
+						<br />
+						<br />
+						<div className="card" style={{ textAlign: "left" }}>
+							<div className="card-header bg-dark text-white" style={{ fontWeight: "bold" }}>Create Test</div>
+							<div className="card-body">
+								<div className="level">
+									<p id="heading"> Enter User Email ID</p>
+									<input
+										class="form-control"
+										type="text"
+										name="user_email_id"
+										value={this.state.user_email_id}
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div className="level">
+									<p id="heading"> Total Score</p>
+									<input className="form-control" type="text" name="total_score" onChange={this.handleChange} value={this.state.total_score}/>
+								</div>
+							</div>
+							<div className="card-footer" style={{ paddingLeft: "250px", paddingRight: "250px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+								<button
+									type="button"
+									class="btn btn-warning btn"
+									id="back-button"
+									onClick={this.onBack}
+								>
+									{" "}
+									Back
+								</button>
+								{"   "}
+								<button
+									type="button"
+									class="btn btn-info"
+									id="generateTest-button"
+									onClick={this.generateTest}
+								>
+									{" "}
+									Generate Test
+								</button>
+							</div>
 						</div>
-						<div className="flex-container schedule container-fluid">
-							<p id="heading"> Total Score</p>
-							<input className="form-control" type="text" name="total_score" onChange={this.handleChange} value={this.state.total_score}/>
-						</div>
-						<div>
-							<button
-								type="button"
-								class="btn btn-warning btn-sm"
-								id="back-button"
-								onClick={this.onBack}
-							>
-								{" "}
-								Back
-							</button>
-							{"   "}
-							<button
-								type="button"
-								class="btn btn-success btn-sm"
-								id="generateTest-button"
-								onClick={this.generateTest}
-							>
-								{" "}
-								Generate Test
-							</button>
-							{/* </Link> */}
-						</div>
+						<br />
+						<br />
 					</div>
+				</div>
 				)}
 				{this.state.step == 4 && <h1>Test Created</h1>}
 				<Footer />
