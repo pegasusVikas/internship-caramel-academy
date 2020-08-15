@@ -90,6 +90,15 @@ const Navbar = (props) => {
                           Admin
                         </Link>
                       </li>
+                      <li className="nav-item">
+                      <Link
+                        className="nav-link px-lg-4"
+                        to={{pathname:"http://localhost:3001"}}
+                        style={{ backgroundColor: course ? "#002333" : "" }}
+                      >
+                        Test
+                      </Link>
+                    </li>
                     </ul>
                   </li>
                   <li className="nav-item">

@@ -60,7 +60,7 @@ class Dashboard extends Component {
               {user.emailAddress}
             </p>
             <hr />
-            <a className="thiner" href="dashboard/questionBank">
+            <a className="thiner" href="http://localhost:3001/dashboard/questionbank">
               Question Bank
             </a>
             <a className="thiner" href="dashboard/skilltest">
@@ -72,9 +72,9 @@ class Dashboard extends Component {
             <a className="thiner" href="#" onClick={this.manage}>
               Manage
             </a>
-            <Link className="thiner" to={{pathname:"/lms/admin/testDashboard",state:this.props.location.state}}>
-              Test
-            </Link>
+            <a className="thiner" href="http://localhost:3001">
+              Login to Qusestion Bank
+            </a>
             <hr />
             <div>
               <Link className="btn btn-lg bg-dark text-white" to="/" onClick={this.logout}>

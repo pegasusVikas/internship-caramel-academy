@@ -24,9 +24,6 @@ const sendEmail = (to, subject, text) => {
 
 //CREATE TEST ROUTE
 testRoutes.route("/create").post(function (req, res) {
-	let test = new Test(req.body);
-	
-	
 	  NewUser.find({ email: req.body.user_id,type:req.body.test_type,emailSent:false }, (err, docs) => {
 		let doc = docs[0];
 		console.log(docs)
@@ -42,21 +39,23 @@ testRoutes.route("/create").post(function (req, res) {
 			  res.status.send("DB error Admin")
 			  return;
 			}
-			/*admins.map(admin => {
+			admins.map(admin => {
 			  sendEmail(
 				admin.emailAddress,
 				'Caramel IT Academy',
 				`This email is to inform you that a ${req.body.test_type} based test has been created for user ${doc.email}.`
 			  );
-			});*/
+			});
 		  })
-		 /* sendEmail(
+		 sendEmail(
 			doc.email,
 			'Caramel IT Academy',
 			`You are receiving this email because you applied for a ${req.body.test_type} based test at Caramel Academy. You can login any time to take the test with your email id and this password: ${pass}`
-		  );*/
+		  );
 		  doc.emailSent=true;
 		  doc.save()
+
+		  let test = new Test(req.body);
 		  test.save().then(() => {
 			console.log("responded")
 			res.json({message:"test generated",email:doc.email,type:doc.type})
