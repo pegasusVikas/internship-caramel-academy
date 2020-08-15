@@ -3,9 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
-const morgan = require("morgan");
-const path = require('path');
-
+const PORT = require("./config");
 const app = express();
 //app.use(express.static(path.join(__dirname, "uploads")));
 
@@ -74,4 +72,4 @@ app.use((err, req, res, next) => {
   }
 });
 
-app.listen(3004, () => console.log(`Server started at port : ${3004}`));
+app.listen(PORT, () => console.log(`Server started at port : ${PORT}`));
