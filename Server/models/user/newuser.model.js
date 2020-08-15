@@ -9,6 +9,10 @@ const newUserSchema = new mongoose.Schema({
         type: String, 
         required: true
     },
+    emailSent: {
+        type: Boolean,
+        default: false
+    },
     completed: {
         type: Boolean,
         default: false
@@ -29,11 +33,11 @@ const newUserSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    type: {
-        type: String,
-        default: "skill"
+    type:{
+        type:String,
+        required:true
     }
-});
+},{timestamps:true});
 
 const NewUser = mongoose.model('NewUser', newUserSchema, "NewUser_Info");
 

@@ -3,32 +3,29 @@ const Schema = mongoose.Schema;
 
 let Test = new Schema({
   question_list: {
-    type: Object,
+    type: Array,
+    required: true
   },
   user_id: {
     type: String,
+    required: true
   },
   test_type: {
     type: String,
+    required: true
+  },
+  completed: {
+    type: Boolean,
+    default: false
   },
   total_score: {
     type: Number,
+    required: true
   },
-  //   start_time:{
-  //       type:
-  //   },
-  //   end_time:{
-  //       type:
-  //   },
-  test_started: {
-    type: Boolean,
-  },
-  test_completed: {
-    type: Boolean,
-  },
-  marks_scored: {
-    type: Number,
-  },
-});
+  score: {
+    type: Number, 
+    default: -1
+  }
+},{timestamps:true});
 
 module.exports = mongoose.model("Test", Test);

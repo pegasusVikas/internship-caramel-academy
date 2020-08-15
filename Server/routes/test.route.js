@@ -4,6 +4,8 @@ const sgMail = require('@sendgrid/mail');
 
 let NewUser = require("../models/user/newuser.model");
 let Test = require("../models/test.model");
+let Admin = require("../models/user/admin.model");
+const { findOne } = require("../models/user/admin.model");
 
 const sendEmail = (to, subject, text) => {
 	try {
@@ -23,39 +25,51 @@ const sendEmail = (to, subject, text) => {
 //CREATE TEST ROUTE
 testRoutes.route("/create").post(function (req, res) {
 	let test = new Test(req.body);
-	test.save().then(() => {
-	  NewUser.find({ email: req.body.user_id }, (err, docs) => {
+	
+	
+	  NewUser.find({ email: req.body.user_id,type:req.body.test_type,emailSent:false }, (err, docs) => {
 		let doc = docs[0];
+		console.log(docs)
 		if (err) {
 		  console.log(err.message);
-		  return;
+		  res.status(400).send("DB error NewUser");
 		}
-		if (doc !== null) {
+		else if (doc) {
 		  let pass = doc.password;
 		  Admin.find((err, admins) => {
 			if (err) {
 			  console.log(err.message);
+			  res.status.send("DB error Admin")
 			  return;
 			}
-			admins.map(admin => {
+			/*admins.map(admin => {
 			  sendEmail(
 				admin.emailAddress,
 				'Caramel IT Academy',
 				`This email is to inform you that a ${req.body.test_type} based test has been created for user ${doc.email}.`
 			  );
-			});
+			});*/
 		  })
-		  sendEmail(
+		 /* sendEmail(
 			doc.email,
 			'Caramel IT Academy',
 			`You are receiving this email because you applied for a ${req.body.test_type} based test at Caramel Academy. You can login any time to take the test with your email id and this password: ${pass}`
-		  );
+		  );*/
+		  doc.emailSent=true;
+		  doc.save()
+		  test.save().then(() => {
+			console.log("responded")
+			res.json({message:"test generated",email:doc.email,type:doc.type})
+		  }).catch((err) => {
+			res.status(400).send("adding new test failed");
+			console.log(err);
+		  });
+		} else{
+			console.log("user not present in the applied list or  user was already assigned to a test");
+			res.status(400).send("adding new test failed, user not present in the applied list or  user was already assigned to a test");
 		}
 	  })
-	}).catch((err) => {
-	  res.status(400).send("adding new test failed");
-	  console.log(err);
-	});
+	
   });
   
 
@@ -76,33 +90,63 @@ testRoutes.route("/").get(function (req, res) {
 });
 
 //LOGIN TEST ROUTE
-testRoutes.route("/login").post(function (req, res) {
+testRoutes.route("/skill/login").post(function (req, res) {
 	console.log(req.body);
 	console.log("get");
 	let id = req.body.userid;
 	let pass = req.body.password;
-	NewUser.find({ email: id }, (err, users) => {
-		let user = users[0];
-		if (err) {
+	NewUser.find({ email: id,password:pass,type:"skill" }, (err, users) => {
+	  let user = users[0];
+	  if (err) {
 		console.log(err.message);
 		return;
-		}
-		if (user !== null && user.password === pass) {
-		Test.find({ user_id: id }, (err, test) => {
-			if (err) {
+	  }
+	  if (user !== null) {
+		Test.find({ user_id: id,test_type:"skill" }, (err, test) => {
+		  if (err) {
 			console.log(err.message);
 			return;
-			} 
-			if (test !== null) {
+		  } 
+		  if (test !== null) {
 			console.log(test);
 			res.status(200).send({ msg: "done", test: test[0] });
-			}
+		  }
 		});
-		} else {
+	  } else {
 		res.status(400).send({ msg: "Invalid Credentials! "});
-		}
+	  }
 	})
-});
+  });
+  
+  testRoutes.route("/course/login").post(function (req, res) {
+	console.log(req.body);
+	console.log("get");
+	let id = req.body.userid;
+	let pass = req.body.password;
+	NewUser.find({ email: id,password:pass,type:"course" }, (err, users) => {
+	  let user = users[0];
+	  if (err) {
+		console.log(err.message);
+		return;
+	  }
+	  if (user !== null) {
+		Test.find({ user_id: id,test_type:"course" }, (err, test) => {
+		  if (err) {
+			console.log(err.message);
+			return;
+		  } 
+		  if (test !== null) {
+			console.log(test);
+			res.status(200).send({ msg: "done", test: test[0] });
+		  }else {
+			res.status(404).send({ msg: "Test not found "});
+		  }
+		});
+	  } else {
+		res.status(400).send({ msg: "Invalid Credentials! "});
+	  }
+	})
+  });
 
 //GET TEST ROUTE
 testRoutes.route("/:id").get(function (req, res) {
@@ -133,11 +177,12 @@ testRoutes.route("/update/:id").post(function (req, res) {
 			if (!test) {
 				return res.status(404).send("Test not found");
 		}
+		
 		NewUser.findOneAndUpdate(
-		{ email: test.user_id },
-		{ $set: { completed: true, score: req.body.score }},
-		{ new: true },
-		(err, user => {
+		{ email: test.user_id,type:test.test_type,completed:false },
+		{ completed: true, score: req.body.score,emailSent:true },
+		{ new:true },
+		(err, user) => {
 			if (err) {
 			console.log(err.message);
 			return;
@@ -150,7 +195,7 @@ testRoutes.route("/update/:id").post(function (req, res) {
 				subject: 'Caramel IT Academy Skill based test',
 				text: `Congrats! You have finished your test and obtained a score of ${req.body.score}!`
 			};
-			sgMail.send(msg);
+			sgMail.send(msg)
 			} catch (err) {
 			console.log(err.message);
 			}
@@ -175,9 +220,10 @@ testRoutes.route("/update/:id").post(function (req, res) {
 			});
 			})
 		})
-	)
-	res.json(test);
+		res.json(test);
+		})
+	
 	});
-});
+
 
 module.exports = testRoutes;
