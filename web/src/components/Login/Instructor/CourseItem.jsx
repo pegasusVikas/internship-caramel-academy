@@ -10,7 +10,7 @@ const CourseItem = (props) => {
     const { user, course, teaching } = props;
 
 	const [btn, setBtn] = useState({
-        text: teaching ? <div><BeenhereIcon /> Teaching</div> : <div><AssignmentIndIcon />Teach Course</div>,
+        text: teaching ? <div><BeenhereIcon /> Linked</div> : <div><AssignmentIndIcon />Link to this course</div>,
         color: teaching ? "yellow" : "#66ff99",
     });
 
@@ -23,7 +23,7 @@ const CourseItem = (props) => {
 		.then(res => {
 			if (res.data.message === "Done") {
 				setBtn({
-					text: <div><BeenhereIcon /> Teaching</div>
+					text: <div><BeenhereIcon /> Linked</div>
                 });
                 window.location.href="/lms/instructor/dashboard"
 			}
