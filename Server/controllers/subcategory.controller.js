@@ -36,10 +36,11 @@ module.exports.create = (req, res, next) => {
 };
 
 module.exports.delete = (req, res, next) => {
+  console.log("ssup");
   SubCategory.findById({ _id: req.params.id }, function (err, subcategory) {
     Category.findById({ _id: subcategory.catId }, function (err, doc) {
       if (err) {
-        console.log("Error with updateing ");
+        console.log("Error with updating ");
         return;
       }
       console.log(doc);
@@ -52,10 +53,10 @@ module.exports.delete = (req, res, next) => {
       }
       console.log(doc.subCatList);
       doc.save();
+      SubCategory.deleteOne({ _id: req.params.id }).then((result) => {});
+      res.status(201).json({ message: "Category deleted" });
     });
   });
-  SubCategory.deleteOne({ _id: req.params.id }).then((result) => {});
-  res.status(201).json({ message: "Category deleted" });
 };
 
 module.exports.update = (req, res, next) => {

@@ -73,7 +73,7 @@ class Dashboard extends Component {
               Manage
             </a>
             <a className="thiner" href="http://localhost:3001">
-              Login to Qusestion Bank
+              Login to Question Bank
             </a>
             <hr />
             <div>
