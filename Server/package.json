@@ -32,5 +32,6 @@
         "passport-local": "^1.0.0",
         "tabletojson": "^2.0.4"
     },
-    "description": "Back End For Login and Registration"
+    "description": "Back End For Login and Registration",
+    "proxy":"http://localhost:3004"
 }
