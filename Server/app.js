@@ -77,7 +77,9 @@ app.use((err, req, res, next) => {
 
 app.listen(app.get('port'), () => console.log(`Server started at port : ${PORT}`));
 
+
 if(process.env.NODE_ENV==='production'){
-  app.use("/static",express.static("../web/build"))
-  app.get('*',(req,res)=>{res.sendFile(path.resolve(__dirname,"../web","build","index.html"))})
+  const root=path.join(__dirname,'../web','/build')
+  app.use(express.static(root))
+  app.get('*',(req,res)=>{res.sendFile('index.html',{root})})
 }
