@@ -73,7 +73,7 @@ app.use((err, req, res, next) => {
   }
 });
 
-app.listen(PORT, () => console.log(`Server started at port : ${PORT}`));
+app.listen(process.env.PORT||PORT, () => console.log(`Server started at port : ${PORT}`));
 
 if(process.env.NODE_ENV=='production'){
   app.use(express.static("../web/build"))
