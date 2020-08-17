@@ -1,0 +1,20 @@
+{
+  "name": "krishna",
+  "version": "1.0.0",
+  "description": "To run the site on localhost, we need to install the required dependencies first for the client and the server.\r Run the following commands from the root directory to install the dependencies:\r 1. cd Server\r 2. npm install\r 3. cd..\r 4. cd web\r 5. npm install",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix web && npm run build --prefix web"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pegasusVikas/internship-caramel-academy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pegasusVikas/internship-caramel-academy/issues"
+  },
+  "homepage": "https://github.com/pegasusVikas/internship-caramel-academy#readme"
+}

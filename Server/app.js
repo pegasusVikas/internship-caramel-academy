@@ -5,6 +5,7 @@ const passport = require("passport");
 const cookieParser = require("cookie-parser");
 const PORT = require("./config");
 const app = express();
+const path =require('path')
 //app.use(express.static(path.join(__dirname, "uploads")));
 
 app.use((req, res, next) => {
@@ -73,3 +74,8 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => console.log(`Server started at port : ${PORT}`));
+
+if(process.env.NODE_ENV=='production'){
+  app.use(express.static("../web/build"))
+  app.get('*',(req,res)=>{res.sendFile(path.resolve(__dirname,"../web","build","index.html"))})
+}

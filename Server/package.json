@@ -4,7 +4,8 @@
     "main": "app.js",
     "scripts": {
         "start": "nodemon app.js",
-        "test": ""
+        "test": "",
+        "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix ../web && npm run build --prefix ../web"
     },
     "author": "Shrist",
     "license": "ISC",
