@@ -76,7 +76,7 @@ export default class SkillAssessment extends Component {
 			category: this.state.category,
 		};
 
-		axios.post("http://localhost:3004/skilltest/generate", information).then(res => {
+		axios.post("/api/skilltest/generate", information).then(res => {
 			this.setState({ questionList: res.data });
 			// this.state.idList.forEach(id => {
 			// 	axios.get("http://localhost:4000/questions/" + id).then(response => {
@@ -124,7 +124,7 @@ export default class SkillAssessment extends Component {
 			user_id: this.state.user_email_id,
 			total_score: this.state.total_score
 		};
-		axios.post("http://localhost:3004/test/create", info).then(res => {
+		axios.post("/api/test/create", info).then(res => {
 			console.log(res);
 			window.alert("Test Generated and email sent to the user!");
 		});

@@ -206,7 +206,7 @@ export default class Application extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:3004/api/courses").then((res) => {
+    axios.get("/api/api/courses").then((res) => {
       console.log(res.data);
       if (res.data) {
         this.setState({ courses: res.data.courses });

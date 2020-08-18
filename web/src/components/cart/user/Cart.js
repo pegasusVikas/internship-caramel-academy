@@ -51,7 +51,7 @@ export default class Cart extends React.Component {
     const context=this.context;
     //const formdata=new FormData();
     //formdata.append('courses',context.user.cart)
-    axios.post(`http://localhost:3004/api/courses/user/${context.user._id}`, { "courses": context.user.cart})
+    axios.post(`/api/courses/user/${context.user._id}`, { "courses": context.user.cart})
     .then(res => {
       if(res.data.message){
         context.removeAllCourses(context.user._id);

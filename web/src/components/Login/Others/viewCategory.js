@@ -95,7 +95,7 @@ class ViewProgram extends Component {
   // onSubmit(e) {
   //   e.preventDefault();
   //   axios
-  //     .get("http://localhost:3004/api//categories", this.state)
+  //     .get("/api/api//categories", this.state)
   //     .then((res) => {
   //       if (res.data.status) {
   //         alert("Added Sucessfully");
@@ -113,7 +113,7 @@ class ViewProgram extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:3004/api/categories", this.state)
+      .get("/api/api/categories", this.state)
       .then((res) => {
         if (res.data.categories) {
           this.setState({ categories: res.data.categories });
@@ -126,7 +126,7 @@ class ViewProgram extends Component {
   updateList()
   {
     axios
-    .get("http://localhost:3004/api/categories", this.state)
+    .get("/api/api/categories", this.state)
     .then((res) => {
       if (res.data.categories) {
         this.setState({ categories: res.data.categories });
@@ -173,7 +173,7 @@ class ViewProgram extends Component {
                   </td>
                   <td>
                     <button onClick={ () =>
-				                axios.delete('http://localhost:3004/api/categories/'+CATEGORY._id)
+				                axios.delete('/api/api/categories/'+CATEGORY._id)
 				                    .then(() => this.updateList())                      
 				                    .catch(err => console.log(err))
 				            } className="btn btn-danger">
@@ -224,7 +224,7 @@ class ViewSubProgram extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:3004/api/subcategories", this.state)
+      .get("/api/api/subcategories", this.state)
       .then((res) => {
         if (res.data.subCategories) {
           this.setState({ subcategories: res.data.subCategories });
@@ -238,7 +238,7 @@ class ViewSubProgram extends Component {
  updateList()
  {
   axios
-  .get("http://localhost:3004/api/subcategories", this.state)
+  .get("/api/api/subcategories", this.state)
   .then((res) => {
     if (res.data.subCategories) {
       this.setState({ subcategories: res.data.subCategories });
@@ -252,7 +252,7 @@ class ViewSubProgram extends Component {
 
  deleteSubCategory(id){
   axios
-  .delete("http://localhost:3004/api/subcategories/"+{id}, this.state)
+  .delete("/api/api/subcategories/"+{id}, this.state)
   .then((res) => {
     if (res.data.message) {
       // this.setState({ subcategories: res.data.subcategories });
@@ -297,7 +297,7 @@ class ViewSubProgram extends Component {
                   </td>
                   <td>
                     <button onClick={ () =>
-				                axios.delete('http://localhost:3004/api/subcategories/'+CATEGORY._id)
+				                axios.delete('/api/api/subcategories/'+CATEGORY._id)
 				                    .then(() => this.updateList())                      
 				                    .catch(err => console.log(err))
 				            } className="btn btn-danger">

@@ -19,7 +19,7 @@ const CourseItem = (props) => {
     }
     
     const handleClick = (userId, courseId) => {
-		axios.post(`http://localhost:3004/api/courses/instructor/${userId}/${courseId}`)
+		axios.post(`/api/api/courses/instructor/${userId}/${courseId}`)
 		.then(res => {
 			if (res.data.message === "Done") {
 				setBtn({

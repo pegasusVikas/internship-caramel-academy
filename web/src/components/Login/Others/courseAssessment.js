@@ -57,11 +57,11 @@ export default class CourseAssessment extends Component {
 		};
 
 		console.log(information);
-		axios.post("http://localhost:3004/coursetest/generate", information).then(res => {
+		axios.post("/api/coursetest/generate", information).then(res => {
 			console.log(res.data);
 			this.setState({ questionList: res.data });
 			// this.state.idList.forEach(id => {
-			// 	axios.get("http://localhost:3004/questions/" + id).then(response => {
+			// 	axios.get("/api/questions/" + id).then(response => {
 			// 		console.log(response.data);
 			// 		this.setState(state => {
 			// 			const questionList = state.questionList.concat(response.data);
@@ -106,7 +106,7 @@ export default class CourseAssessment extends Component {
 			user_id: this.state.user_email_id,
 			total_score: 350
 		};
-		axios.post("http://localhost:3004/test/create", info).then(res => {
+		axios.post("/api/test/create", info).then(res => {
 			console.log(res);
 		});
 		const x = this.state.step;

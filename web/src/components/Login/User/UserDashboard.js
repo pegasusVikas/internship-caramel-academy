@@ -28,7 +28,7 @@ const Dashboard = () => {
 	};
 
 	if(state.courses === null) {
-		axios.get('http://localhost:3004/api/courses')
+		axios.get('/api/api/courses')
 		.then(res => {
 			setState({ courses: res.data.courses });
 		}).catch(err => {

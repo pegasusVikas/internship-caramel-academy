@@ -83,7 +83,7 @@ const [button,setButton]=useState({ type:"",status:"request"});
  },[])
 
  useEffect(() => {
-  axios.get("http://localhost:3004/test").then((res)=>{
+  axios.get("/api/test").then((res)=>{
     console.log(res.data)
     var skill_complete=[],skill_not_complete=[];
     var course_complete=[],course_not_complete=[];

@@ -13,7 +13,7 @@ const ForgotPass = () => {
 	}
 	const onSubmit = (e) => {
 		e.preventDefault();
-		axios.post("http://localhost:3004/api/corporate-req-reset-password", state)
+		axios.post("/api/api/corporate-req-reset-password", state)
 		.then(res => {
 			console.log(res.data);
 		})

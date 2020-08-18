@@ -16,7 +16,7 @@ const Programs3 = () => {
   const [state, setState] = useState({
     subcategories: null
   });
-  state.subcategories === null && axios.get("http://localhost:3004/api/subcategories")
+  state.subcategories === null && axios.get("/api/api/subcategories")
   .then(res => {
     console.log(res.data);
     setState({

@@ -12,7 +12,7 @@ const cardStyle = {
 
 const Programs1 = () => {
 
-  axios.get("http://localhost:3004/categories")
+  axios.get("/api/categories")
   .then(res => {
     console.log(res.data);
   })
