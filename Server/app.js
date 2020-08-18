@@ -82,6 +82,6 @@ if(process.env.NODE_ENV==='production'){
   const root=path.join(__dirname,'../web','/build')
   app.use(express.static(root))
   console.log("NOT found");
-  console.log(res);
-  app.get('*',(req,res)=>{res.sendFile('index.html',{root})})
+  
+  app.get('*',(req,res)=>{console.log(res);res.sendFile('index.html',{root})})
 }
