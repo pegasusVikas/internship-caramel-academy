@@ -41,7 +41,7 @@ export default class Test extends Component {
 
 	updateTest(score) {
     const questions = this.state.questionList;
-		axios.post(`/api/test/update/${this.state.testid}`, { score, questions }).then(res => {
+		axios.post(`/test/update/${this.state.testid}`, { score, questions }).then(res => {
 			console.log(res);
 		});
 	}
@@ -81,7 +81,7 @@ export default class Test extends Component {
 		let test = localStorage.getItem("test");
 		let loaded = false;
 		if (this.state.questionList === null) {
-			axios.get(`/api/test/${test}`).then(res => {
+			axios.get(`/test/${test}`).then(res => {
 				test = res.data;
 				this.setState({
 					...this.state,

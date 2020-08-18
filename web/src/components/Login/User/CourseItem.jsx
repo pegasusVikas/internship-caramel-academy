@@ -43,7 +43,7 @@ const CourseItem = (props) => {
     
     const handleClick = (userId, courseId) => {
         if(!btn.inCart){
-            axios.post(`/api/api/studcart/${userId}/${courseId}`)
+            axios.post(`/api/studcart/${userId}/${courseId}`)
             .then(res => {
                 if (res.data) {
                     setBtn({
