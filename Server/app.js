@@ -83,5 +83,5 @@ if(process.env.NODE_ENV==='production'){
   app.use(express.static(root))
   console.log("NOT found");
   
-  app.get('*',(req,res)=>{console.log(res);res.sendFile('index.html',{root})})
+  app.get('*',(req,res)=>{console.log(req);res.sendFile('index.html',{root})})
 }
