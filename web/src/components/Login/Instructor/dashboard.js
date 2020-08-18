@@ -27,7 +27,7 @@ const Dashboard = () => {
 	};
 
 	if(state.courses === null) {
-		axios.get('/api/api/courses')
+		axios.get('/api/courses')
 		.then(res => {
 			setState({ courses: res.data.courses });
 			console.log(res.data);

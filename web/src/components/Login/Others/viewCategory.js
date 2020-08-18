@@ -173,7 +173,7 @@ class ViewProgram extends Component {
                   </td>
                   <td>
                     <button onClick={ () =>
-				                axios.delete('/api/api/categories/'+CATEGORY._id)
+				                axios.delete("/api/categories/'+CATEGORY._id)
 				                    .then(() => this.updateList())                      
 				                    .catch(err => console.log(err))
 				            } className="btn btn-danger">
@@ -297,7 +297,7 @@ class ViewSubProgram extends Component {
                   </td>
                   <td>
                     <button onClick={ () =>
-				                axios.delete('/api/api/subcategories/'+CATEGORY._id)
+				                axios.delete("/api/subcategories/'+CATEGORY._id)
 				                    .then(() => this.updateList())                      
 				                    .catch(err => console.log(err))
 				            } className="btn btn-danger">
