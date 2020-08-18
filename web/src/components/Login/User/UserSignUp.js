@@ -46,7 +46,7 @@ class SignUp extends Component {
     // console.log("Skill :" + this.state.skill);
     axios
       //  .post("http://103.210.75.167:3004/api/user-register", this.state)
-      .post("/api/api/user-register", this.state)
+      .post("/api/user-register", this.state)
       .then((res) => {
         if (res.data.registered) {
           // this.setState({logged:true});

@@ -206,7 +206,7 @@ export default class Application extends Component {
   }
 
   componentDidMount() {
-    axios.get("/api/api/courses").then((res) => {
+    axios.get("/api/courses").then((res) => {
       console.log("hiiiiiii")
       console.log(res.data);
       if (res.data) {

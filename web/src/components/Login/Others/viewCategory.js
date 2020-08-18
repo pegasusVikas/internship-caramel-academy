@@ -95,7 +95,7 @@ class ViewProgram extends Component {
   // onSubmit(e) {
   //   e.preventDefault();
   //   axios
-  //     .get("/api/api//categories", this.state)
+  //     .get("/api//categories", this.state)
   //     .then((res) => {
   //       if (res.data.status) {
   //         alert("Added Sucessfully");
@@ -113,7 +113,7 @@ class ViewProgram extends Component {
   }
   componentDidMount() {
     axios
-      .get("/api/api/categories", this.state)
+      .get("/api/categories", this.state)
       .then((res) => {
         if (res.data.categories) {
           this.setState({ categories: res.data.categories });
@@ -126,7 +126,7 @@ class ViewProgram extends Component {
   updateList()
   {
     axios
-    .get("/api/api/categories", this.state)
+    .get("/api/categories", this.state)
     .then((res) => {
       if (res.data.categories) {
         this.setState({ categories: res.data.categories });
@@ -224,7 +224,7 @@ class ViewSubProgram extends Component {
 
   componentDidMount() {
     axios
-      .get("/api/api/subcategories", this.state)
+      .get("/api/subcategories", this.state)
       .then((res) => {
         if (res.data.subCategories) {
           this.setState({ subcategories: res.data.subCategories });
@@ -238,7 +238,7 @@ class ViewSubProgram extends Component {
  updateList()
  {
   axios
-  .get("/api/api/subcategories", this.state)
+  .get("/api/subcategories", this.state)
   .then((res) => {
     if (res.data.subCategories) {
       this.setState({ subcategories: res.data.subCategories });
@@ -252,7 +252,7 @@ class ViewSubProgram extends Component {
 
  deleteSubCategory(id){
   axios
-  .delete("/api/api/subcategories/"+{id}, this.state)
+  .delete("/api/subcategories/"+{id}, this.state)
   .then((res) => {
     if (res.data.message) {
       // this.setState({ subcategories: res.data.subcategories });

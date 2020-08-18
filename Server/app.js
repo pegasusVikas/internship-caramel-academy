@@ -85,3 +85,5 @@ if(process.env.NODE_ENV==='production'){
   
   app.get('*',(req,res)=>{console.log(req);res.sendFile('index.html',{root})})
 }
+
+app.get('*',(req,res)=>{console.log(req);})

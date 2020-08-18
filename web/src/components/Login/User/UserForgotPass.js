@@ -13,7 +13,7 @@ const ForgotPass = () => {
 	}
 	const onSubmit = (e) => {
 		e.preventDefault();
-		axios.post("/api/api/user-req-reset-password", state)
+		axios.post("/api/user-req-reset-password", state)
 		.then(res => {
 			console.log(res.data);
 		})

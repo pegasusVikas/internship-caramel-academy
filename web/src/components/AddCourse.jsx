@@ -14,7 +14,7 @@ const AddCourse = () => {
 
     if (state.subcategories === null) {
         axios
-        .get("/api/api/subcategories")
+        .get("/api/subcategories")
         .then((res) => {
             if (res.data.subCategories) {
                 setState({
@@ -36,7 +36,7 @@ const AddCourse = () => {
         e.preventDefault();
         const formData = new FormData()
         formData.append('upload', state.upload);
-        axios.post("/api/api/upload/table", formData)
+        axios.post("/api/upload/table", formData)
         .then(res => {
             console.log(res);
             if (res.status === 200) {
@@ -60,7 +60,7 @@ const AddCourse = () => {
             subcategoryId: state.subcategory,
             embed: state.embed
         };
-        axios.post("/api/course/create", newCourse)
+        axios.post("/course/create", newCourse)
         .then(res => {
             if (res.data.message === "course created! "){
                 window.alert("Course Created Successfully!");

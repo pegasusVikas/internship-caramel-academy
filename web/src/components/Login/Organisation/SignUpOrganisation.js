@@ -25,7 +25,7 @@ class SignUpOrganisation extends Component {
   onSubmit(e) {
     e.preventDefault();
               //"http://103.210.75.167:3004/api/corporate-register"
-		axios.post("/api/api/corporate-register",this.state).
+		axios.post("/api/corporate-register",this.state).
             then(res=>{
                 if(res.data.registered)
                 {

@@ -18,7 +18,7 @@ export class ViewCourse extends Component {
   //       : this.setState({ [name]: value });
   //   }
   componentDidMount() {
-    axios.get("/api/api/courses").then((res) => {
+    axios.get("/api/courses").then((res) => {
       console.log(res.data);
       if (res.data) {
         this.setState({ courses: res.data.courses });
@@ -28,7 +28,7 @@ export class ViewCourse extends Component {
     });
   }
   updateList() {
-    axios.get("/api/api/courses").then((res) => {
+    axios.get("/api/courses").then((res) => {
       if (res.data) {
         this.setState({ courses: res.data.courses });
       } else {

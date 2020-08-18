@@ -26,7 +26,7 @@ export default class TestLogin extends Component {
       userid: this.state.id,
       password: this.state.password,
     };
-    axios.post("/api/test/login", info).then((response) => {
+    axios.post("/test/login", info).then((response) => {
       if (response.data.msg === "done") {
         try {;
           localStorage.setItem("test", response.data.test._id);

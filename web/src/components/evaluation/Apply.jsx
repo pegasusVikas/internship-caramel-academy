@@ -37,7 +37,7 @@ const Apply = () => {
     const submit = (e) => {
         e.preventDefault();
 
-        axios.post("/api/newuser/apply", {
+        axios.post("/newuser/apply", {
             email: state.email,
             skillSet: state.skillSet,
             proficiency: state.proficiency
@@ -60,7 +60,7 @@ const Apply = () => {
     const submit2 = (e) => {
         e.preventDefault();
 
-        axios.post("/api/newuser/applyCourse", {
+        axios.post("/newuser/applyCourse", {
             email: state.email,
             skillSet: state.skillSet,
             proficiency: state.proficiency

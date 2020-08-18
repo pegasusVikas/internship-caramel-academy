@@ -32,7 +32,7 @@ class SignUpInstructor extends Component {
 
     axios
       //.post("http://103.210.75.167:3004/api/instructor-register", this.state)
-      .post("/api/api/instructor-register", this.state)
+      .post("/api/instructor-register", this.state)
       .then((res) => {
         if (res.data.registered) {
           console.log("logged in");
