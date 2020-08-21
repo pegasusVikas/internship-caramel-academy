@@ -94,7 +94,7 @@ class AddProgram extends Component {
   onSubmit(e) {
     e.preventDefault();
     axios
-      .post("/api/categories", this.state)
+      .post("http://localhost:3004/api/categories", this.state)
       .then((res) => {
         if (res.data.message) {
           alert("Added Sucessfully");
@@ -182,7 +182,7 @@ class AddSubProgram extends Component {
 
   componentDidMount() {
     axios
-      .get("/api/categories", this.state)
+      .get("http://localhost:3004/api/categories", this.state)
       .then((res) => {
         if (res.data.categories) {
           this.setState({ categories: res.data.categories });
@@ -193,9 +193,9 @@ class AddSubProgram extends Component {
   }
   onSubmit(e) {
     e.preventDefault();
-    // axios.post("http://localhost:3003/admin/addsubcategory",this.state).
+    // axios.post("http://localhost:3004http://localhost:3003/admin/addsubcategory",this.state).
     axios
-      .post("/api/subcategories", this.state)
+      .post("http://localhost:3004/api/subcategories", this.state)
       .then((res) => {
         if (res.data.message) {
           alert("Added Sucessfully");

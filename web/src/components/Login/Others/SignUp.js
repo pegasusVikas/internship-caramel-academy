@@ -35,8 +35,8 @@ class SignUp extends Component {
     // console.log("College :" + this.state.college);
     // console.log("Skill :" + this.state.skill);
     console.log(this.state);
-    //axios.post("http://103.210.75.167:3004/api/admin-register",this.state).
-    axios.post("/api/admin-register",this.state).
+    //axios.post("http://localhost:3004http://103.210.75.167:3004/api/admin-register",this.state).
+    axios.post("http://localhost:3004/api/admin-register",this.state).
       then(res=>{
         console.log(res.data);
           if(res.data.registered)

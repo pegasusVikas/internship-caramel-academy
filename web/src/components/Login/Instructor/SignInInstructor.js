@@ -46,7 +46,7 @@ class SignInInstructor extends Component {
 			//   "http://103.210.75.167:3004/api/instructor-authenticate",
 			//   this.state
 			// )
-			.post("/api/instructor-authenticate", this.state)
+			.post("http://localhost:3004/api/instructor-authenticate", this.state)
 			.then((res) => {
 				if (res.data.logged) {
 					localStorage.setItem("instructor", JSON.stringify(res.data.instructor));

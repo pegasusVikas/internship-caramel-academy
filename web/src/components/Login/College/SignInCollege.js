@@ -40,8 +40,8 @@ class SignInCollege extends Component {
 
     console.log(this.state);
     axios
-      //.post("http://103.210.75.167:3004/api/university-authenticate", this.state)
-      .post("/api/university-authenticate", this.state)
+      //.post("http://localhost:3004http://103.210.75.167:3004/api/university-authenticate", this.state)
+      .post("http://localhost:3004/api/university-authenticate", this.state)
       .then((res) => {
         console.log(res);
         if (res.data.logged) {

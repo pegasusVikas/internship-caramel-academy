@@ -36,8 +36,8 @@ class SignIn extends Component{
   }
   onSubmit(e){
     e.preventDefault();
-    axios.post("/api/admin-authenticate",this.state).
-    //axios.post("http://103.210.75.167:3004/api/admin-authenticate",this.state).
+    axios.post("http://localhost:3004/api/admin-authenticate",this.state).
+    //axios.post("http://localhost:3004http://103.210.75.167:3004/api/admin-authenticate",this.state).
         then(res=>{
             if(res.data.logged)
             {

@@ -9,7 +9,7 @@ const path =require('path')
 //app.use(express.static(path.join(__dirname, "uploads")));
 
 app.set('port',(process.env.PORT||PORT))
-
+ 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Headers", "*");
@@ -75,7 +75,7 @@ app.use((err, req, res, next) => {
   }
 });
 
-app.listen(app.get('port'), () => console.log(`Server started at port : ${PORT}`));
+app.listen(app.get('port'), () => console.log(`Server started at port : ${app.get('port')}`));
 
 
 if(process.env.NODE_ENV==='production'){

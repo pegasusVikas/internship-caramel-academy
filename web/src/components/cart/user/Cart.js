@@ -16,16 +16,29 @@ export default class Cart extends React.Component {
     this.state = {
       total: 0,
     };
-
-    console.log(this.context);
   }
   componentDidMount(){
     const context=this.context;
-    context.getCourses(context.user._id);
+   
+
   }
   componentWillMount() {
     const context = this.context;
-    console.log(context);
+    if(context.user._id){
+      context.getCourses(context.user._id);
+      console.log("hello")
+      }
+      else if(this.props.location.state._id){
+      console.log("heere",this.props.location.state._id) 
+      var profile=this.props.location.state;
+			profile.type="user"
+      context.setUser(profile);
+     console.log(this.context) 
+     }
+      else
+      this.props.location.push("/lms/user/login")
+
+    
     var products=context.user.cart;
     if (!products) return;
       let total = 0;
@@ -51,7 +64,7 @@ export default class Cart extends React.Component {
     const context=this.context;
     //const formdata=new FormData();
     //formdata.append('courses',context.user.cart)
-    axios.post(`api/courses/user/${context.user._id}`, { "courses": context.user.cart})
+    axios.post(`http://localhost:3004/api/courses/user/${context.user._id}`, { "courses": context.user.cart})
     .then(res => {
       if(res.data.message){
         context.removeAllCourses(context.user._id);
@@ -66,7 +79,7 @@ export default class Cart extends React.Component {
 
   render() {
     const { total } = this.state;
-    const products =this.context.user.cart;
+    const products =this.context.user.cart||[];
     return (
       <div>
       <nav className="navbar navbar-expand-sm bg-dark navbar-dark">

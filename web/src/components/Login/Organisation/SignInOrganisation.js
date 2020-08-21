@@ -40,7 +40,7 @@ class SignInOrganisation extends Component {
 
     console.log(this.state);
     axios//"http://103.210.75.167:3004/api/corporate-authenticate"
-      .post("/api/corporate-authenticate", this.state)
+      .post("http://localhost:3004/api/corporate-authenticate", this.state)
       .then((res) => {
         if (res.data.logged) {
           // this.setState({logged:true});

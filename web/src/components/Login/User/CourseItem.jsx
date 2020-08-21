@@ -9,8 +9,9 @@ import BeenhereIcon from '@material-ui/icons/Beenhere';
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 
 const Button = (props) => {
+    console.log(props)
     if (props.text === "Go to cart")
-    return <Link to="/lms/user/cart" style={{ color: "black" }}><ShoppingCartIcon />{" "}{props.text}</Link>
+    return <Link to={{pathname:"/lms/user/cart",state:props.location.state}} style={{ color: "black" }}><ShoppingCartIcon />{" "}{props.text}</Link>
     return <Fragment>{props.text}</Fragment>
 }
 const CourseItem = (props) => {
@@ -43,7 +44,7 @@ const CourseItem = (props) => {
     
     const handleClick = (userId, courseId) => {
         if(!btn.inCart){
-            axios.post(`/api/studcart/${userId}/${courseId}`)
+            axios.post(`http://localhost:3004/api/studcart/${userId}/${courseId}`)
             .then(res => {
                 if (res.data) {
                     setBtn({
@@ -67,7 +68,7 @@ const CourseItem = (props) => {
                 {course.description}
             </div>
             <div className="card-footer">
-                <button className="btn btn-sm" onClick={() => handleClick(user, course._id)} disabled={enrolled} style={{ borderRadius: "30px", backgroundColor: btn.color }}><Button text={btn.text} /></button>
+                <button className="btn btn-sm" onClick={() => handleClick(user, course._id)} disabled={enrolled} style={{ borderRadius: "30px", backgroundColor: btn.color }}><Button text={btn.text} location={props.location}/></button>
                 <button onClick={onClick} className="btn btn-sm" style={{ float: "right", borderRadius: "30px", backgroundColor: "#eb99ff" }}><LibraryBooksIcon />{" "}View Course</button>
             </div>
         </div>

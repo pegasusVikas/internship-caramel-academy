@@ -36,8 +36,8 @@ class SignIn extends Component {
 		e.preventDefault();
 
 		axios
-			// .post("http://103.210.75.167:3004/api/user-authenticate", this.state)
-			.post("/api/user-authenticate", this.state)
+			// .post("http://localhost:3004http://103.210.75.167:3004/api/user-authenticate", this.state)
+			.post("http://localhost:3004/api/user-authenticate", this.state)
 			.then((res) => {
 				if (res.data.logged) {
 					console.log("logged in");

@@ -40,7 +40,7 @@ export default class QuestionBank extends Component {
 
   fetchQuestions() {
     axios
-      .get("/questions/")
+      .get("http://localhost:3004/questions/")
       .then((response) => {
         this.setState({ questions: response.data });
       })
@@ -62,13 +62,13 @@ export default class QuestionBank extends Component {
   }
 
   onClickTemplate() {
-    axios.get("/questions/template");
+    axios.get("http://localhost:3004/questions/template");
   }
 
   onClickDelete(id, e) {
     console.log(id);
     axios
-      .delete("/questions/delete/" + id)
+      .delete("http://localhost:3004/questions/delete/" + id)
       .then((response) => {
         console.log("Course deleted");
       })
@@ -91,7 +91,7 @@ export default class QuestionBank extends Component {
     data.append("file", this.state.file);
     console.log("start");
     axios
-      .post("/questions/upload", data)
+      .post("http://localhost:3004/questions/upload", data)
       .then((res) => console.log(res.statusText));
     console.log("end");
     this.fetchQuestions();
@@ -141,7 +141,7 @@ export default class QuestionBank extends Component {
     };
 
     axios
-      .post("/questions/create", newQuestion)
+      .post("http://localhost:3004/questions/create", newQuestion)
       .then((res) => console.log(res.data));
 
     this.setState({

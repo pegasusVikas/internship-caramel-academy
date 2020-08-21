@@ -11,7 +11,7 @@ import EmailIcon from '@material-ui/icons/Email';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
-const Dashboard = () => {
+const Dashboard = (props) => {
 	const user = JSON.parse(localStorage.getItem("user"));
 
 	const [state, setState] = useState({
@@ -28,7 +28,7 @@ const Dashboard = () => {
 	};
 
 	if(state.courses === null) {
-		axios.get('/api/courses')
+		axios.get('http://localhost:3004/api/courses')
 		.then(res => {
 			setState({ courses: res.data.courses });
 		}).catch(err => {
@@ -64,11 +64,11 @@ const Dashboard = () => {
 				<Link className="navbar-brand" to="/">
 					<img src="../../Caramellogo.png" alt="logo" style={{ width: "240px", height: "65px", margin: "0px 0px 0px 0px" }} />
 				</Link>
-				<div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
+				<div className="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
 					<ul class="navbar-nav">
 						<li><Link className="nav-link" style={{ backgroundColor: "#343a40" }} to="/index"><HomeRoundedIcon />{" "}IT Services Home</Link></li>
 						<li><Link className="nav-link" style={{ backgroundColor: "#343a40" }} to="/nodecontactform/acadamycontact"><EmailIcon />{" "}Contact Us</Link></li>
-						<li><Link className="nav-link" style={{ backgroundColor: "#343a40" }} to="/lms/user/cart"><ShoppingCartIcon/>{" "}Cart</Link></li>
+						<li><Link className="nav-link" style={{ backgroundColor: "#343a40" }} to={{pathname:"/lms/user/cart",state:props.location.state}}><ShoppingCartIcon/>{" "}Cart</Link></li>
 						<li><img src={Logo} width="50px" alt="mern" height="50px"/></li>
 					</ul>
 				</div>
@@ -87,8 +87,8 @@ const Dashboard = () => {
 				<div className="column right" id="sidebar">
 					<h2>Hello, {user.profile} - {user.firstName} {user.lastName} !</h2>
 					{state.showAccount && <AccountItems courses={state.courses} user={user} userStyle={userStyle} />} 
-					{state.showCourses && <CourseItems courses={state.courses} user={user} userStyle={userStyle} enrolled={false}/>}
-					{state.showEnrolledCourses && <CourseItems courses={state.courses} user={user} userStyle={userStyle} enrolled={true}/>}
+					{state.showCourses && <CourseItems history={props.history} location={props.location}  courses={state.courses} user={user} userStyle={userStyle} enrolled={false}/>}
+					{state.showEnrolledCourses && <CourseItems history={props.history} location={props.location} courses={state.courses} user={user} userStyle={userStyle} enrolled={true}/>}
 				</div>
 			</div>
      	</div>
@@ -120,7 +120,7 @@ const CourseItems = (props) => {
 		<div style={{ padding: "1%" }}>
 			<div style={userStyle}>
 				{courses.map(course => ((enrolled ? course.enrolledBy.indexOf(user._id) !== -1 : course.enrolledBy.indexOf(user._id) === -1)  &&
-					<CourseItem key={i++} course={course} user={user._id} enrolled={enrolled}/>
+					<CourseItem history={props.history} location={props.location} key={i++} course={course} user={user._id} enrolled={enrolled}/>
 				))}
 			</div>
 			{enrolled && i == 0 && <div className="alert alert-warning"><ErrorIcon /> You do not seem to be enrolled in any courses</div>}

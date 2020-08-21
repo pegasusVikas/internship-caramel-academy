@@ -28,7 +28,7 @@ const UserState = (props) => {
     const removeAllCourses=async  (userID)=>{
         //console.log(userID)
         try{
-        const res=await axios.delete("/api/studcart/"+userID);
+        const res=await axios.delete("http://localhost:3004/api/studcart/"+userID);
         if(res.data.error){
             console.log("error:"+res.data.error);//set error
         }else
@@ -43,7 +43,7 @@ const UserState = (props) => {
     const removeCourse=async  (userID,courseID)=>{
         console.log(userID,courseID)
         try{
-        const res=await axios.delete("/api/studcart/"+userID+"/"+courseID);
+        const res=await axios.delete("http://localhost:3004/api/studcart/"+userID+"/"+courseID);
         if(res.data.error){
             console.log("error:"+res.data.error);//set error
         }else{
@@ -59,7 +59,7 @@ const UserState = (props) => {
     const getCourses=async  (userID,courseID)=>{
         //console.log(userID)
         try{
-        const res=await axios.get("/api/studcart/"+userID);
+        const res=await axios.get("http://localhost:3004/api/studcart/"+userID);
         if(res.data.error){
             console.log("error:"+res.data.error);//set error
         }else

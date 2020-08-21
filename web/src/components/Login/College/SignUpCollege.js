@@ -27,8 +27,8 @@ class SignUpCollege extends Component {
     e.preventDefault();
 
     axios
-      //.post("http://103.210.75.167:3004/api/university-register", this.state)
-      .post("/api/university-register", this.state)
+      //.post("http://localhost:3004http://103.210.75.167:3004/api/university-register", this.state)
+      .post("http://localhost:3004/api/university-register", this.state)
       .then((res) => {
         if (res.data.registered) {
           console.log("logged in");
