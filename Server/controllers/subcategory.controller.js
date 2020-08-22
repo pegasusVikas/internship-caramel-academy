@@ -101,6 +101,16 @@ module.exports.read = (req, res, next) => {
           }
         })
       })
+      if (doc.courseList.length === 0) {
+        subCategories.push({ ...doc._doc });
+        if (subCategories.length === docs.length) {
+          console.log("bye");
+          res.status(200).json({
+            message: "SubCategories fetched successfully",
+            subCategories
+          });
+        }
+      }
     })
   });
 };
