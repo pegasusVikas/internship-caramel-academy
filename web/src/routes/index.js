@@ -26,6 +26,7 @@ import MainERP from "../components/SubPrograms/ERP/MainERP";
 import MainIT from "../components/SubPrograms/IT/MainIT";
 import MainItCertification from "../components/SubPrograms/ItCertification/MainItCertification";
 
+import Recommendations from "../components/Caramel/recommendations";
 import SignIn from "../components/Login/Student/SignIn";
 import SignUp from "../components/Login/Student/SignUp";
 import StudentDashboard from "../components/Login/Student/dashboard";
@@ -223,6 +224,7 @@ export default class Application extends Component {
         <Route exact path="/index" component={Itservices} />
         <Route exact path="/apply" component={Apply} />
         <Route path="/caramelit_new/program" component={MainProgram} />
+        <Route exact path="/recommendations" component={Recommendations} />
         <Route
           exact
           path="/caramelit_new/courses/uicourses"

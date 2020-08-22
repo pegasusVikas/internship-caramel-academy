@@ -1,0 +1,135 @@
+.acaheader .nav-item .nav-link {
+    color:slategrey;
+}
+.logo1 {
+    background: white;
+    border-radius: 100px 0px 0px 100px;
+    width: 200px;
+    height: 70px;
+}
+.acaheader .nav-item .nav-link:hover {
+    color:#E48F25;
+}
+
+.searchbar input {
+    margin:auto;
+    margin-top: 7px;
+    position: relative;
+    border-radius: 40px;
+    border:none;
+    height: 35px;
+    min-width:350px;
+    background-color: rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.suggestbar {
+    background-color: deepskyblue;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.h1{
+    list-style-type: none;
+   
+}
+.suggestbar .nav .nav-item a {
+    color: aliceblue;
+    font-weight: bold;
+}
+.suggestbar .nav .nav-item a:hover {
+    cursor: pointer;
+    color: orange;
+}
+.conatai {
+   
+    height: 165px;
+    margin-top: 10px;
+    float: botto;
+}
+.footer {
+    background-color: #CFD8DC;
+    padding: 10px 0 0;
+}
+.mb-5, .my-5 {
+    margin-bottom: 3rem !important;
+}
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+.bg-image-overlay {
+    position: relative;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(../images/banner.jpg);
+    height: 60vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.about-position {
+    position: absolute;
+    bottom:5%;
+    left:5%;
+    color: white;
+    font-size: 80px;
+    font-weight: bold;
+}
+
+.about-position p {
+    font-size: 50px;
+    text-align: left;
+}
+.align-center {
+    text-align: center;
+}
+.font-weight-bold {
+    font-weight: 700 !important;
+}
+.text-uppercase {
+    text-transform: uppercase !important;
+    color: #171695;
+}
+.jumbotron {
+    margin-bottom: 0;
+}
+.vertical-center {
+    position: absolute;
+    top: 97%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin-bottom:1rem;
+    margin-top:3rem;
+}
+.card-profile {
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.button-class {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+.card-profile:hover {
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.9);
+    transition-duration: 0.5s;
+}
+.button-class:hover {
+    background-color: dodgerblue;
+}
+.card-profile .pt-2 {
+    font-size: 20px;
+}

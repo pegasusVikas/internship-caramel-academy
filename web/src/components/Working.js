@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 const styleSelect = {
   // background: "transparent",
@@ -165,9 +166,9 @@ export default class Working extends Component {
                   >
                     <img src="./images/arrow.png" className="midarrow" />
                     <div className="recommend">
-                      <a href="https://caramelit.com/">
+                      <Link to="/recommendations">
                         <h2>RECOMMENDATION</h2>
-                      </a>
+                      </Link>
                       <br />
                     </div>
                   </div>
