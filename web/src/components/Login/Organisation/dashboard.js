@@ -57,7 +57,7 @@ render() {
           </Grid>
           <Grid item xs={12}>
             {" "}
-            <div className="contained bg-info">
+            <div style={{backgroundImage:"radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)"}}>
               <Grid container spacing={3}>
                 <Grid className="dasborad_text text" item xs={6}>
                   <h2><u>Welcome organisation</u>:</h2>

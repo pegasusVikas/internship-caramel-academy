@@ -50,7 +50,7 @@ class Dashboard extends Component {
 				  </Grid>
 				  <Grid item xs={12}>
 					{" "}
-					<div className="bg-success">
+					<div style={{backgroundImage:"linear-gradient(90deg, rgba(114,16,17,0.5) 0%, rgba(202,71,39,0.5) 50%, rgba(228,146,37,0.5) 96%)"}}>
 					  <Grid container spacing={3}>
 						<Grid className="dasborad_text text" item xs={6}>
 						  <h2><u>Welcome College</u>:</h2>
