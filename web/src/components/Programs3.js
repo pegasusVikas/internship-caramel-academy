@@ -36,7 +36,7 @@ const Programs3 = () => {
       {state.subcategories !== null && 
         <Tabs style={{ backgroundImage: "linear-gradient(to left, #0e7fa7, #1d5787, #27386e)", marginLeft: "1px", marginBottom: "1px" }}>
           {state.subcategories.map(subcat => (
-            <Tab label={subcat.title}>
+            <Tab label={subcat.title} >
               <div
                 className="container-fluid"
                 id="courses2"
@@ -52,7 +52,7 @@ const Programs3 = () => {
                       <div className="sub">
                         <img src={course.title.toLowerCase() === "reactjs" ? react : (course.title.toLowerCase() === "angular js" ? angular : (course.title.toLowerCase() === "nodejs" ? nodejs : (course.title.toLowerCase() === "mern stack" ? mern : (course.title.toLowerCase() === "golang" ? golang : (course.title.toLowerCase() === "web development" ? coreui : data)))))} />
                       </div>
-                      <div className="sub1" style={{ backgroundColor: "white", borderBottomLeftRadius: "18px", borderBottomRightRadius: "18px", height: "100px" }}>
+                      <div className="sub1" style={{ backgroundColor: "white",color:"black" ,borderBottomLeftRadius: "18px", borderBottomRightRadius: "18px", height: "100px" }}>
                         <h5>{course.title}</h5>
                         <button onClick={() => onClick(course)} id="read">View Course</button>
                       </div>
