@@ -14,3 +14,10 @@ This will start the backend server and establish a connection with the mongodb c
 Then, in the web directory, open the terminal and run the command:
 npm start
 This will start the react app and will open it up on your browser automatically.
+
+------------------------------------------------------
+NOTE: This Server is connected to question bank app.
+      If you want to access its content then you have
+      to run question bank app also.
+      
+------------------------------------------------------
