@@ -91,7 +91,7 @@ class SignUpCollege extends Component {
               <div className="col-md-3" />
               <div className="col-md-6">
                 <h2 align="center" style={{ color: "#111" }}>
-                  <b>New College Registration</b>
+                  <b>New Unviversity Registration</b>
                 </h2>
                 <br />
                 <form

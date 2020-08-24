@@ -83,7 +83,7 @@ class SignInCollege extends Component {
                 <div className="card card-signin my-5">
                   <div className="card-body">
                     <h2 className="card-title text-center">
-                      <b>Sign In As College</b>
+                      <b>Sign In As University</b>
                     </h2>
                     <center>
                       <span style={{ color: "red" }} /> <br />
