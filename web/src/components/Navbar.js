@@ -54,6 +54,16 @@ const Navbar = (props) => {
                     </Link>
                     <ul className="dropdown-menu">
                       <li className="nav-item">
+                        <a
+                          id="admin"
+                          className="nav-link px-lg-4"
+                          href="http://localhost:3001"
+                          style={{ backgroundColor: course ? "#002333" : "" }}
+                        >
+                          Test
+                    </a>
+                      </li>
+                      <li className="nav-item">
                         <Link className="nav-link px-lg-4" to="/lms/user/login" style={{ backgroundColor: course ? "#002333" : "" }}>
                           User
                         </Link>
@@ -85,20 +95,13 @@ const Navbar = (props) => {
                         <Link
                           className="nav-link px-lg-4"
                           to="/lms/admin/admin_login"
-                          style={{ backgroundColor: course ? "#002333" : "" }}
+                          style={{ backgroundColor: course ? "#002333" : "" ,opacity:0}}
+                          onMouseOver={(e) => { e.target.style.opacity = 1 }}
+                          onMouseOut={(e) => { e.target.style.opacity = 0 }}
                         >
                           Admin
                         </Link>
                       </li>
-                      <li className="nav-item">
-                      <a
-                        className="nav-link px-lg-4"
-                        href="http://localhost:3001"
-                        style={{ backgroundColor: course ? "#002333" : "" }}
-                      >
-                        Test
-                      </a>
-                    </li>
                     </ul>
                   </li>
                   <li className="nav-item">
