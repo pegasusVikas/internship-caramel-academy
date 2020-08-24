@@ -53,7 +53,7 @@ class Dashboard extends Component {
           </div>
         </nav>
 
-        <div class="row">
+        <div class="row" style={{ margin: "0" }}>
           <div className="column left" id="sidebar">
             <p>{user.adminName}</p>
             <p style={{ textAlign: "left", paddingLeft: "15px" }}>

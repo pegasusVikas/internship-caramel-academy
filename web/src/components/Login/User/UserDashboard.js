@@ -73,7 +73,7 @@ const Dashboard = (props) => {
 					</ul>
 				</div>
 			</nav>
-			<div class="row">
+			<div class="row" style={{ margin: "0" }}>
 				<div className="column left" id="sidebar" style={{ backgroundColor: "#ccffff" }}>
 					<p>{user.firstName} {user.lastName}</p>
 					<p style={{ textAlign: "center" }}>{user.emailAddress}</p>

@@ -92,7 +92,7 @@ const Recommendations = () => {
                 <section>
                     <div className="container" style={{ position: "relative" }}>
                         <div className="row">
-                            <div className="col-lg-4 col-md-4 col-12">
+                            <div className="col-lg-3 col-md-3 col-12">
                                 <div className="card-profile">
                                     <img src={mean} alt="John" style={{ width: "100%" }}/>
                                     <h3 className="pt-2">Mean Stack</h3>
@@ -102,20 +102,29 @@ const Recommendations = () => {
                                     <p><button className="button-class">View Course Details</button></p>
                                 </div>
                             </div>
-                            <div className="col-lg-4 col-md-4 col-12">
+                            <div className="col-lg-3 col-md-3 col-12">
                                 <div className="card-profile">
                                     <img src={java} alt="John" style={{ width: "100%", height: "50%" }}/>
-                                    <h3 className="pt-2">Full Stack Java</h3>
+                                    <h3 className="pt-2">Mern Stack</h3>
                                     <p className="title-person"></p>
                                     <p></p>
                                 
                                     <p><button className="button-class">View Course Details</button></p>
                                 </div>
                             </div>
-                            <div className="col-lg-4 col-md-4 col-12">
+                            <div className="col-lg-3 col-md-3 col-12">
                                 <div className="card-profile">
                                     <img src={ml} alt="John" style={{ width: "100%" }} />
-                                    <h3 className="pt-2">Machine Learning</h3>
+                                    <h3 className="pt-2">ML with python</h3>
+                                    <p className="title-person"></p>
+                                    <p></p>
+                                    <p><button className="button-class">View Course Details</button></p>
+                                </div>
+                            </div>
+                            <div className="col-lg-3 col-md-3 col-12">
+                                <div className="card-profile">
+                                    <img src={data} alt="John" style={{ width: "100%" }} />
+                                    <h3 className="pt-2">Web Development</h3>
                                     <p className="title-person"></p>
                                     <p></p>
                                     <p><button className="button-class">View Course Details</button></p>
@@ -136,31 +145,41 @@ const Recommendations = () => {
                 <section>
                     <div className="container" style={{ position: "relative" }}>
                         <div className="row">
-                            <div className="col-lg-4 col-md-4 col-12">
+                            <div className="col-lg-3 col-md-3 col-12">
                                 <div className="card-profile">
                                     <img src={data} alt="John" style={{ width: "100%" }} />
-                                    <h3 className="pt-2">Data Science</h3>
+                                    <h3 className="pt-2">Web Development</h3>
                                     <p className="title-person"></p>
                                     <p></p>
                                     <p><button className="button-class">View Course Details</button></p>
                                 </div>
                             </div>
-                            <div className="col-lg-4 col-md-4 col-12">
+                            <div className="col-lg-3 col-md-3 col-12">
                                 <div className="card-profile">
                                     <img src={cbs} alt="John" style={{ width: "100%", height: "50%" }}/>
-                                    <h3 className="pt-2">Cyber Security</h3>
+                                    <h3 className="pt-2">ReactJs</h3>
                                     <p className="title-person"></p>
                                     <p></p>
                                 
                                     <p><button className="button-class">View Course Details</button></p>
                                 </div>
                             </div>
-                            <div className="col-lg-4 col-md-4 col-12">
+                            <div className="col-lg-3 col-md-3 col-12">
                                 <div className="card-profile">
                                     <img src={cc} alt="John" style={{ width: "100%" }} />
-                                    <h3 className="pt-2">Cloud Coumputing</h3>
+                                    <h3 className="pt-2">NodeJs</h3>
                                     <p className="title-person"></p>
                                     <p></p>
+                                    <p><button className="button-class">View Course Details</button></p>
+                                </div>
+                            </div>
+                            <div className="col-lg-3 col-md-3 col-12">
+                                <div className="card-profile">
+                                    <img src={java} alt="John" style={{ width: "100%", height: "50%" }}/>
+                                    <h3 className="pt-2">Mern Stack</h3>
+                                    <p className="title-person"></p>
+                                    <p></p>
+                                
                                     <p><button className="button-class">View Course Details</button></p>
                                 </div>
                             </div>

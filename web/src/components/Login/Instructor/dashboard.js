@@ -70,7 +70,7 @@ const Dashboard = () => {
 					</ul>
 				</div>
 			</nav>
-			<div class="row">
+			<div class="row" style={{ margin: "0" }}>
 				<div className="column insleft" id="sidebar" style={{ backgroundColor: "#ffffe6" }}>
 					<p>{user.firstName} {user.lastName}</p>
 					<p style={{ textAlign: "center" }}>{user.emailAddress}</p>

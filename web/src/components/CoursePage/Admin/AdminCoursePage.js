@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "../../Navbar";
 import Footer from "../../Footer";
+import axios from 'axios';
 import CourseContentTab from "./CourseContentTab";
 import DescriptionIcon from '@material-ui/icons/Description';
 import CreateIcon from '@material-ui/icons/Create';
@@ -12,19 +13,35 @@ import EqualizerIcon from '@material-ui/icons/Equalizer';
 import SaveAltIcon from '@material-ui/icons/SaveAlt';
 import PrintIcon from '@material-ui/icons/Print';
 import ShareIcon from '@material-ui/icons/Share';
+import SkipNextIcon from '@material-ui/icons/SkipNext';
+import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import "./nav.css";
+import react from "../../images/react2.jpg";
+import angular from "../../images/angular.png";
+import coreui from "../../images/core ui.jpeg";
+import nodejs from "../../images/nodejs.jpg";
+import mern from "../../images/mern.jpg";
+import data from "../../images/data science.png";
 
 export default class AdminCoursePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tab: 1
+      tab: 1,
+      subcategories: null
     }
   }
   componentDidMount() {
     console.log("hi");
   }
   render() {
+    this.state.subcategories === null && axios.get("http://localhost:3004/api/subcategories")
+    .then(res => {
+      console.log(res.data);
+      this.setState({
+        subcategories: res.data.subCategories
+      });
+    })
     const src = this.props.course.embed;
     const user = JSON.parse(localStorage.getItem("user"));
     const instructor = JSON.parse(localStorage.getItem("instructor"));
@@ -33,7 +50,7 @@ export default class AdminCoursePage extends Component {
     return (
       <div>
         <Navbar />
-        <div style={{ backgroundColor: "#002333", height: "800px" }}>
+        <div style={{ backgroundColor: "#002333", height: "810px" }}>
           <h4 style={{ color: "white", marginLeft: "4%", fontWeight: "bold" }}>
             <span style={{ color: "#1affff" }}>{this.props.course.title} </span>Fundamentals
           </h4>
@@ -132,6 +149,47 @@ export default class AdminCoursePage extends Component {
           {this.state.tab === 6 && <CourseContentTab section="Examples" user={ user !== null ? this.props.course.instructor : false } opaque={opaque}/>}
           {this.state.tab === 7 && <CourseContentTab section="Addition Details" user={ user !== null ? this.props.course.instructor : false } opaque={opaque}/>}
         </div>
+        { user !== null && 
+        <div className="container" style={{ padding: "3rem" }}>
+          <h4>Recommended Courses:</h4>
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style={{ backgroundColor: "#696969 ", paddingTop: "25px", paddingBottom: "25px" }}>
+            <ol class="carousel-indicators"> 
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active" style={{ marginLeft: "36%"}}>
+                <div class="card" style={{ width: "20rem" }}>
+                  <img class="card-img-top" src={mern} alt="Card image cap" />
+                  <div class="card-body">
+                    <div class="card-title" style={{ fontWeight: "bold" }}>MERN Stack</div>
+                  </div>
+                </div>
+              </div>
+              {this.state.subcategories !== null && this.state.subcategories.map(subcat => (
+                <>
+                {subcat.courses.map(course => course.title.toLowerCase() !== "mern stack" && course.title.toLowerCase() !== "golang" && (
+                  <div class="carousel-item" style={{ marginLeft: "36%"}}>
+                    <div class="card" style={{ width: "20rem" }}>
+                      <img class="card-img-top" src={course.title.toLowerCase() === "reactjs" ? react : (course.title.toLowerCase() === "angular js" ? angular : (course.title.toLowerCase() === "nodejs" ? nodejs : (course.title.toLowerCase() === "web development" ? coreui : data)))} alt={course.title} />
+                      <div class="card-body">
+                        <div class="card-title" style={{ fontWeight: "bold" }}>{course.title}</div>
+                      </div>
+                    </div> 
+                  </div>
+                ))}
+                </>
+               ))}
+            </div>
+            <a className="carousel-control-prev btn-primary" href="#carouselExampleIndicators" role="button" data-slide="prev"><SkipPreviousIcon /></a>
+            <a className="carousel-control-next btn-primary" href="#carouselExampleIndicators" role="button" data-slide="next"><SkipNextIcon /></a>
+          </div>
+        </div>
+        }
         <Footer />
       </div>
     );

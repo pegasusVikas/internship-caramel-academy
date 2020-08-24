@@ -46,7 +46,7 @@ const Programs3 = () => {
                   paddingTop: "15px",
                 }}
               >
-                <div className="row " id="courses3">
+                <div className="row" style={{ margin: "0" }} id="courses3">
                   {subcat.courses.map(course => (  
                     <div className="course">
                       <div className="sub">
