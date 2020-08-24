@@ -12,7 +12,7 @@ const Header = () => {
                 data-aos-duration={2000}
                 data-aos-easing="ease-out-cubic"
               >
-                <h1> DRIVE YOUR TRANSFORMATION WITH US </h1>
+                <h1 style={{color:"black"}}> DRIVE YOUR TRANSFORMATION WITH US </h1>
                 <p>
                   {" "}
                   Be the first person to transform yourself with our unique

@@ -5,7 +5,7 @@ import { Card, CardDeck, CardColumns } from "react-bootstrap";
 import ItemsCarousel from "react-items-carousel";
 import range from "lodash/range";
 import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+//import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
 import Program3 from "./Programs3";
 
