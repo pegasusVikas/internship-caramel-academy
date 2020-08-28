@@ -85,7 +85,7 @@ const Navbar = (props) => {
                       <li className="nav-item">
                         <Link
                           className="nav-link px-lg-4 "
-                          to="/lms/college/college_login"
+                          to="/lms/university/university_login"
                           style={{ backgroundColor: course ? "#002333" : "" }}
                         >
                           University

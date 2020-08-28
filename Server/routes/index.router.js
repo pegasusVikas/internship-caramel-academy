@@ -132,6 +132,12 @@ router.delete('/courses/:id', ctrlCourse.delete);
 router.post('/courses/user/:userId', ctrlCourse.checkout);
 router.post('/courses/instructor/:userId/:courseId', ctrlCourse.teach);
 
+// List routes
+router.get('/instructors', ctrlInstructor.list);
+router.get('/users', ctrlUser.list);
+router.get('/universities', ctrlUniversity.list);
+router.get('/organizations', ctrlCorporate.list);
+
 router.post('/upload/table', upload.single('upload'), (req, res) => {
     console.log("req.file = ", req.file);
     console.log("req.body = ", req.body);

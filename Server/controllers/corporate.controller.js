@@ -168,3 +168,10 @@ module.exports.NewPassword = async(req, res) => {
 
 	})
 }
+
+module.exports.list = async(req, res) => {
+	Corporate.find((err, docs) => {
+		if (err) {console.log("list error: ", err.message); return; }
+		return res.status(200).json({ docs });
+	});
+}

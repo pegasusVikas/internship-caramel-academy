@@ -215,6 +215,9 @@ export default class Application extends Component {
       } else {
         console.log("error");
       }
+      // localStorage.removeItem("admin");
+      // localStorage.removeItem("user");
+      // localStorage.removeItem("instructor");
     });
   }
 
@@ -292,7 +295,7 @@ export default class Application extends Component {
         />
         <Route exact path="/lms/student/register" component={SignUp} />
         <Route exact path="/lms/student/forgot-password" component={ForgotPass} />
-        <Route exact path="/lms/college/college_login" component={SignInCollege} />
+        <Route exact path="/lms/university/university_login" component={SignInCollege} />
         <Route
           exact
           path="/lms/instructor/instructor_login"
