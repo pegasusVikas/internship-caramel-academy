@@ -66,6 +66,7 @@ module.exports.teach = async (req, res, next) => {
 module.exports.read = (req, res, next) => {
 	let courses = [];
 	Course.find().then((docs) => {
+		console.log(docs)
 		docs.map(doc => {
 			let id = doc.taughtBy;
 			Instructor.findById(id, (err, instructor) => {

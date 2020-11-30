@@ -5,7 +5,7 @@
     "scripts": {
         "start": "node app.js",
         "test": "",
-        "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix ../web && npm run build --prefix ../web"
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix ../web && npm run build --prefix ../web"
     },
     "author": "Shrist",
     "license": "ISC",
@@ -33,5 +33,4 @@
         "tabletojson": "^2.0.4"
     },
     "description": "Back End For Login and Registration"
-    
 }
